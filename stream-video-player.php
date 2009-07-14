@@ -201,7 +201,7 @@ $site_url = get_option('siteurl');
 
 // New player object
 $player = new rp_splayer();
-
+load_plugin_textdomain( 'stream-video-player', FALSE, 'stream-video-player/langs/');
 
 // function to parse and edit the content
 function StreamVideo_ViewPost($content){
@@ -313,7 +313,7 @@ function StreamVideo_Render($matches){
 	$player->name='svdo_'.$videoid;
 	$player->width=$options[1][0]['v'];
 	$player->height=$options[1][1]['v'];
-	$player->image=$img_fqt;
+	$player->image=$img_fqt; $player->setFv('s_streamer', $site_url.'/wp-content/plugins/stream-video-player/streamer.php');
 	
 	// set the HD
 	if(!empty($arguments['hd'])){

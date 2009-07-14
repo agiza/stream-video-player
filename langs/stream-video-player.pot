@@ -1,0 +1,237 @@
+# Translation Template for Stream Video Player
+# This file is released under the GNU General Public License (http://www.gnu.org/licenses/gpl.html).
+# Copyright 2009 Rodrigo Polo <rodrigo.polo@gmail.com>, 2009.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Stream Video Player v.0.6.x\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/stream-video-player\n"
+"POT-Creation-Date: 2009-07-14 11:56+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: config.php:48
+msgid "(<span class=\"req\">*</span>) indicates required field"
+msgstr ""
+
+#: config.php:50
+msgid "Stream Player Tag Atributes"
+msgstr ""
+
+#: config.php:52
+msgid "The absolute path to your FLV video (injected .flv file)"
+msgstr ""
+
+#: config.php:52
+msgid "Video for Player (.flv):"
+msgstr ""
+
+#: config.php:58
+msgid "Width &times; height in pixels"
+msgstr ""
+
+#: config.php:58
+msgid "Dimensions:"
+msgstr ""
+
+#: config.php:67
+msgid "The absolute path to your image preview"
+msgstr ""
+
+#: config.php:67
+msgid "Image Preview (.jpg):"
+msgstr ""
+
+#: config.php:73
+msgid "Set the desired bandwidth for cache and site bandwidth control"
+msgstr ""
+
+#: config.php:73
+msgid "Bandwidth:"
+msgstr ""
+
+#: config.php:88
+msgid "The absolute path to your MP4 video (for iPhone)"
+msgstr ""
+
+#: config.php:88
+msgid "Video for iPhone (.mp4):"
+msgstr ""
+
+#: config.php:94
+msgid "The absolute path to your HD-FLV video (injected .flv file)"
+msgstr ""
+
+#: config.php:94
+msgid "HD Video for Player (.flv):"
+msgstr ""
+
+#: config.php:100
+msgid "Yout video title"
+msgstr ""
+
+#: config.php:100
+msgid "Title:"
+msgstr ""
+
+#: config.php:107
+msgid ""
+"Your video volume, from 0 to 100, if empty takes the default value on the "
+"plug-in settings"
+msgstr ""
+
+#: config.php:107
+msgid "Volume:"
+msgstr ""
+
+#: config.php:113
+msgid "Skin for this player"
+msgstr ""
+
+#: config.php:113
+msgid "Skin:"
+msgstr ""
+
+#: config.php:128
+msgid ""
+"The absolute path to yout video player logo, if empty takes the default "
+"value on the plug-in settings"
+msgstr ""
+
+#: config.php:128
+msgid "Logo (.jpg, .png, .flv):"
+msgstr ""
+
+#: config.php:135
+msgid "Auto Start the video with the Stream Player"
+msgstr ""
+
+#: config.php:135
+msgid "Auto Start:"
+msgstr ""
+
+#: config.php:145
+msgid "Enable embed the player in other sites"
+msgstr ""
+
+#: config.php:145
+msgid "Enable Embed:"
+msgstr ""
+
+#: config.php:157
+msgid "Generate"
+msgstr ""
+
+#: config.php:168
+msgid ""
+"Stream Video: This tag generator isn't going to put the stream video tag in "
+"your code."
+msgstr ""
+
+#: stream-video-player.php:397
+msgid "Video Properties"
+msgstr ""
+
+#: stream-video-player.php:397
+msgid "Layout"
+msgstr ""
+
+#: stream-video-player.php:397
+msgid "Behavior"
+msgstr ""
+
+#: stream-video-player.php:397
+msgid "System"
+msgstr ""
+
+#: stream-video-player.php:425
+msgid "Options saved."
+msgstr ""
+
+#: stream-video-player.php:429
+msgid "Stream Video Options"
+msgstr ""
+
+#: stream-video-player.php:432
+msgid ""
+"Here you can set some default global options for all your videos, if you "
+"need help or more information on how to encode and prepare your video to be "
+"a pseudo stream compliant check out the <a href=\"http://www.rodrigopolo.com/"
+"about/wp-stream-video/faq\" target=\"_blank\">Player FAQs</a> where you can "
+"find a lot of free and open resources to encode your video."
+msgstr ""
+
+#: stream-video-player.php:474
+msgid "Update Options"
+msgstr ""
+
+#: stream-video-player.php:511
+msgid "Title"
+msgstr ""
+
+#: stream-video-player.php:516
+msgid "Preview Image"
+msgstr ""
+
+#: stream-video-player.php:523
+msgid "Player Width"
+msgstr ""
+
+#: stream-video-player.php:528
+msgid "Player Height"
+msgstr ""
+
+#: stream-video-player.php:533
+msgid "Skin"
+msgstr ""
+
+#: stream-video-player.php:539
+msgid "Logo"
+msgstr ""
+
+#: stream-video-player.php:546
+msgid "Auto Start"
+msgstr ""
+
+#: stream-video-player.php:551
+msgid "Startup Volume"
+msgstr ""
+
+#: stream-video-player.php:559
+msgid "Bandwidth"
+msgstr ""
+
+#: stream-video-player.php:565
+msgid "HTML Wrapper"
+msgstr ""
+
+#: stream-video-player.php:570
+msgid "Use SWFObject.js"
+msgstr ""
+
+#. Plugin Name of an extension
+msgid "Stream Video Player"
+msgstr ""
+
+#. Plugin URI of an extension
+msgid "http://www.rodrigopolo.com/about/wp-stream-video"
+msgstr ""
+
+#. Description of an extension
+msgid ""
+"Simplifies the process of adding Stream Video to a WordPress blog. "
+"(SWFObject by Geoff Stearns)"
+msgstr ""
+
+#. Author of an extension
+msgid "Rodrigo Polo"
+msgstr ""
+
+#. Author URI of an extension
+msgid "http://www.rodrigopolo.com"
+msgstr ""
