@@ -23,8 +23,8 @@ Important Links:
 * I made every component of this player, so the source code of the Flash file will be available in the mean time (First I need to clean up the code a little).
 * The player is made thinking about customization, so it has already a full skin capability, and you can make your own skin very easily with the Flash IDE.
 * I'm currently working on the documentation and FAQ so you will have a full guide for coding high quality videos with very low bitrates.
-* I use only open source free (gratis) and multi-platform software for the encoding, so doesn’t matter if you have Windows, Linux or Macintosh, you will be enable to encode your videos.
-* The actual version of the player is iPhone capable, MobilePress and WPTouch compatible, so you don’t have to worry about it, It has also support to output the right content on feeds depending on your configuration.
+* I use only open source free (gratis) and multi-platform software for the encoding, so doesn't matter if you have Windows, Linux or Macintosh, you will be enable to encode your videos.
+* The actual version of the player is iPhone capable, MobilePress and WPTouch compatible, so you don't have to worry about it, It has also support to output the right content on feeds depending on your configuration.
 
 == Credits ==
 
