@@ -45,7 +45,6 @@ var RodrigoPolo = window.RodrigoPolo || {};
 			vt('bandwidth')+
 			vt('mp4')+
 			vt('hd')+
-			vt('ogg')+
 			vt('title')+
 			vt('volume')+
 			vt('skin')+
