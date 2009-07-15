@@ -76,7 +76,7 @@ Yamdi runs on Windows, Mac OS X and Linux and it's the faster free open source i
 
 * [Stream Video Player information](http://www.rodrigopolo.com/about/wp-stream-video)
 * [Stream Video Player Frequently Asked Questions (F.A.Q.)](http://www.rodrigopolo.com/about/wp-stream-video/faq)
-* [FFmpeg Video Encoder Installs] (http://www.rodrigopolo.com/about/wp-stream-video/ffmpeg-binary-installers-for-win-mac-and-linux)
+* [FFmpeg Video Encoder Installs](http://www.rodrigopolo.com/about/wp-stream-video/ffmpeg-binary-installers-for-win-mac-and-linux)
 
 = What's new in the latest version? =
 
