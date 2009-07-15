@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Stream Video Player
-Version: 0.6
+Version: 0.7
 Plugin URI: http://www.rodrigopolo.com/about/wp-stream-video
 Description: Simplifies the process of adding Stream Video to a WordPress blog. (SWFObject by Geoff Stearns)
 Author: Rodrigo Polo
