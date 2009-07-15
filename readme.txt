@@ -4,31 +4,36 @@ Donate link: http://www.rodrigopolo.com/about/wp-stream-video/donate
 Tags: stream, video, flv, mp4, flash, swf, iphone, player, wordpress, plugin, media
 Requires at least: 2.2.2
 Tested up to: 2.8.1
-Stable tag: trunk
+Stable tag: 0.7
 
 Stream Video Player for WordPress it's one stop solution for high quality video publishing for web or iPhone.
 
 == Description ==
 
-The Stream Video Plugin for WordPress allows the addition of PHP Pseudo Stream Flash Video to a WordPress website using and web standards-compliant markup with the leading open source software (Geoff Stearns' SWFObject Javascript Library). it's WPTouch, MobilePress and iPhone compatible and has a full options menu for customization. Installation is quick and easy, and no additional setup/coding/php knowledge is required. uninstalling cleanly. full support for skinning the player (fla files will be included on future version).
+Stream Video Player for WordPress is the complete solution for video publishing on blogs, most public sites for video publishing have some limits on the video size or time, with this plug-in the only limit it’s your host capacity.
 
 Important Links:
 
-* <a href="http://www.rodrigopolo.com/about/wp-stream-video" title="Demonstration page">Demonstration</a>
-* <a href="http://www.rodrigopolo.com/about/wp-stream-video/faq" title="NextGEN Gallery FAQ">Stream Video Player FAQ</a>
+* <a href="http://www.rodrigopolo.com/about/wp-stream-video" title="Demonstration and Info">Demonstration and info. about encoding</a>
+* <a href="http://www.rodrigopolo.com/about/wp-stream-video/ffmpeg-binary-installers-for-win-mac-and-linux" title="Video Encoder Installer">Video Encoder for Mac, Win, Linux</a>
+* <a href="http://www.rodrigopolo.com/about/wp-stream-video/known-issues-and-to-do-list" title="Known issues and To-do list">Known issues and To-do list</a>
+* <a href="http://www.rodrigopolo.com/about/wp-stream-video/faq" title="Stream Video Player FAQ">FAQ</a>
 
 = Features =
 
-* This player uses PHP Pseudo streaming so you can access random to any place on the video.
+* Timeless videos, you can upload more than 24hrs videos if you want.
+* Random access to any position on the video thanks to the pseudo streaming technique
+* iPhone, WPTouch, MobilePress and feeds compatible.
+* Only open source software needed for video encoding
+* Multi-Language (Currently English and Spanish)
 * I made every component of this player, so the source code of the Flash file will be available in the mean time (First I need to clean up the code a little).
 * The player is made thinking about customization, so it has already a full skin capability, and you can make your own skin very easily with the Flash IDE.
-* I'm currently working on the documentation and FAQ so you will have a full guide for coding high quality videos with very low bitrates.
-* I use only open source free (gratis) and multi-platform software for the encoding, so doesn't matter if you have Windows, Linux or Macintosh, you will be enable to encode your videos.
-* The actual version of the player is iPhone capable, MobilePress and WPTouch compatible, so you don't have to worry about it, It has also support to output the right content on feeds depending on your configuration.
+* 100% Standard code
+
 
 == Credits ==
 
-Copyright 2007-2009 by RodrigoPolo.com
+Copyright 2009 by RodrigoPolo.com
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -69,9 +74,15 @@ Yamdi runs on Windows, Mac OS X and Linux and it's the faster free open source i
 
 = How can I get help? =
 
-* [Flash Player Download Site (Current Version)](http://www.rodrigopolo.com/about/wp-stream-video)
-* [Flash Player Frequently Asked Questions (F.A.Q.)](http://www.rodrigopolo.com/about/wp-stream-video/faq)
-* [Flash Player Complete Options](http://www.rodrigopolo.com/about/wp-stream-video/options)
+* [Stream Video Player information](http://www.rodrigopolo.com/about/wp-stream-video)
+* [Stream Video Player Frequently Asked Questions (F.A.Q.)](http://www.rodrigopolo.com/about/wp-stream-video/faq)
+* [FFmpeg Video Encoder Installs] (http://www.rodrigopolo.com/about/wp-stream-video/ffmpeg-binary-installers-for-win-mac-and-linux)
+
+= What's new in the latest version? =
+
+* A little problem with the use of WWW on the FLV URL Fixed
+* PHP Pseudo Streamer URL fixed
+* Future options disabled to prevent confusion
 
 == Screenshots ==
 

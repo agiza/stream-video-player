@@ -191,7 +191,7 @@ class rp_splayer {
 }
 
 // To handle version on JS files
-$StreamVideoVersion = '0.6';
+$StreamVideoVersion = '0.7';
 
 // To handle ids
 $videoid = 0;
@@ -336,7 +336,7 @@ function StreamVideo_Render($matches){
 				
 				if($tvar == 'skin'){
 					// If it's a "skin"
-					if($value['v']!='default'){
+					if(trim($value['v'])!='default'){
 						// for custom skins
 						$player->setFv('s_'.$tvar,$site_url.'/wp-content/plugins/stream-video-player/skins/'.trim($value['v']).'.swf?ver='.$StreamVideoVersion);
 					}
