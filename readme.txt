@@ -10,7 +10,7 @@ Stream Video Player for WordPress it's one stop solution for high quality video 
 
 == Description ==
 
-Stream Video Player for WordPress is the complete solution for video publishing on blogs, most public sites for video publishing have some limits on the video size or time, with this plug-in the only limit'it's your host capacity.
+Stream Video Player for WordPress is the complete solution for video publishing on blogs, most public sites for video publishing have some limits on the video size or time, with this plug-in the only limit it's your host capacity.
 
 Important Links:
 
