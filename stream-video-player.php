@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Stream Video Player
-Version: 0.7
+Version: 0.7.1
 Plugin URI: http://www.rodrigopolo.com/about/wp-stream-video
 Description: Simplifies the process of adding Stream Video to a WordPress blog. (SWFObject by Geoff Stearns)
 Author: Rodrigo Polo
@@ -189,9 +189,9 @@ class rp_splayer {
 	}
 	
 }
-
+function StreamVideo_trim($str){ return trim(preg_replace('/\xc2\xa0\x20\x09\x0a\x0d\x00\x0B/', '', $str)); }
 // To handle version on JS files
-$StreamVideoVersion = '0.7';
+$StreamVideoVersion = '0.7.1';
 
 // To handle ids
 $videoid = 0;
@@ -305,19 +305,19 @@ function StreamVideo_Render($matches){
 	// Set all the settings acording to the specified arguments and default options
 	$player->wrapper=$options[3][1]['v'];
 	$player->swf=$site_url.'/wp-content/plugins/stream-video-player/streamplayer.swf?ver='.$StreamVideoVersion;
-	$player->flv=$arguments['flv'];
+	$player->flv=StreamVideo_trim($arguments['flv']);
 	if(!empty($arguments['mp4'])){
-		$player->mp4=$arguments['mp4'];
+		$player->mp4=StreamVideo_trim($arguments['mp4']);
 	}
 	$player->id='svdo_'.$videoid;
 	$player->name='svdo_'.$videoid;
 	$player->width=$options[1][0]['v'];
 	$player->height=$options[1][1]['v'];
-	$player->image=$img_fqt; $player->setFv('s_streamer', $site_url.'/wp-content/plugins/stream-video-player/streamer.php');
+	$player->image=StreamVideo_trim($img_fqt); $player->setFv('s_streamer', $site_url.'/wp-content/plugins/stream-video-player/streamer.php');
 	
 	// set the HD
 	if(!empty($arguments['hd'])){
-		$player->setFv('s_hd', $arguments['hd']);
+		$player->setFv('s_hd', StreamVideo_trim($arguments['hd']));
 	}
 	
 	// set the embed

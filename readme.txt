@@ -4,7 +4,7 @@ Donate link: http://www.rodrigopolo.com/about/wp-stream-video/donate
 Tags: stream, video, flv, mp4, flash, swf, iphone, player, wordpress, plugin, media
 Requires at least: 2.2.2
 Tested up to: 2.8.1
-Stable tag: 0.7
+Stable tag: 0.7.1
 
 Stream Video Player for WordPress it's one stop solution for high quality video publishing for web or iPhone.
 
@@ -80,9 +80,8 @@ Yamdi runs on Windows, Mac OS X and Linux and it's the faster free open source i
 
 = What's new in the latest version? =
 
-* A little problem with the use of WWW on the FLV URL Fixed
-* PHP Pseudo Streamer URL fixed
-* Future options disabled to prevent confusion
+* An error with the links and the spaces fixed
+* An error with the JS fixed
 
 == Screenshots ==
 

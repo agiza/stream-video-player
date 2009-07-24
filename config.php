@@ -91,7 +91,7 @@ $def_options = get_option('StreamVideoSettings');
 					<input type="text" size="18" name="mp4" id="mp4"/> 
 				</div>
 				<div class="col1"> 
-					<label class="info" title="<?php _e('The absolute path to your HD-FLV video (injected .flv file)', 'stream-video-player'); ?>" for="hd"><?php _e('HD Video for Player (.flv):', 'stream-video-player'); ?></label>
+					<label class="info" title="<?php _e('The absolute path to your HD-FLV video (injected .flv file)', 'stream-video-player'); ?> (Coming Soon)" for="hd"><?php _e('HD Video for Player (.flv):', 'stream-video-player'); ?></label>
 				</div>
 				<div class="col2"> 
 					<input type="text" size="18" name="hd" id="hd" disabled="disabled"/> 
@@ -142,7 +142,7 @@ $def_options = get_option('StreamVideoSettings');
 				</div>
                 <div class="clear">&nbsp;</div> 
 				<div class="col1"> 
-					<label title="<?php _e('Enable embed the player in other sites', 'stream-video-player'); ?>" class="info" for="embed"><?php _e('Enable Embed:', 'stream-video-player'); ?></label> 
+					<label title="<?php _e('Enable embed the player in other sites', 'stream-video-player'); ?> (Coming Soon)" class="info" for="embed"><?php _e('Enable Embed:', 'stream-video-player'); ?></label> 
 				</div>
 				<div class="col4"> 
                     <select name="embed" id="embed" disabled="disabled"> 
