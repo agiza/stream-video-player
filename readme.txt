@@ -4,7 +4,7 @@ Donate link: http://www.rodrigopolo.com/about/wp-stream-video/donate
 Tags: stream, video, flv, mp4, flash, swf, iphone, player, wordpress, plugin, media
 Requires at least: 2.2.2
 Tested up to: 2.8.1
-Stable tag: 0.7.1
+Stable tag: 0.7.2
 
 Stream Video Player for WordPress it's one stop solution for high quality video publishing for web or iPhone.
 
@@ -58,6 +58,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 == Frequently Asked Questions ==
 
+= What's new in the latest version? =
+
+* The HD option it's completed and working
+* Some optimizations on the SWF
+* The PHP Class it's working with older PHP versions. (Syntax fixed)
+
 = I have activated the plugin, but don't see the video player. What do I do? =
 
 Check and make sure that you have the appropriate hook in your template file for the header: '<?php wp_head(); ?>'
@@ -78,15 +84,19 @@ Yamdi runs on Windows, Mac OS X and Linux and it's the faster free open source i
 * [Stream Video Player Frequently Asked Questions (F.A.Q.)](http://www.rodrigopolo.com/about/wp-stream-video/faq)
 * [FFmpeg Video Encoder Installs](http://www.rodrigopolo.com/about/wp-stream-video/ffmpeg-binary-installers-for-win-mac-and-linux)
 
-= What's new in the latest version? =
 
-* An error with the links and the spaces fixed
-* An error with the JS fixed
+= To-Do =
+
+* Coding the "embed" option
+* work on the skin engine
+* Cleaning up the FLA Player and release the source
+
 
 == Screenshots ==
 
-1. Tag generator button
-2. Tag generator panel
-3. Settings
+1. Stream Player
+2. Tag generator button
+3. Tag generator panel
+4. Settings
 
 

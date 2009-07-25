@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Stream Video Player
-Version: 0.7.1
+Version: 0.7.2
 Plugin URI: http://www.rodrigopolo.com/about/wp-stream-video
 Description: Simplifies the process of adding Stream Video to a WordPress blog. (SWFObject by Geoff Stearns)
 Author: Rodrigo Polo
@@ -34,21 +34,21 @@ Copyright (C) 2009  Rodrigo J. Polo
 class rp_splayer {
 	
 	// Public vars
-	public $swf, $flv, $mp4, $id, $name, $width, $height, $image, $wrapper;
-	public $message='<div style="background-color:#ff9;padding:10px;">You need to install or upgrade Flash Player to view this content, install or upgrade here:<br /><a href="http://www.adobe.com/go/getflashplayer"> <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></div>';
+	var $swf, $flv, $mp4, $id, $name, $width, $height, $image, $wrapper;
+	var $message='<div style="background-color:#ff9;padding:10px;">You need to install or upgrade Flash Player to view this content, install or upgrade here:<br /><a href="http://www.adobe.com/go/getflashplayer"> <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></div>';
 	
 	// Private vars, params and flashvars
-	private $params;
-	private $flashvars;
-	private $mobile = false;
+	var $params;
+	var $flashvars;
+	var $mobile = false;
 		
 	// Set an object param
-	public function setParam($name,$val){
+	function setParam($name,$val){
 		$this->params[$name]=$val;
 	}
 	
 	// Return a string with all params
-	private function getParams(){
+	function getParams(){
 		if(count($this->params)>0){
 			foreach ($this->params as $key => $value){
 				$para[]= '<param name="'.$key.'" value="'.$value.'" />';
@@ -58,12 +58,12 @@ class rp_splayer {
 	}
 	
 	// Set a Flash Var
-	public function setFv($name,$val){
+	function setFv($name,$val){
 		$this->flashvars[$name]=$val;
 	}
 	
 	// Return a string with all Flash vars
-	private function getFv(){
+	function getFv(){
 		foreach ($this->flashvars as $key => $value){
 			$flva[]=htmlspecialchars($key).'='.htmlspecialchars($value);
 		}
@@ -72,7 +72,7 @@ class rp_splayer {
 	
 
 	// Return a string with all the text of the code
-	public function getHTML(){
+	function getHTML(){
 		
 		// Mobile detector
 		$container = $_SERVER['HTTP_USER_AGENT'];
@@ -181,7 +181,7 @@ class rp_splayer {
 	}
 	
 	// Restart the class
-	public function restart(){
+	function restart(){
 		$this->swf=$this->flv=$this->mp4=$this->id=$this->name=$this->width=$this->height=$this->image=$this->wrapper='';
 		$this->flashvars=$this->params = array();
 		$this->message='<div style="background-color:#ff9;padding:10px;">You need to install or upgrade Flash Player to view this video, install or upgrade here:<br />'.
@@ -191,7 +191,7 @@ class rp_splayer {
 }
 function StreamVideo_trim($str){ return trim(preg_replace('/\xc2\xa0\x20\x09\x0a\x0d\x00\x0B/', '', $str)); }
 // To handle version on JS files
-$StreamVideoVersion = '0.7.1';
+$StreamVideoVersion = '0.7.2';
 
 // To handle ids
 $videoid = 0;

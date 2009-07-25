@@ -91,10 +91,10 @@ $def_options = get_option('StreamVideoSettings');
 					<input type="text" size="18" name="mp4" id="mp4"/> 
 				</div>
 				<div class="col1"> 
-					<label class="info" title="<?php _e('The absolute path to your HD-FLV video (injected .flv file)', 'stream-video-player'); ?> (Coming Soon)" for="hd"><?php _e('HD Video for Player (.flv):', 'stream-video-player'); ?></label>
+					<label class="info" title="<?php _e('The absolute path to your HD-FLV video (injected .flv file)', 'stream-video-player'); ?>" for="hd"><?php _e('HD Video for Player (.flv):', 'stream-video-player'); ?></label>
 				</div>
 				<div class="col2"> 
-					<input type="text" size="18" name="hd" id="hd" disabled="disabled"/> 
+					<input type="text" size="18" name="hd" id="hd"/> 
 				</div>
 				<div class="col1"> 
 					<label class="info" title="<?php _e('Yout video title', 'stream-video-player'); ?>" for="title"><?php _e('Title:', 'stream-video-player'); ?></label>
