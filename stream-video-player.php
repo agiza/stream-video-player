@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Stream Video Player
-Version: 0.7.2
+Version: 0.7.3
 Plugin URI: http://www.rodrigopolo.com/about/wp-stream-video
 Description: Simplifies the process of adding Stream Video to a WordPress blog. (SWFObject by Geoff Stearns)
 Author: Rodrigo Polo
@@ -191,7 +191,7 @@ class rp_splayer {
 }
 function StreamVideo_trim($str){ return trim(preg_replace('/\xc2\xa0\x20\x09\x0a\x0d\x00\x0B/', '', $str)); }
 // To handle version on JS files
-$StreamVideoVersion = '0.7.2';
+$StreamVideoVersion = '0.7.3';
 
 // To handle ids
 $videoid = 0;
@@ -477,7 +477,7 @@ function StreamVideoOptions(){
 }
 
 // Function for the wp head
-function FlashVideo_head(){
+function StreamVideo_head(){
 	global $site_url;
 
 	// get options: StreamVideoSettings
@@ -491,7 +491,7 @@ function FlashVideo_head(){
 }
 
 // set the action for wp head
-add_action('wp_head', 'FlashVideo_head');
+add_action('wp_head', 'StreamVideo_head');
 
 // Function to load the defaults
 function StreamVideoLoadDefaults(){
