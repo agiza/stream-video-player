@@ -63,6 +63,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 * The HD option it's completed and working
 * Some optimizations on the SWF
 * The PHP Class it's working with older PHP versions. (Syntax fixed)
+* Some compatibility issues with other plug-ins fixed
 
 = I have activated the plugin, but don't see the video player. What do I do? =
 
