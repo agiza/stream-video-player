@@ -107,7 +107,7 @@ $def_options = get_option('StreamVideoSettings');
 					<label class="info" title="<?php _e('Your video volume, from 0 to 100, if empty takes the default value on the plug-in settings', 'stream-video-player'); ?>" for="volume"><?php _e('Volume:', 'stream-video-player'); ?></label>
 				</div>
 				<div class="col2"> 
-					<input type="text" size="18" name="volume" id="volume" value="<?php echo $def_options[2][1]['v']; ?>"/> 
+					<input type="text" size="18" name="volume" id="volume"/> 
 				</div>
 				<div class="col1"> 
 					<label class="info" title="<?php _e('Skin for this player', 'stream-video-player'); ?>" for="skin"><?php _e('Skin:', 'stream-video-player'); ?></label>

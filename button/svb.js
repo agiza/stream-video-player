@@ -33,7 +33,7 @@ var RodrigoPolo = window.RodrigoPolo || {};
 		}else{
 			return ' '+tag+'='+form
 		}*/
-		return (form=='' || form == 'false')?'':' '+id+'='+form;
+		return (form=='' || form == 'false' || form == 'default')?'':' '+id+'='+form;
 	}
 	// to build tag
 	var buildTag = function() {

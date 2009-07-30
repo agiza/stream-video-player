@@ -4,7 +4,7 @@ Donate link: http://www.rodrigopolo.com/about/wp-stream-video/donate
 Tags: stream, video, flv, mp4, flash, swf, iphone, player, wordpress, plugin, media
 Requires at least: 2.2.2
 Tested up to: 2.8.1
-Stable tag: 0.7.3
+Stable tag: 0.7.4
 
 Stream Video Player for WordPress it's one stop solution for high quality video publishing for web or iPhone.
 
@@ -14,7 +14,8 @@ Stream Video Player for WordPress is the complete solution for video publishing 
 
 Important Links:
 
-* <a href="http://www.rodrigopolo.com/about/wp-stream-video" title="Demonstration and Info">Demonstration and info. about encoding</a>
+* <a href="http://www.rodrigopolo.com/about/wp-stream-video" title="Demonstration and Info">Demonstration and info.</a>
+* <a href="http://www.rodrigopolo.com/about/wp-stream-video/how-to" title="Full guide on how to use the plug-in and encode video">How to use the plug-in and encode video</a>
 * <a href="http://www.rodrigopolo.com/about/wp-stream-video/ffmpeg-binary-installers-for-win-mac-and-linux" title="Video Encoder Installer">Video Encoder for Mac, Win, Linux</a>
 * <a href="http://www.rodrigopolo.com/about/wp-stream-video/known-issues-and-to-do-list" title="Known issues and To-do list">Known issues and To-do list</a>
 * <a href="http://www.rodrigopolo.com/about/wp-stream-video/faq" title="Stream Video Player FAQ">FAQ</a>
@@ -60,10 +61,13 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 = What's new in the latest version? =
 
-* The HD option it's completed and working
-* Some optimizations on the SWF
-* The PHP Class it's working with older PHP versions. (Syntax fixed)
-* Some compatibility issues with other plug-ins fixed
+* There was a problem with the IE conditional comments that affect some FireFox versions, fixed.
+* The streamer.php has some issues with some older PHP versions, Fixed but PHP5 IT'S RECOMENDED.
+* Some fixes to the SWF Player.
+* Some fixes to the default values in the tag generator.
+* An experimental BUT NOT FINAL FLA skin for your tests it's now included.
+* New screencasts online to learn how to use it, English and Spanish.
+
 
 = I have activated the plugin, but don't see the video player. What do I do? =
 
@@ -74,13 +78,16 @@ Check and make sure that you have the appropriate hook in your template file for
 Check and make sure that you are using absolute urls like "http://yourblog.com/yourvideo.flv" and not relative urls like "../video.flv"
 AND BE CERTAIN to have all videos in your site and on the same domain
 
+Important Note: This plug-in requires PHP 5 to work correctly
+
 = I can't scroll (or scrub) the video. What can be wrong? =
-In order to use the random access feature, your videos must be injected with flv metadata
-You will need "Yamdi" for this, you can download and install it from here: http://yamdi.sourceforge.net/
+In order to use the random access feature, your videos must be injected with flv metadata.
+You will need "Yamdi" for this, you can download and install it from here: http://yamdi.sourceforge.net/ or use the intaller I on this site.
 Yamdi runs on Windows, Mac OS X and Linux and it's the faster free open source injection tool.
 
 = How can I get help? =
 
+* [How to use the plug-in and encode video](http://www.rodrigopolo.com/about/wp-stream-video/how-to)
 * [Stream Video Player information](http://www.rodrigopolo.com/about/wp-stream-video)
 * [Stream Video Player Frequently Asked Questions (F.A.Q.)](http://www.rodrigopolo.com/about/wp-stream-video/faq)
 * [FFmpeg Video Encoder Installs](http://www.rodrigopolo.com/about/wp-stream-video/ffmpeg-binary-installers-for-win-mac-and-linux)
@@ -89,9 +96,34 @@ Yamdi runs on Windows, Mac OS X and Linux and it's the faster free open source i
 = To-Do =
 
 * Coding the "embed" option
-* work on the skin engine
+* Work on the skin engine
 * Cleaning up the FLA Player and release the source
 
+== Changelog ==  
+
+= 0.7.4 = 
+* Conditional comments fix.
+* streamer.php Fixed but PHP5 IT'S RECOMENDED.
+* Some fixes to the SWF Player.
+* Some fixes to the default values in the tag generator.
+* An experimental FLA skin for tests it's included.
+* New screencasts online to learn how to use it, English and Spanish.
+
+= 0.7.3 =  
+* An upgrade to fix a compatibility with other plug-ins.
+
+= 0.7.2 =  
+* The HD option it's completed and working
+* Some optimizations on the SWF
+* The PHP Class it's working with older PHP versions. (Syntax fixed)
+   
+= 0.7 =  
+* A little problem with the use of WWW on the FLV URL Fixed
+* PHP Pseudo Streamer URL fixed
+* Future options disabled to prevent confusion
+   
+= 0.6 =  
+* First beta release.
 
 == Screenshots ==
 
@@ -99,5 +131,3 @@ Yamdi runs on Windows, Mac OS X and Linux and it's the faster free open source i
 2. Tag generator button
 3. Tag generator panel
 4. Settings
-
-

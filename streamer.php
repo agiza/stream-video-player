@@ -45,7 +45,7 @@ define('BWP_INTERVAL', 0.3);
 
 class flv_streamer{
 	
-	public function __construct($g_bw, $g_st, $g_fl){
+	function __construct($g_bw, $g_st, $g_fl){
 		
 		// if not url is defined, stop and give a 404 warning
 		if (!isset($_GET[$g_fl]) || !isset($_GET[$g_st])){
@@ -143,13 +143,13 @@ class flv_streamer{
 	}
 	
 	// To know the script self uri
-	private function getSelfUri(){
+	function getSelfUri(){
 		$proto = ( isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on' ) ? 'https://' : 'http://';
 		return $proto.$_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
 	}
 	
 	// To match a relative path
-	private function getRelPa($scr,$fil){
+	function getRelPa($scr,$fil){
 		$scr = str_replace("http://www.", "http://", $scr);
 		$fil = str_replace("http://www.", "http://", $fil);
 		$scr_a = explode('/',$scr);

@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Stream Video Player
-Version: 0.7.3
+Version: 0.7.4
 Plugin URI: http://www.rodrigopolo.com/about/wp-stream-video
-Description: Simplifies the process of adding Stream Video to a WordPress blog. (SWFObject by Geoff Stearns)
+Description: The best way to include Stream Video to your blog, iPhone and HD video compatible. (SWFObject by Geoff Stearns)
 Author: Rodrigo Polo
 Author URI: http://www.rodrigopolo.com
 
@@ -113,7 +113,7 @@ class rp_splayer {
 		}else{
 			$image_obj = (empty($this->image))?'':' data="'.$this->image.'"';
 			$image_param = (empty($this->image))?'':'<param name="src" value="'.$this->image.'"/>';
-			$last_object='<!--[if !IE]>--><object type="video/mp4"'.$image_obj.$width.$height.'>'."\n".
+			$last_object='<!--[if !IE]--><object type="video/mp4"'.$image_obj.$width.$height.'>'."\n".
 				'<param name="controller" value="false"/>'."\n".
 				'<param name="target" value="myself"/>'."\n".
 				'<param name="href" value="'.$this->mp4.'"/>'."\n".
@@ -124,7 +124,7 @@ class rp_splayer {
 				}else{
 					$last_object .= '(video)';
 				}
-				$last_object .= '<!--[if !IE]>-->'.
+				$last_object .= '<!--[if !IE]-->'.
 				'</object>'.
 				'<!--<![endif]-->'.
 				"\n";
@@ -150,18 +150,18 @@ class rp_splayer {
 		
 		// start generating all the HTML object
 		
-		$html=$wrp_a.'<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"'.$width.$height.$id.$name.'>'.
-		$swf_param.
-		$params.
-		'<!--[if !IE]>-->'.
-		'<object type="application/x-shockwave-flash"'.$swf.$width.$height.$name.'>'.
-		$params.
-		'<!--<![endif]-->'.
-		$last_object.
-		'<!--[if !IE]>-->'.
-		'</object>'.
-		'<!--<![endif]-->'.
-		'</object>';
+		$html=$wrp_a.'<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"'.$width.$height.$id.$name.'>'."\n".
+		$swf_param."\n".
+		$params."\n".
+		'<!--[if !IE]-->'."\n".
+		'<object type="application/x-shockwave-flash"'.$swf.$width.$height.$name.'>'."\n".
+		$params."\n".
+		'<!--<![endif]-->'."\n".
+		$last_object."\n".
+		'<!--[if !IE]-->'."\n".
+		'</object>'."\n".
+		'<!--<![endif]-->'."\n".
+		'</object>'."\n";
 		
 		// For the SWFObject registrations
 		if(!$this->mobile){
@@ -191,7 +191,7 @@ class rp_splayer {
 }
 function StreamVideo_trim($str){ return trim(preg_replace('/\xc2\xa0\x20\x09\x0a\x0d\x00\x0B/', '', $str)); }
 // To handle version on JS files
-$StreamVideoVersion = '0.7.3';
+$StreamVideoVersion = '0.7.4';
 
 // To handle ids
 $videoid = 0;
@@ -237,6 +237,7 @@ function StreamVideo_Render($matches){
 	$cmd = str_replace("x:/", "http://", $cmd);
 	$cmd = str_replace('"', '', $cmd);
 	$cmd = str_replace(array('&#8221;','&#8243;'), '', $cmd);
+
 	preg_match_all('/(\w*)=(.*?) /i', $cmd, $attributes);
 	
 	
