@@ -3,14 +3,14 @@ Contributors: Rodrigo Polo
 Donate link: http://www.rodrigopolo.com/about/wp-stream-video/donate
 Tags: stream, video, flv, mp4, flash, swf, iphone, player, wordpress, plugin, media
 Requires at least: 2.2.2
-Tested up to: 2.8.1
-Stable tag: 0.7.5
+Tested up to: 2.8.4
+Stable tag: 0.7.6
 
 Stream Video Player for WordPress it's one stop solution for high quality video publishing for web or iPhone.
 
 == Description ==
 
-Stream Video Player for WordPress is the complete solution for video publishing on blogs, most public sites for video publishing have some limits on the video size or time, with this plug-in the only limit it's your host capacity.
+Stream Video Player for WordPress is the complete solution for video publishing on blogs, most public sites for video publishing have some limits on the video size or time, with this plug-in the only limit it's your host capacity, you can seek in any place and the video start in that position without having to load the entire video.
 
 Important Links:
 
@@ -101,10 +101,17 @@ Yamdi runs on Windows, Mac OS X and Linux and it's the faster free open source i
 
 == Changelog ==  
 
+= 0.7.6 = 
+* Now the video shows not only in single pages, as requested.
+* Fixed the HD button initialization, so you can check the FLA and change your skin in Flash.
+* An issue with the skins URL fixed
+* An issue with the logo options fixed
+
+
 = 0.7.5 = 
 * Fix to de wmode in the Flash Embed
 * Changes to prepare the EMBED option
-* Ddding the crossdomain.xml to prepere for the EMBED option
+* Adding the crossdomain.xml to prepere for the EMBED option
 
 = 0.7.4 = 
 * Conditional comments fix.

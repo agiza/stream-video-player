@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Stream Video Player
-Version: 0.7.5
+Version: 0.7.6
 Plugin URI: http://www.rodrigopolo.com/about/wp-stream-video
 Description: The best way to include Stream Video to your blog, iPhone and HD video compatible. (SWFObject by Geoff Stearns)
 Author: Rodrigo Polo
@@ -166,14 +166,9 @@ class rp_splayer {
 			$html .= '<script type="text/javascript">'."\n<!--\n".'swfobject.registerObject("'.$this->id.'", "9.0.115");'."\n//-->\n".'</script>';
 		}
 			
-		// to prevent the excerpt cut
-		if(is_front_page() || is_archive() || is_search()){
-			return '(Video)';
-		}else{
-			return $html.$wrp_b;
-		}
+		return $html.$wrp_b;
 		
-		//	if(is_category()){die('ciao');}
+
 		
 		
 	}
@@ -187,9 +182,9 @@ class rp_splayer {
 	}
 	
 }
-function StreamVideo_trim($str){ return trim(preg_replace('/\xc2\xa0\x20\x09\x0a\x0d\x00\x0B/', '', $str)); }
+function StreamVideo_trim($str){ return trim(preg_replace('/\xc2|\xa0|\x20|\x09|\x0a|\x0d|\x00|\x0B/', '', $str)); }
 // To handle version on JS files
-$StreamVideoVersion = '0.7.5';
+$StreamVideoVersion = '0.7.6';
 
 // To handle ids
 $videoid = 0;
@@ -334,13 +329,13 @@ function StreamVideo_Render($matches){
 				
 				if($tvar == 'skin'){
 					// If it's a "skin"
-					if(trim($value['v'])!='default'){
+					if(StreamVideo_trim($value['v'])!='default'){
 						// for custom skins
-						$player->setFv('s_'.$tvar,$site_url.'/wp-content/plugins/stream-video-player/skins/'.trim($value['v']).'.swf?ver='.$StreamVideoVersion);
+						$player->setFv('s_'.$tvar,$site_url.'/wp-content/plugins/stream-video-player/skins/'.StreamVideo_trim($value['v']).'.swf?ver='.$StreamVideoVersion);
 					}
 				}else if($tvar != 'skin' && $tvar != 'width' && $tvar != 'height' && $tvar != 'useobjswf' && $tvar != 'wrapper'){
 					// set the rest of parameters but not if they are skin, width, height, useobjswf or wrapper
-					$player->setFv('s_'.$tvar,trim($value['v']));
+					$player->setFv('s_'.$tvar,StreamVideo_trim($value['v']));
 				}		
 			}
 		}
@@ -589,8 +584,9 @@ function StreamVideo_deactivate(){
 register_deactivation_hook(__FILE__,'StreamVideo_deactivate');
 
 // Set the content filter for Content and for RSS
-add_filter('the_content', 'StreamVideo_Parse');
-add_filter('the_content_rss', 'StreamVideo_Parse');
+add_filter('the_content', 'StreamVideo_Parse',100);
+add_filter('the_excerpt', 'StreamVideo_Parse',100); 
+add_filter('the_content_rss', 'StreamVideo_Parse',100); 
 
 
 
