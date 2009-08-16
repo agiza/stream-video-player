@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Stream Video Player
-Version: 0.7.6
+Version: 0.7.7
 Plugin URI: http://www.rodrigopolo.com/about/wp-stream-video
 Description: The best way to include Stream Video to your blog, iPhone and HD video compatible. (SWFObject by Geoff Stearns)
 Author: Rodrigo Polo
@@ -113,7 +113,7 @@ class rp_splayer {
 		}else{
 			$image_obj = (empty($this->image))?'':' data="'.$this->image.'"';
 			$image_param = (empty($this->image))?'':'<param name="src" value="'.$this->image.'"/>';
-			$last_object='<!--[if !IE]--><object type="video/mp4"'.$image_obj.$width.$height.'>'."\n".
+			$last_object='<!--[if !IE]>--><object type="video/mp4"'.$image_obj.$width.$height.'>'."\n".
 				'<param name="controller" value="false"/>'."\n".
 				'<param name="target" value="myself"/>'."\n".
 				'<param name="href" value="'.$this->mp4.'"/>'."\n".
@@ -124,7 +124,7 @@ class rp_splayer {
 				}else{
 					$last_object .= '(video)';
 				}
-				$last_object .= '<!--[if !IE]-->'.
+				$last_object .= '<!--[if !IE]>-->'.
 				'</object>'.
 				'<!--<![endif]-->'.
 				"\n";
@@ -151,12 +151,12 @@ class rp_splayer {
 		$html=$wrp_a.'<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"'.$width.$height.$id.$name.'>'."\n".
 		$swf_param."\n".
 		$params."\n".
-		'<!--[if !IE]-->'."\n".
+		'<!--[if !IE]>-->'."\n".
 		'<object type="application/x-shockwave-flash"'.$swf.$width.$height.$name.'>'."\n".
 		$params."\n".
 		'<!--<![endif]-->'."\n".
 		$last_object."\n".
-		'<!--[if !IE]-->'."\n".
+		'<!--[if !IE]>-->'."\n".
 		'</object>'."\n".
 		'<!--<![endif]-->'."\n".
 		'</object>'."\n";
@@ -165,12 +165,8 @@ class rp_splayer {
 		if(!$this->mobile){
 			$html .= '<script type="text/javascript">'."\n<!--\n".'swfobject.registerObject("'.$this->id.'", "9.0.115");'."\n//-->\n".'</script>';
 		}
-			
+		// Return the object
 		return $html.$wrp_b;
-		
-
-		
-		
 	}
 	
 	// Restart the class
@@ -182,9 +178,12 @@ class rp_splayer {
 	}
 	
 }
-function StreamVideo_trim($str){ return trim(preg_replace('/\xc2|\xa0|\x20|\x09|\x0a|\x0d|\x00|\x0B/', '', $str)); }
+// To clean up some texts
+function StreamVideo_trim($str){ 
+	return preg_replace('/^(\xc2|\xa0|\x20|\x09|\x0a|\x0d|\x00|\x0B)|(\xc2|\xa0|\x20|\x09|\x0a|\x0d|\x00|\x0B)$/', '', $str); 
+}
 // To handle version on JS files
-$StreamVideoVersion = '0.7.6';
+$StreamVideoVersion = '0.7.7';
 
 // To handle ids
 $videoid = 0;
@@ -469,22 +468,16 @@ function StreamVideoOptions(){
 	echo '</div>';
 }
 
-// Function for the wp head
-function StreamVideo_head(){
-	global $site_url;
 
-	// get options: StreamVideoSettings
+// Include the SWFObject
+add_action( (preg_match("/(\/\?feed=|\/feed)/i",$_SERVER['REQUEST_URI'])) ? 'template_redirect' : 'plugins_loaded', 'StreamVideoSWFObj' );
+function StreamVideoSWFObj(){
 	$options = get_option('StreamVideoSettings');
-	
 	// add JS If is set.
-	if($options[3][1]['v']=='true'){	
-		echo '<script type="text/javascript" src="'.$site_url.'/wp-content/plugins/stream-video-player/swfobject.js"></script>'."\n";
+	if($options[3][2]['v']=='true'){
+		wp_enqueue_script( 'swfobject', plugins_url('/stream-video-player/swfobject.js'), array(), '2.1' );
 	}
-	
 }
-
-// set the action for wp head
-add_action('wp_head', 'StreamVideo_head');
 
 // Function to load the defaults
 function StreamVideoLoadDefaults(){
@@ -589,7 +582,6 @@ add_filter('the_excerpt', 'StreamVideo_Parse',100);
 add_filter('the_content_rss', 'StreamVideo_Parse',100); 
 
 
-
 // For editing
 add_filter('content_edit_pre', 'StreamVideo_ViewPost');
 
@@ -598,8 +590,6 @@ add_filter('content_save_pre', 'StreamVideo_SavePost');
 
 // Add options menu
 add_action('admin_menu', 'StreamVideoAddPage');
-
-
 
 
 
