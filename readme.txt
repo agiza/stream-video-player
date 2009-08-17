@@ -4,7 +4,7 @@ Donate link: http://www.rodrigopolo.com/about/wp-stream-video/donate
 Tags: stream, video, flv, mp4, flash, swf, iphone, player, wordpress, plugin, media
 Requires at least: 2.2.2
 Tested up to: 2.8.4
-Stable tag: 0.7.6
+Stable tag: 0.7.7
 
 Stream Video Player for WordPress it's one stop solution for high quality video publishing for web or iPhone.
 
@@ -102,10 +102,12 @@ Yamdi runs on Windows, Mac OS X and Linux and it's the faster free open source i
 == Changelog ==  
 
 = 0.7.7 = 
-* A Bug in the way the plug-in include the SWFObject fixed (thanks to Korin Unka)
-* A bug generated in v0.7.6 with the title fixed (thanks to Bastiaan Bergman)
-* The conditional comments issue revisited, if you have problems with those, use PHP5 (thanks to Walter)
-* The HD button now enables or disables the HD option (thanks to Bastiaan Bergman)
+* A time position tooltip (balloontip) added to the player
+* Now you can click on the bar to go to any place in the video, TAKE NOTE: The stream goes to the closest key frame to the place you clicked, NOT the exactly place where you clicked.
+* A Bug in the way the plug-in include the SWFObject fixed (thanks to Korin Unka advice)
+* A bug generated in v0.7.6 with the title fixed (thanks to Bastiaan Bergman advice)
+* The conditional comments issue revisited, if you have problems with those, use PHP5 (thanks to Walter sugestion)
+* The HD button now enables or disables the HD option AND you can see which option is with the button transparency (thanks to Bastiaan Bergman sugestion) 
 
 
 = 0.7.6 = 
@@ -146,7 +148,8 @@ Yamdi runs on Windows, Mac OS X and Linux and it's the faster free open source i
 
 == Screenshots ==
 
-1. Stream Player
-2. Tag generator button
-3. Tag generator panel
-4. Settings
+1. Stream Video Player GUI
+2. Tag Generator Button
+3. Tag Generator Panel
+4. Plugin Settings
+5. Stream Video Player Time Tooltip
