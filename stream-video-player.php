@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Stream Video Player
-Version: 0.7.8
+Version: 0.7.9
 Plugin URI: http://www.rodrigopolo.com/about/wp-stream-video
 Description: The best way to include Stream Video to your blog, iPhone and HD video compatible. (SWFObject by Geoff Stearns)
 Author: Rodrigo Polo
@@ -170,7 +170,7 @@ class rp_splayer {
 		
 		// To show the result ONLY if it is ingle
 		if($single){
-			if(is_single()){
+			if(is_single() || is_page()){
 				return $html.$wrp_b;
 			}else{
 				return '(Video)';
@@ -197,7 +197,7 @@ function StreamVideo_trim($str){
 	return trim(preg_replace('/^(\xc2|\xa0|\x20|\x09|\x0a|\x0d|\x00|\x0B)|(\xc2|\xa0|\x20|\x09|\x0a|\x0d|\x00|\x0B)$/', '', $str)); 
 }
 // To handle version on JS files
-$StreamVideoVersion = '0.7.8';
+$StreamVideoVersion = '0.7.9';
 
 // To handle ids
 $videoid = 0;

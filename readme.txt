@@ -4,7 +4,7 @@ Donate link: http://www.rodrigopolo.com/about/wp-stream-video/donate
 Tags: stream, video, flv, mp4, flash, swf, iphone, player, wordpress, plugin, media
 Requires at least: 2.2.2
 Tested up to: 2.8.4
-Stable tag: 0.7.8
+Stable tag: 0.7.9
 
 Stream Video Player for WordPress it's one stop solution for high quality video publishing for web or iPhone.
 
@@ -100,6 +100,9 @@ Yamdi runs on Windows, Mac OS X and Linux and it's the faster free open source i
 * Cleaning up the FLA Player and release the source.
 
 == Changelog ==  
+
+= 0.7.9 = 
+* Fix in the option "Show player only on single pages" to work on single posts AND pages
 
 = 0.7.8 = 
 * Added the option to to choose to show the player only on single pages, this is because "the_excerpt" function strips the HTML from the player.
