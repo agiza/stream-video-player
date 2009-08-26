@@ -1,0 +1,222 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: SVP\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Fat Cow <zhr@tut.by>\n"
+"Language-Team: Fat Cow <zhr@tut.by>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: RUSSIAN FEDERATION\n"
+
+#: config.php:48
+msgid "(<span class=\"req\">*</span>) indicates required field"
+msgstr "(<span class=\"красный цвет\">*</span>) - индикатор оябзательных полей"
+
+#: config.php:50
+msgid "Stream Player Tag Atributes"
+msgstr "аттрибуты тега Stream Player "
+
+#: config.php:52
+msgid "The absolute path to your FLV video (injected .flv file)"
+msgstr "Абсолютный путь к FLV video (injected .flv файл)"
+
+#: config.php:52
+msgid "Video for Player (.flv):"
+msgstr "Видео для плейера (.flv):"
+
+#: config.php:58
+msgid "Width &times; height in pixels"
+msgstr "Ширина &время; высота в пикселях"
+
+#: config.php:58
+msgid "Dimensions:"
+msgstr "Измерение:"
+
+#: config.php:67
+msgid "The absolute path to your image preview"
+msgstr "Абсолютный путь к превью изолбражения"
+
+#: config.php:67
+msgid "Image Preview (.jpg):"
+msgstr "Предосмотр изображения (.jpg):"
+
+#: config.php:73
+msgid "Set the desired bandwidth for cache and site bandwidth control"
+msgstr "Укажите желаемую ширину кэша"
+
+#: config.php:73
+msgid "Bandwidth:"
+msgstr "Ширина полосы частот:"
+
+#: config.php:88
+msgid "The absolute path to your MP4 video (for iPhone)"
+msgstr "Абсолютный путь к MP4 видео (для iPhone)"
+
+#: config.php:88
+msgid "Video for iPhone (.mp4):"
+msgstr "Видео для iPhone (.mp4):"
+
+#: config.php:94
+msgid "The absolute path to your HD-FLV video (injected .flv file)"
+msgstr "Абсолютный путь к HD-FLV видео"
+
+#: config.php:94
+msgid "HD Video for Player (.flv):"
+msgstr "HD Video для плейера (.flv):"
+
+#: config.php:100
+msgid "Yout video title"
+msgstr "Заглавие вашего видео"
+
+#: config.php:100
+msgid "Title:"
+msgstr "Заглавие:"
+
+#: config.php:107
+msgid "Your video volume, from 0 to 100, if empty takes the default value on the plug-in settings"
+msgstr "Объем вашего видео, от 0 до 100, если пусто - выбирается значение по умолчанию"
+
+#: config.php:107
+msgid "Volume:"
+msgstr "Объем:"
+
+#: config.php:113
+msgid "Skin for this player"
+msgstr "Скин для плейера"
+
+#: config.php:113
+msgid "Skin:"
+msgstr "Скин:"
+
+#: config.php:128
+msgid "The absolute path to yout video player logo, if empty takes the default value on the plug-in settings"
+msgstr "Абсолютный путь к лого вашего плейера"
+
+#: config.php:128
+msgid "Logo (.jpg, .png, .flv):"
+msgstr "Лого (.jpg, .png, .flv):"
+
+#: config.php:135
+msgid "Auto Start the video with the Stream Player"
+msgstr "Автостарт видео с Stream Player"
+
+#: config.php:135
+msgid "Auto Start:"
+msgstr "Автостарт:"
+
+#: config.php:145
+msgid "Enable embed the player in other sites"
+msgstr "Включить внедрение плейера в другие сайты"
+
+#: config.php:145
+msgid "Enable Embed:"
+msgstr "Включить интеграцию:"
+
+#: config.php:157
+msgid "Generate"
+msgstr "Генерировать"
+
+#: config.php:168
+msgid "Stream Video: This tag generator isn't going to put the stream video tag in your code."
+msgstr "Stream Video: этот генератор тегов не будет вставлять видеотег в ваш код."
+
+#: stream-video-player.php:397
+msgid "Video Properties"
+msgstr "Параметры видео"
+
+#: stream-video-player.php:397
+msgid "Layout"
+msgstr "Формат"
+
+#: stream-video-player.php:397
+msgid "Behavior"
+msgstr "Поведение"
+
+#: stream-video-player.php:397
+msgid "System"
+msgstr "Поведение"
+
+#: stream-video-player.php:425
+msgid "Options saved."
+msgstr "Опции сохранены."
+
+#: stream-video-player.php:429
+msgid "Stream Video Options"
+msgstr "Настройки Stream Video "
+
+#: stream-video-player.php:432
+msgid "Here you can set some default global options for all your videos, if you need help or more information on how to encode and prepare your video to be a pseudo stream compliant check out the <a href=\"http://www.rodrigopolo.com/about/wp-stream-video/faq\" target=\"_blank\">Player FAQs</a> where you can find a lot of free and open resources to encode your video."
+msgstr "Here you can set some default global options for all your videos, if you need help or more information on how to encode and prepare your video to be a pseudo stream compliant check out the <a href=\"http://www.rodrigopolo.com/about/wp-stream-video/faq\" target=\"_blank\">Player FAQs</a> where you can find a lot of free and open resources to encode your video."
+
+#: stream-video-player.php:474
+msgid "Update Options"
+msgstr "Обновить настройки"
+
+#: stream-video-player.php:511
+msgid "Title"
+msgstr "Заглавие"
+
+#: stream-video-player.php:516
+msgid "Preview Image"
+msgstr "Превью изображения"
+
+#: stream-video-player.php:523
+msgid "Player Width"
+msgstr "Ширина плейера"
+
+#: stream-video-player.php:528
+msgid "Player Height"
+msgstr "Высота плейера"
+
+#: stream-video-player.php:533
+msgid "Skin"
+msgstr "Скин"
+
+#: stream-video-player.php:539
+msgid "Logo"
+msgstr "Лого"
+
+#: stream-video-player.php:546
+msgid "Auto Start"
+msgstr "Автостарт"
+
+#: stream-video-player.php:551
+msgid "Startup Volume"
+msgstr "Начальный объем"
+
+#: stream-video-player.php:559
+msgid "Bandwidth"
+msgstr "Ширина"
+
+#: stream-video-player.php:565
+msgid "HTML Wrapper"
+msgstr "HTML Wrapper"
+
+#: stream-video-player.php:570
+msgid "Use SWFObject.js"
+msgstr "Использовать SWFObject.js"
+
+#. Plugin Name of an extension
+msgid "Stream Video Player"
+msgstr "Stream Video Player"
+
+#. Plugin URI of an extension
+msgid "http://www.rodrigopolo.com/about/wp-stream-video"
+msgstr "http://www.rodrigopolo.com/about/wp-stream-video"
+
+#. Description of an extension
+msgid "Simplifies the process of adding Stream Video to a WordPress blog. (SWFObject by Geoff Stearns)"
+msgstr "Опрощение процесса добавления Stream Video в WordPress блог. (SWFObject by Geoff Stearns)"
+
+#. Author of an extension
+msgid "Rodrigo Polo"
+msgstr "Rodrigo Polo"
+
+#. Author URI of an extension
+msgid "http://www.rodrigopolo.com"
+msgstr "http://www.rodrigopolo.com"
+

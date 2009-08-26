@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Stream Video Player
-Version: 0.7.7
+Version: 0.7.8
 Plugin URI: http://www.rodrigopolo.com/about/wp-stream-video
 Description: The best way to include Stream Video to your blog, iPhone and HD video compatible. (SWFObject by Geoff Stearns)
 Author: Rodrigo Polo
@@ -31,6 +31,7 @@ Copyright (C) 2009  Rodrigo J. Polo
 		
 */
 
+// The class to generate players
 class rp_splayer {
 	
 	// Public vars
@@ -72,7 +73,7 @@ class rp_splayer {
 	
 
 	// Return a string with all the text of the code
-	function getHTML(){
+	function getHTML($single){
 		
 		// Mobile detector
 		$container = $_SERVER['HTTP_USER_AGENT'];
@@ -165,8 +166,20 @@ class rp_splayer {
 		if(!$this->mobile){
 			$html .= '<script type="text/javascript">'."\n<!--\n".'swfobject.registerObject("'.$this->id.'", "9.0.115");'."\n//-->\n".'</script>';
 		}
-		// Return the object
-		return $html.$wrp_b;
+		
+		
+		// To show the result ONLY if it is ingle
+		if($single){
+			if(is_single()){
+				return $html.$wrp_b;
+			}else{
+				return '(Video)';
+			}
+		}else{
+			return $html.$wrp_b;
+		}
+		
+
 	}
 	
 	// Restart the class
@@ -178,12 +191,13 @@ class rp_splayer {
 	}
 	
 }
+
 // To clean up some texts
 function StreamVideo_trim($str){ 
-	return preg_replace('/^(\xc2|\xa0|\x20|\x09|\x0a|\x0d|\x00|\x0B)|(\xc2|\xa0|\x20|\x09|\x0a|\x0d|\x00|\x0B)$/', '', $str); 
+	return trim(preg_replace('/^(\xc2|\xa0|\x20|\x09|\x0a|\x0d|\x00|\x0B)|(\xc2|\xa0|\x20|\x09|\x0a|\x0d|\x00|\x0B)$/', '', $str)); 
 }
 // To handle version on JS files
-$StreamVideoVersion = '0.7.7';
+$StreamVideoVersion = '0.7.8';
 
 // To handle ids
 $videoid = 0;
@@ -193,6 +207,8 @@ $site_url = get_option('siteurl');
 
 // New player object
 $player = new rp_splayer();
+
+// Load the language packs
 load_plugin_textdomain( 'stream-video-player', FALSE, 'stream-video-player/langs/');
 
 // function to parse and edit the content
@@ -201,6 +217,8 @@ function StreamVideo_ViewPost($content){
 	$content = preg_replace_callback("/\[stream ([^]]*)\/\]/i", "StreamVideo_ViewRender", $content);
 	return $content;
 }
+
+// Replace x:/ with http:// for edition
 function StreamVideo_ViewRender($matches){
 	return  '[stream '.str_replace("x:/", "http://", $matches[1]).'/]';
 }
@@ -211,18 +229,27 @@ function StreamVideo_SavePost($content){
 	$content = preg_replace_callback("/\[stream ([^]]*)\/\]/i", "StreamVideo_SaveRender", $content);
 	return $content;
 }
+
+// Replace http:// with x:/ to prevent issues with the rss feeds
 function StreamVideo_SaveRender($matches){
 	return  '[stream '.str_replace("http://", "x:/", $matches[1]).'/]';
 }
 
-// function to parse the content
+// Parse the content to replace the tags with the player
 function StreamVideo_Parse($content){
+	global $StreamVideoSingle;
+	// To show only on single pages
+	$options = get_option('StreamVideoSettings');
+	$StreamVideoSingle = ($options[3][3]['v']=='true');
+	
 	// finds the [stream /] tag and calls StreamVideo_Render to parse.
 	$content = preg_replace_callback("/\[stream ([^]]*)\/\]/i", "StreamVideo_Render", $content);
 	return $content;
 }
+
+// Render each player instance
 function StreamVideo_Render($matches){
-	global $videoid, $site_url, $player, $StreamVideoVersion;
+	global $videoid, $site_url, $player, $StreamVideoVersion, $StreamVideoSingle;
 	
 	$cmd = $matches[1];
 	
@@ -344,15 +371,16 @@ function StreamVideo_Render($matches){
 	$videoid++;
 	
 	// Generate and return the HTML
-	return $player->getHTML();
+	return $player->getHTML($StreamVideoSingle);
 	
 }
 
 // Add page on settings for level 8 (admins)
 function StreamVideoAddPage(){
-	add_options_page('Stream Video', 'Stream Video', '8', 'stream-video-player.php', 'StreamVideoOptions');
+	add_options_page('Stream Video Player', 'Stream Video Player', '8', 'stream-video-player.php', 'StreamVideoOptions');
 }
 
+// To read the skin directory
 function StreamVideoReadSkins(){
 	// Get the skin directory (a better aproach!)
 	$skins_dir = dirname(__FILE__).'/skins/';
@@ -468,9 +496,10 @@ function StreamVideoOptions(){
 	echo '</div>';
 }
 
-
 // Include the SWFObject
-add_action( (preg_match("/(\/\?feed=|\/feed)/i",$_SERVER['REQUEST_URI'])) ? 'template_redirect' : 'plugins_loaded', 'StreamVideoSWFObj' );
+add_action((preg_match("/(\/\?feed=|\/feed)/i",$_SERVER['REQUEST_URI'])) ? 'template_redirect' : 'plugins_loaded', 'StreamVideoSWFObj');
+
+// Function to include the SWF Object
 function StreamVideoSWFObj(){
 	$options = get_option('StreamVideoSettings');
 	// add JS If is set.
@@ -556,6 +585,11 @@ function StreamVideoLoadDefaults(){
 	$f[3][2]['dn'] = __('Use SWFObject.js', 'stream-video-player');
 	$f[3][2]['t'] = 'cb';
 	$f[3][2]['v'] = 'true';
+	
+	$f[3][3]['on'] = 'onlyonsingle';
+	$f[3][3]['dn'] = __('Show player only on single pages', 'stream-video-player');
+	$f[3][3]['t'] = 'cb';
+	$f[3][3]['v'] = 'false';
 
 	return $f;
 }
@@ -578,9 +612,6 @@ register_deactivation_hook(__FILE__,'StreamVideo_deactivate');
 
 // Set the content filter for Content and for RSS
 add_filter('the_content', 'StreamVideo_Parse',100);
-add_filter('the_excerpt', 'StreamVideo_Parse',100); 
-add_filter('the_content_rss', 'StreamVideo_Parse',100); 
-
 
 // For editing
 add_filter('content_edit_pre', 'StreamVideo_ViewPost');
@@ -591,11 +622,10 @@ add_filter('content_save_pre', 'StreamVideo_SavePost');
 // Add options menu
 add_action('admin_menu', 'StreamVideoAddPage');
 
-
-
 // Adding button to the MCE toolbar (Visual Mode) 
-add_action( 'init', 'StreamVideo_addbuttons');
+add_action('init', 'StreamVideo_addbuttons');
 
+// Add button hooks to the Tiny MCE 
 function StreamVideo_addbuttons() {
 	
 	global $StreamVideoVersion;
@@ -661,7 +691,6 @@ function add_quicktags(){
 </script>
 <?php	
 }
-
 
 // Set URL for the settings page
 function set_admin_js_vars(){

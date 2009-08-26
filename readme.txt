@@ -95,32 +95,36 @@ Yamdi runs on Windows, Mac OS X and Linux and it's the faster free open source i
 
 = To-Do =
 
-* Coding the "embed" option
-* Work on the skin engine
-* Cleaning up the FLA Player and release the source
+* Coding the "embed" option.
+* Work on the skin engine.
+* Cleaning up the FLA Player and release the source.
 
 == Changelog ==  
 
+= 0.7.8 = 
+* Added the option to to choose to show the player only on single pages, this is because "the_excerpt" function strips the HTML from the player.
+* Added the "ru_Ru" translation file.
+
 = 0.7.7 = 
-* A time position tooltip (balloontip) added to the player
+* A time position tooltip (balloontip) added to the player.
 * Now you can click on the bar to go to any place in the video, TAKE NOTE: The stream goes to the closest key frame to the place you clicked, NOT the exactly place where you clicked.
-* A Bug in the way the plug-in include the SWFObject fixed (thanks to Korin Unka advice)
-* A bug generated in v0.7.6 with the title fixed (thanks to Bastiaan Bergman advice)
-* The conditional comments issue revisited, if you have problems with those, use PHP5 (thanks to Walter sugestion)
-* The HD button now enables or disables the HD option AND you can see which option is with the button transparency (thanks to Bastiaan Bergman sugestion) 
+* A Bug in the way the plug-in include the SWFObject fixed (thanks to Korin Unka advice).
+* A bug generated in v0.7.6 with the title fixed (thanks to Bastiaan Bergman advice).
+* The conditional comments issue revisited, if you have problems with those, use PHP5 (thanks to Walter sugestion).
+* The HD button now enables or disables the HD option AND you can see which option is with the button transparency (thanks to Bastiaan Bergman sugestion).
 
 
 = 0.7.6 = 
 * Now the video shows not only in single pages, as requested.
 * Fixed the HD button initialization, so you can check the FLA and change your skin in Flash.
-* An issue with the skins URL fixed
-* An issue with the logo options fixed
+* An issue with the skins URL fixed.
+* An issue with the logo options fixed.
 
 
 = 0.7.5 = 
-* Fix to de wmode in the Flash Embed
-* Changes to prepare the EMBED option
-* Adding the crossdomain.xml to prepere for the EMBED option
+* Fix to de wmode in the Flash Embed.
+* Changes to prepare the EMBED option.
+* Adding the crossdomain.xml to prepere for the EMBED option.
 
 = 0.7.4 = 
 * Conditional comments fix.
@@ -134,22 +138,22 @@ Yamdi runs on Windows, Mac OS X and Linux and it's the faster free open source i
 * An upgrade to fix a compatibility with other plug-ins.
 
 = 0.7.2 =  
-* The HD option it's completed and working
-* Some optimizations on the SWF
-* The PHP Class it's working with older PHP versions. (Syntax fixed)
+* The HD option it's completed and working.
+* Some optimizations on the SWF.
+* The PHP Class it's working with older PHP versions. (Syntax fixed).
    
 = 0.7 =  
-* A little problem with the use of WWW on the FLV URL Fixed
-* PHP Pseudo Streamer URL fixed
-* Future options disabled to prevent confusion
+* A little problem with the use of WWW on the FLV URL Fixed.
+* PHP Pseudo Streamer URL fixed.
+* Future options disabled to prevent confusion.
    
 = 0.6 =  
 * First beta release.
 
 == Screenshots ==
 
-1. Stream Video Player GUI
-2. Tag Generator Button
-3. Tag Generator Panel
-4. Plugin Settings
-5. Stream Video Player Time Tooltip
+1. Stream Video Player GUI.
+2. Tag Generator Button.
+3. Tag Generator Panel.
+4. Plugin Settings.
+5. Stream Video Player Time Tooltip.
