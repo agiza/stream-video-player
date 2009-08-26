@@ -26,7 +26,7 @@ Important Links:
 * Random access to any position on the video thanks to the pseudo streaming technique
 * iPhone, WPTouch, MobilePress and feeds compatible.
 * Only open source software needed for video encoding
-* Multi-Language (Currently English and Spanish)
+* Multi-Language (Currently English, Spanish and Russian)
 * I made every component of this player, so the source code of the Flash file will be available in the mean time (First I need to clean up the code a little).
 * The player is made thinking about customization, so it has already a full skin capability, and you can make your own skin very easily with the Flash IDE.
 * 100% Standard code
