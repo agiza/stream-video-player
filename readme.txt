@@ -103,7 +103,7 @@ Yamdi runs on Windows, Mac OS X and Linux and it's the faster free open source i
 
 = 0.7.8 = 
 * Added the option to to choose to show the player only on single pages, this is because "the_excerpt" function strips the HTML from the player.
-* Added the "ru_Ru" translation file.
+* Added the "ru_Ru" translation file thanks to [Fat Cow](http://fatcow.com).
 
 = 0.7.7 = 
 * A time position tooltip (balloontip) added to the player.

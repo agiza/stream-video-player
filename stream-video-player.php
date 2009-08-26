@@ -417,6 +417,7 @@ function StreamVideoOptions(){
 	$g = array(0=>__('Video Properties', 'stream-video-player'), 1=>__('Layout', 'stream-video-player'), 2=>__('Behavior', 'stream-video-player'), 3=>__('System', 'stream-video-player'));
 
 	$options = get_option('StreamVideoSettings');
+	$options_lang = StreamVideoLoadDefaults();
 	// Process form submission
 	if ($_POST){
 		for($i=0; $i<count($options);$i++){
@@ -451,7 +452,7 @@ function StreamVideoOptions(){
 	echo '<form method="post" action="options-general.php?page=stream-video-player.php">';
 	echo "<p>".__('Here you can set some default global options for all your videos, if you need help or more information on how to encode and prepare your video to be a pseudo stream compliant check out the <a href="http://www.rodrigopolo.com/about/wp-stream-video/faq" target="_blank">Player FAQs</a> where you can find a lot of free and open resources to encode your video.', 'stream-video-player')."</p>";
 
-
+	// For tests:
 	//echo "<pre>";
 	//echo print_r($options);
 	//echo "</pre>";
@@ -462,8 +463,8 @@ function StreamVideoOptions(){
 	foreach((array) $options as $key=>$value){
 		echo '<h3>'.$g[$key].'</h3>'."\n";
 		echo '<table class="form-table">'."\n";
-		foreach((array) $value as $setting){
-			echo '<tr><th scope="row">'.$setting['dn'].'</th><td>'."\n";
+		foreach((array) $value as $sk => $setting){
+			echo '<tr><th scope="row">'.$options_lang[$key][$sk]['dn'].'</th><td>'."\n";
 			switch ($setting['t']){
 				case 'tx':
 					echo '<input type="text" name="'.$setting['on'].'" value="'.htmlentities($setting['v']).'" />';
