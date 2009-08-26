@@ -1,12 +1,13 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: SVP\n"
-"POT-Creation-Date: \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/stream-video-player\n"
+"POT-Creation-Date: 2009-08-26 10:31+0000\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Fat Cow <zhr@tut.by>\n"
+"Last-Translator: Rodrigo Polo <rodrigo.polo@gmail.com>\n"
 "Language-Team: Fat Cow <zhr@tut.by>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Language: Russian\n"
@@ -124,81 +125,85 @@ msgstr "Генерировать"
 msgid "Stream Video: This tag generator isn't going to put the stream video tag in your code."
 msgstr "Stream Video: этот генератор тегов не будет вставлять видеотег в ваш код."
 
-#: stream-video-player.php:397
+#: stream-video-player.php:417
 msgid "Video Properties"
 msgstr "Параметры видео"
 
-#: stream-video-player.php:397
+#: stream-video-player.php:417
 msgid "Layout"
 msgstr "Формат"
 
-#: stream-video-player.php:397
+#: stream-video-player.php:417
 msgid "Behavior"
 msgstr "Поведение"
 
-#: stream-video-player.php:397
+#: stream-video-player.php:417
 msgid "System"
 msgstr "Поведение"
 
-#: stream-video-player.php:425
+#: stream-video-player.php:446
 msgid "Options saved."
 msgstr "Опции сохранены."
 
-#: stream-video-player.php:429
+#: stream-video-player.php:450
 msgid "Stream Video Options"
 msgstr "Настройки Stream Video "
 
-#: stream-video-player.php:432
+#: stream-video-player.php:453
 msgid "Here you can set some default global options for all your videos, if you need help or more information on how to encode and prepare your video to be a pseudo stream compliant check out the <a href=\"http://www.rodrigopolo.com/about/wp-stream-video/faq\" target=\"_blank\">Player FAQs</a> where you can find a lot of free and open resources to encode your video."
 msgstr "Here you can set some default global options for all your videos, if you need help or more information on how to encode and prepare your video to be a pseudo stream compliant check out the <a href=\"http://www.rodrigopolo.com/about/wp-stream-video/faq\" target=\"_blank\">Player FAQs</a> where you can find a lot of free and open resources to encode your video."
 
-#: stream-video-player.php:474
+#: stream-video-player.php:495
 msgid "Update Options"
 msgstr "Обновить настройки"
 
-#: stream-video-player.php:511
+#: stream-video-player.php:527
 msgid "Title"
 msgstr "Заглавие"
 
-#: stream-video-player.php:516
+#: stream-video-player.php:532
 msgid "Preview Image"
 msgstr "Превью изображения"
 
-#: stream-video-player.php:523
+#: stream-video-player.php:539
 msgid "Player Width"
 msgstr "Ширина плейера"
 
-#: stream-video-player.php:528
+#: stream-video-player.php:544
 msgid "Player Height"
 msgstr "Высота плейера"
 
-#: stream-video-player.php:533
+#: stream-video-player.php:549
 msgid "Skin"
 msgstr "Скин"
 
-#: stream-video-player.php:539
+#: stream-video-player.php:555
 msgid "Logo"
 msgstr "Лого"
 
-#: stream-video-player.php:546
+#: stream-video-player.php:562
 msgid "Auto Start"
 msgstr "Автостарт"
 
-#: stream-video-player.php:551
+#: stream-video-player.php:567
 msgid "Startup Volume"
 msgstr "Начальный объем"
 
-#: stream-video-player.php:559
+#: stream-video-player.php:575
 msgid "Bandwidth"
 msgstr "Ширина"
 
-#: stream-video-player.php:565
+#: stream-video-player.php:581
 msgid "HTML Wrapper"
 msgstr "HTML Wrapper"
 
-#: stream-video-player.php:570
+#: stream-video-player.php:586
 msgid "Use SWFObject.js"
 msgstr "Использовать SWFObject.js"
+
+#: stream-video-player.php:591
+msgid "Show player only on single pages"
+msgstr "Показать игрока только на одиночный страницах"
 
 #. Plugin Name of an extension
 msgid "Stream Video Player"
@@ -209,7 +214,7 @@ msgid "http://www.rodrigopolo.com/about/wp-stream-video"
 msgstr "http://www.rodrigopolo.com/about/wp-stream-video"
 
 #. Description of an extension
-msgid "Simplifies the process of adding Stream Video to a WordPress blog. (SWFObject by Geoff Stearns)"
+msgid "The best way to include Stream Video to your blog, iPhone and HD video compatible. (SWFObject by Geoff Stearns)"
 msgstr "Опрощение процесса добавления Stream Video в WordPress блог. (SWFObject by Geoff Stearns)"
 
 #. Author of an extension

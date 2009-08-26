@@ -1,13 +1,14 @@
-# Translation Template for Stream Video Player
-# This file is released under the GNU General Public License (http://www.gnu.org/licenses/gpl.html).
-# Copyright 2009 Rodrigo Polo <rodrigo.polo@gmail.com>, 2009.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Rodrigo Polo
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Stream Video Player v.0.6.x\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/stream-video-player\n"
-"POT-Creation-Date: 2009-07-14 11:56+0000\n"
+"POT-Creation-Date: 2009-08-26 10:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -133,31 +134,31 @@ msgid ""
 "your code."
 msgstr ""
 
-#: stream-video-player.php:397
+#: stream-video-player.php:417
 msgid "Video Properties"
 msgstr ""
 
-#: stream-video-player.php:397
+#: stream-video-player.php:417
 msgid "Layout"
 msgstr ""
 
-#: stream-video-player.php:397
+#: stream-video-player.php:417
 msgid "Behavior"
 msgstr ""
 
-#: stream-video-player.php:397
+#: stream-video-player.php:417
 msgid "System"
 msgstr ""
 
-#: stream-video-player.php:425
+#: stream-video-player.php:446
 msgid "Options saved."
 msgstr ""
 
-#: stream-video-player.php:429
+#: stream-video-player.php:450
 msgid "Stream Video Options"
 msgstr ""
 
-#: stream-video-player.php:432
+#: stream-video-player.php:453
 msgid ""
 "Here you can set some default global options for all your videos, if you "
 "need help or more information on how to encode and prepare your video to be "
@@ -166,52 +167,56 @@ msgid ""
 "find a lot of free and open resources to encode your video."
 msgstr ""
 
-#: stream-video-player.php:474
+#: stream-video-player.php:495
 msgid "Update Options"
 msgstr ""
 
-#: stream-video-player.php:511
+#: stream-video-player.php:527
 msgid "Title"
 msgstr ""
 
-#: stream-video-player.php:516
+#: stream-video-player.php:532
 msgid "Preview Image"
 msgstr ""
 
-#: stream-video-player.php:523
+#: stream-video-player.php:539
 msgid "Player Width"
 msgstr ""
 
-#: stream-video-player.php:528
+#: stream-video-player.php:544
 msgid "Player Height"
 msgstr ""
 
-#: stream-video-player.php:533
+#: stream-video-player.php:549
 msgid "Skin"
 msgstr ""
 
-#: stream-video-player.php:539
+#: stream-video-player.php:555
 msgid "Logo"
 msgstr ""
 
-#: stream-video-player.php:546
+#: stream-video-player.php:562
 msgid "Auto Start"
 msgstr ""
 
-#: stream-video-player.php:551
+#: stream-video-player.php:567
 msgid "Startup Volume"
 msgstr ""
 
-#: stream-video-player.php:559
+#: stream-video-player.php:575
 msgid "Bandwidth"
 msgstr ""
 
-#: stream-video-player.php:565
+#: stream-video-player.php:581
 msgid "HTML Wrapper"
 msgstr ""
 
-#: stream-video-player.php:570
+#: stream-video-player.php:586
 msgid "Use SWFObject.js"
+msgstr ""
+
+#: stream-video-player.php:591
+msgid "Show player only on single pages"
 msgstr ""
 
 #. Plugin Name of an extension
@@ -224,8 +229,8 @@ msgstr ""
 
 #. Description of an extension
 msgid ""
-"Simplifies the process of adding Stream Video to a WordPress blog. "
-"(SWFObject by Geoff Stearns)"
+"The best way to include Stream Video to your blog, iPhone and HD video "
+"compatible. (SWFObject by Geoff Stearns)"
 msgstr ""
 
 #. Author of an extension
