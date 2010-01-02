@@ -164,6 +164,10 @@ class flv_streamer{
 	// To match a relative path
 	function getRelPa($scr,$fil){
 		
+		$scr = str_replace("http://www.", "http://", $scr);
+		$fil = str_replace("http://www.", "http://", $fil);
+		
+		
 		$urlnfo_a=parse_url($scr);
 		$urlnfo_b=parse_url($fil);
 		
@@ -174,8 +178,7 @@ class flv_streamer{
 		
 		
 		
-		$scr = str_replace("http://www.", "http://", $scr);
-		$fil = str_replace("http://www.", "http://", $fil);
+
 		$scr_a = explode('/',$scr);
 		$fil_a = explode('/',$fil);
 		$scr_ab = $scr_a;
