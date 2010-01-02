@@ -45,12 +45,18 @@ var RodrigoPolo = window.RodrigoPolo || {};
 			vt('bandwidth')+
 			vt('mp4')+
 			vt('hd')+
+			vt('captions')+
 			vt('title')+
 			vt('volume')+
+			vt('dock')+
+			vt('controlbar')+
+			vt('provider')+
+			vt('streamer')+
 			vt('skin')+
 			vt('logo')+
 			vt('autostart')+
 			vt('embed')+
+			vt('share')+
 			' /]';
 	};
 	// to insert tag

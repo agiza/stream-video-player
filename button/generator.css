@@ -11,10 +11,10 @@ fieldset {
 }
 .col1 {
 	white-space: nowrap;
-	width: 170px;
+	width: 190px;
 }
 .col2 {
-	width: 430px;
+	width: 410px;
 }
 .col3 {
 	width: 100px;
@@ -76,9 +76,15 @@ a {
 .req {
 	color: red;
 }
-.note {
+.note, .note a {
 	font-size: 10px;
 	color: #666;
+	line-height:100%;
+}
+.note a {
+	color:#06C;
+	text-decoration:none;
+	font-weight:bold;
 }
 .help {
 	margin: 0 0 10px;

@@ -1,4 +1,15 @@
 <?
+ini_set('output_buffering', 'Off'); 
+ini_set('memory_limit', '128M'); 
+ini_set('variables_order', 'EGPCS');
+ini_set('register_long_arrays', 'On');
+ini_set('max_input_time', '86400');
+ini_set('max_execution_time', '86400');
+
+
+// Fix for max execution time
+set_time_limit(86400);
+
 /**
  * FLV Streamer for WordPress by Rodrigo Polo, inspired on some xmoov-php main ideas.
  * 
@@ -38,17 +49,18 @@ define('SP_ALLOW_CACHE',true);
 define('BW_LIMIT',true);
 
 // Kilobytes per time interval
-define('BWP_SIZE', 40);
+define('BWP_SIZE', 90);
 
 // Time interval for data packets in seconds.
 define('BWP_INTERVAL', 0.3);
 
 class flv_streamer{
 	
-	function __construct($g_bw, $g_st, $g_fl){
+	function __construct($g_fl, $g_st, $g_bw){
 		
 		// if not url is defined, stop and give a 404 warning
-		if (!isset($_GET[$g_fl]) || !isset($_GET[$g_st])){
+		// if (!isset($_GET[$g_fl]) || !isset($_GET[$g_st])){
+		if (!isset($_GET[$g_fl])){
 			header('HTTP/1.0 404 Not Found'); 
 			die('<h1>404</h1> At least tell me what video to _GET and where to start.');  
 		}
@@ -67,7 +79,7 @@ class flv_streamer{
 		
 			
 		// get seek position
-		$start_pos = intval($_GET[$g_st]);
+		$start_pos = (isset($_GET[$g_st]))?intval($_GET[$g_st]):0;
 			
 		// get file name
 		$vdo_file = './'.$this->getRelPa($this->getSelfUri(),htmlspecialchars($_GET[$g_fl]));
@@ -95,6 +107,7 @@ class flv_streamer{
 			header('HTTP/1.1 403 Forbidden');
 			die('<h1>403</h1> Streamer cannot acces to "' . $vdo_file . '", Check your file perrmissions with CHMOD.'); 
 		}
+		
 		
 		// No chache ?
 		if(SP_ALLOW_CACHE){
@@ -150,6 +163,17 @@ class flv_streamer{
 	
 	// To match a relative path
 	function getRelPa($scr,$fil){
+		
+		$urlnfo_a=parse_url($scr);
+		$urlnfo_b=parse_url($fil);
+		
+		if($urlnfo_a['host']!=$urlnfo_b['host']){
+			header('HTTP/1.0 404 Not Found'); 
+			die("<h1>404</h1> You are requesting a video from other domain.\n<br />this script can only stream videos from the domain where it’s placed.\n<br />This script is currently located at: &ldquo;".$urlnfo_a['host'].'&rdquo;.');  
+		}
+		
+		
+		
 		$scr = str_replace("http://www.", "http://", $scr);
 		$fil = str_replace("http://www.", "http://", $fil);
 		$scr_a = explode('/',$scr);
@@ -176,5 +200,5 @@ class flv_streamer{
 	
 }
 
-new flv_streamer('bw','start','file');
+new flv_streamer('file','start','bw');
 ?>

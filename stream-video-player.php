@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Stream Video Player
-Version: 0.7.9
+Version: 1.0.0
 Plugin URI: http://www.rodrigopolo.com/about/wp-stream-video
 Description: The best way to include Stream Video to your blog, iPhone and HD video compatible. (SWFObject by Geoff Stearns)
 Author: Rodrigo Polo
@@ -73,7 +73,7 @@ class rp_splayer {
 	
 
 	// Return a string with all the text of the code
-	function getHTML($single){
+	function getHTML($single,$inc_js=true){
 		
 		// Mobile detector
 		$container = $_SERVER['HTTP_USER_AGENT'];
@@ -133,13 +133,24 @@ class rp_splayer {
 		
 		// Set the default params
 		$this->setParam('quality','high');
+		
+		// Set wmode to opaque to fix the overlaping elements with flash
+		$this->setParam('wmode','opaque');
+		
+		// Allow the fullscreen mode
 		$this->setParam('allowfullscreen','true');
+		
+		// Allow the script access
 		$this->setParam('allowscriptaccess','always');
 		
 		// Set the FLV parm for the player
 		if(!empty($this->flv)){
-			$this->setFv('s_flv',$this->flv);
+			$this->setFv('file',$this->flv);
 		}
+		
+		// Set the image
+		$this->setFv('image',$this->image);
+		
 		
 		// Set the param with all the flashvars
 		$this->setParam('flashvars',$this->getFv());
@@ -163,7 +174,7 @@ class rp_splayer {
 		'</object>'."\n";
 		
 		// For the SWFObject registrations
-		if(!$this->mobile){
+		if(!$this->mobile && $inc_js){
 			$html .= '<script type="text/javascript">'."\n<!--\n".'swfobject.registerObject("'.$this->id.'", "9.0.115");'."\n//-->\n".'</script>';
 		}
 		
@@ -197,7 +208,7 @@ function StreamVideo_trim($str){
 	return trim(preg_replace('/^(\xc2|\xa0|\x20|\x09|\x0a|\x0d|\x00|\x0B)|(\xc2|\xa0|\x20|\x09|\x0a|\x0d|\x00|\x0B)$/', '', $str)); 
 }
 // To handle version on JS files
-$StreamVideoVersion = '0.7.9';
+$StreamVideoVersion = '1.0.0';
 
 // To handle ids
 $videoid = 0;
@@ -249,7 +260,9 @@ function StreamVideo_Parse($content){
 
 // Render each player instance
 function StreamVideo_Render($matches){
-	global $videoid, $site_url, $player, $StreamVideoVersion, $StreamVideoSingle;
+	global $videoid, $site_url, $player, $StreamVideoVersion, $StreamVideoSingle, $post;
+	// Not necesary flashvars >>
+	$noflashvar = explode(',','share,embed,logo,onlyonsingle,img,width,height,useobjswf,wrapper,bandwidth');
 	
 	$cmd = $matches[1];
 	
@@ -299,7 +312,7 @@ function StreamVideo_Render($matches){
 	} else {
 		// if not defined and not set in settings, use default
 		if ($options[0][1]['v'] == ''){
-			$img_fqt = $site_url.'/'.'wp-content/plugins/stream-video-player/default.gif';
+			$img_fqt = $site_url.'/wp-content/plugins/stream-video-player/default.gif';
 		} else {
 			$img_fqt = $options[0][1]['v'];
 		}
@@ -320,29 +333,74 @@ function StreamVideo_Render($matches){
 
 	// Restart the HTML Player Generator
 	$player->restart();
+	$StreamVideo_jwp = array();
 	
+	/////
 	// Set all the settings acording to the specified arguments and default options
+	/////
+	
+	// HTML Wraper
 	$player->wrapper=$options[3][1]['v'];
-	$player->swf=$site_url.'/wp-content/plugins/stream-video-player/streamplayer.swf?ver='.$StreamVideoVersion;
-	$player->flv=StreamVideo_trim($arguments['flv']);
+	
+	// SWF Player
+	$player->swf = $site_url.'/wp-content/plugins/stream-video-player/player.swf?ver='.$StreamVideoVersion;
+	
+	// FLV Video to load
+	$player->flv = StreamVideo_trim($arguments['flv']);
+	
+	// iPhone MP4
 	if(!empty($arguments['mp4'])){
-		$player->mp4=StreamVideo_trim($arguments['mp4']);
+		$player->mp4 = StreamVideo_trim($arguments['mp4']);
 	}
-	$player->id='svdo_'.$videoid;
-	$player->name='svdo_'.$videoid;
-	$player->width=$options[1][0]['v'];
-	$player->height=$options[1][1]['v'];
-	$player->image=StreamVideo_trim($img_fqt); $player->setFv('s_streamer', $site_url.'/wp-content/plugins/stream-video-player/streamer.php');
 	
-	// set the HD
+	// HTML id of the player
+	$player->id = 'svdo_'.$videoid;
+	
+	// HTML Name of the player
+	$player->name = 'svdo_'.$videoid;
+	
+	// Width
+	$player->width = $options[1][0]['v'];
+	
+	// Height
+	$player->height = $options[1][1]['v'];
+	
+	// Image preview
+	$player->image = StreamVideo_trim($img_fqt);
+	
+	/////
+	// FlashVars
+	/////
+
+	
+	// Set the HD
 	if(!empty($arguments['hd'])){
-		$player->setFv('s_hd', StreamVideo_trim($arguments['hd']));
+		$player->setFv('hd.file', StreamVideo_trim($arguments['hd']));
+		// Add the HD plugin to JW Player
+		$StreamVideo_jwp[]='hd';
 	}
 	
-	// set the embed
-	if($arguments['embed']=='true'){
-		$player->setFv('s_embed', 'true');
+	// Set the Captions >>
+	if(!empty($arguments['captions'])){
+		$StreamVideo_jwp[]='captions';
+		$player->setFv('captions.file', StreamVideo_trim($arguments['captions']));
+		if(!empty($arguments['captions.fontsize'])){
+			$player->setFv('captions.fontsize', StreamVideo_trim($arguments['captions.fontsize']));
+		}
+		if(!empty($arguments['captions.fontsize'])){
+			$player->setFv('captions.fontsize', StreamVideo_trim($arguments['captions.fontsize']));
+		}
+		if(!empty($arguments['captions.state'])){
+			$player->setFv('captions.state', StreamVideo_trim($arguments['captions.state']));
+		}
+		if(!empty($arguments['captions.margin'])){
+			$player->setFv('captions.margin', StreamVideo_trim($arguments['captions.margin']));
+		}else{
+			$player->setFv('captions.margin', 20);
+		}
 	}
+	// Set the Captions <<
+	
 	
 	for ($i=0; $i<count($options);$i++){
 		// Override all default parameters with the specified arguments
@@ -352,24 +410,111 @@ function StreamVideo_Render($matches){
 			}
 			if ($value['v'] != ''){
 				$tvar = $value['on'];
-				
 				if($tvar == 'skin'){
 					// If it's a "skin"
 					if(StreamVideo_trim($value['v'])!='default'){
 						// for custom skins
-						$player->setFv('s_'.$tvar,$site_url.'/wp-content/plugins/stream-video-player/skins/'.StreamVideo_trim($value['v']).'.swf?ver='.$StreamVideoVersion);
+						$player->setFv('skin',$site_url.'/wp-content/plugins/stream-video-player/skins/'.StreamVideo_trim($value['v'])); //.'?ver='.$StreamVideoVersion
 					}
-				}else if($tvar != 'skin' && $tvar != 'width' && $tvar != 'height' && $tvar != 'useobjswf' && $tvar != 'wrapper'){
+				}else if($tvar != 'skin'){
 					// set the rest of parameters but not if they are skin, width, height, useobjswf or wrapper
-					$player->setFv('s_'.$tvar,StreamVideo_trim($value['v']));
+					$player->setFv(strtolower($tvar),StreamVideo_trim($value['v']));
 				}		
 			}
 		}
 	}
 	
+	
+
+	// Set the provider for JW Player >>
+	$providers = explode(',','video,sound,image,youtube,http,rtmp');
+	foreach($providers as $p){
+		if($player->flashvars['provider']==$p){
+			$player->setFv('provider',$p);
+			break;
+		}
+	}
+	if(empty($player->flashvars['provider'])){
+		$player->setFv('provider','http');
+	}
+	// Set the provider for JW Player <<
+	
+	// Set the streamer URL
+	/*if($player->flashvars['provider']!='http'){
+		unset($player->flashvars['streamer']);
+	}*/
+	
+	// Set the controlbar for JW Player >>
+	if(empty($player->flashvars['controlbar'])){
+		$player->setFv('controlbar','over');
+	}
+	// Set the controlbar for JW Player <<
+
+	// Set the bufferlength for JW Player (legacy for the bandwidth param)
+	$fvbw = $player->flashvars['bandwidth'];
+	if(!empty($fvbw)){
+		if($fvbw=='low'){
+			$player->setFv('bufferlength','30');
+		}else if($fvbw=='med'){
+			$player->setFv('bufferlength','10');
+		}else if($fvbw=='high'){
+			$player->setFv('bufferlength','5');
+		}
+	}
+	
+	// Set the logo
+	if(!empty($player->flashvars['logo'])){
+		$player->setFv('logo.file',$player->flashvars['logo']);
+	}
+	
+	// Set the sharing URL
+	if(!empty($player->flashvars['share'])){
+		if($player->flashvars['share'] == 'true'){
+			$StreamVideo_jwp[]='sharing';
+			$thispost = get_post($post->ID);
+			$player->setFv('sharing.link',urlencode($thispost->guid));
+		}
+	}
+	
+	
+	// Set the plugins
+	if(count($StreamVideo_jwp)>0){
+		$player->setFv('plugins', implode(',',$StreamVideo_jwp));
+	}
+	
 	// To control the object id
 	$videoid++;
 	
+	// Set the Embed Code
+	if(!empty($player->flashvars['embed'])){
+		if($player->flashvars['embed']=='true'){	
+			// Remove not necesary flashvars
+			foreach($noflashvar as $rfv){
+				unset($player->flashvars[$rfv]);
+			}
+			
+			// Get HTML
+			$embedhtml = $player->getHTML($StreamVideoSingle,false);
+			// Remove some spaces
+			$embedhtml = ereg_replace("/\n\r|\r\n|\n|\r/", "", $embedhtml);
+			$embedhtml = preg_replace("/\t/", "", $embedhtml);
+			
+			// Set the embed code
+			$player->setFv('sharing.code',urlencode($embedhtml));
+			
+			// Check if sharing plugin is set
+			if(!in_array('sharing',$StreamVideo_jwp)){
+				$StreamVideo_jwp[]='sharing';
+				$player->setFv('plugins', implode(',',$StreamVideo_jwp));
+			}
+		}		
+	}
+	
+	// Remove not necesary flashvars
+	foreach($noflashvar as $rfv){
+		unset($player->flashvars[$rfv]);
+	}
+
 	// Generate and return the HTML
 	return $player->getHTML($StreamVideoSingle);
 	
@@ -385,19 +530,15 @@ function StreamVideoReadSkins(){
 	// Get the skin directory (a better aproach!)
 	$skins_dir = dirname(__FILE__).'/skins/';
 	$skins = array();
-	
-	//echo "<pre>";
-	//echo print_r($options);
-	//echo "</pre>";
-	
+		
 	// Pull the swf's listed in the skins folder to generate the dropdown list with valid skin files
 	chdir($skins_dir);
 	if ($handle = opendir($skins_dir)){
 		while (false !== ($file = readdir($handle))){
 			if ($file != "." && $file != ".."){
 				$ext = strrchr($file, '.');
-				if($ext == '.swf'){
-					$skins[] = substr($file, 0, -strlen($ext));
+				if($ext == '.swf' || $ext == '.zip'){
+					$skins[] = $file;//substr($file, 0, -strlen($ext));
 				}
 			}
 		}
@@ -549,12 +690,24 @@ function StreamVideoLoadDefaults(){
 	$f[1][2]['dn'] = __('Skin', 'stream-video-player');
 	$f[1][2]['t'] = 'dd';
 	$f[1][2]['v'] = 'default';
-	$f[1][2]['op'] = array('default', 'iTube', 'iMeo', 'iMeta');
+	$f[1][2]['op'] = array('default');
 	
 	$f[1][3]['on'] = 'logo';
 	$f[1][3]['dn'] = __('Logo', 'stream-video-player');
 	$f[1][3]['t'] = 'tx';
 	$f[1][3]['v'] = '';
+	
+	$f[1][5]['on'] = 'dock';
+	$f[1][5]['dn'] = __('Dock', 'stream-video-player');
+	$f[1][5]['t'] = 'dd';
+	$f[1][5]['v'] = 'true';
+	$f[1][5]['op'] = array('true', 'false');
+	
+	$f[1][4]['on'] = 'controlbar';
+	$f[1][4]['dn'] = __('Control Bar', 'stream-video-player');
+	$f[1][4]['t'] = 'dd';
+	$f[1][4]['v'] = 'over';
+	$f[1][4]['op'] = array('bottom', 'over', 'none');
 
 	//Behavior
 
@@ -569,7 +722,29 @@ function StreamVideoLoadDefaults(){
 	$f[2][1]['v'] = '90';
 	$f[2][1]['op'] = array('0', '10', '20', '30', '40', '50', '60', '70', '80', '90', '100');
 	
+	$f[2][2]['on'] = 'share';
+	$f[2][2]['dn'] = __('Show Share URL', 'stream-video-player');
+	$f[2][2]['t'] = 'cb';
+	$f[2][2]['v'] = 'false';
+	
+	$f[2][3]['on'] = 'embed';
+	$f[2][3]['dn'] = __('Show Embed HTML Code', 'stream-video-player');
+	$f[2][3]['t'] = 'cb';
+	$f[2][3]['v'] = 'false';
+	
 	// System
+
+	$f[3][4]['on'] = 'provider';
+	$f[3][4]['dn'] = __('Default media provider<br /><small>http = pseudo-streaming</small>', 'stream-video-player');
+	$f[3][4]['t'] = 'dd';
+	$f[3][4]['v'] = 'http';
+	$f[3][4]['op'] = array('video', 'sound', 'image', 'youtube', 'http', 'rtmp');
+	
+	$f[3][5]['on'] = 'streamer';
+	$f[3][5]['dn'] = __('Pseudo-Streamer URL', 'stream-video-player');
+	$f[3][5]['t'] = 'tx';
+	$f[3][5]['v'] = get_option('siteurl').'/wp-content/plugins/stream-video-player/streamer.php';
+
 
 	$f[3][0]['on'] = 'bandwidth';
 	$f[3][0]['dn'] = __('Bandwidth', 'stream-video-player');
