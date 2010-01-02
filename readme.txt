@@ -4,7 +4,7 @@ Donate link: http://www.rodrigopolo.com/about/wp-stream-video/donate
 Tags: stream, video, flv, mp4, flash, swf, iphone, player, wordpress, plugin, media
 Requires at least: 2.2.2
 Tested up to: 2.9.0
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 
 Stream Video Player for WordPress its one stop solution for high quality video publishing for web or iPhone.
 
@@ -113,6 +113,9 @@ FLVMeta runs on Windows, Mac OS X and Linux and it's extremely faster, low footp
 * Cleaning up the FLA Player and release the source.
 
 == Changelog ==  
+
+= 1.0.1 =
+Minor problem with streamer.php fixed.
 
 = 1.0.0 = 
 * Now using a very custom and fine tuned build of the JW Player version 5 SVN 764, Legacy GNU Player in the next release, bugs and known issue on the JW Player can be checked here: http://developer.longtailvideo.com/trac/report/
