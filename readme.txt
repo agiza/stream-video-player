@@ -3,14 +3,14 @@ Contributors: Rodrigo Polo
 Donate link: http://www.rodrigopolo.com/about/wp-stream-video/donate
 Tags: stream, video, flv, mp4, flash, swf, iphone, player, wordpress, plugin, media
 Requires at least: 2.2.2
-Tested up to: 2.8.4
-Stable tag: 0.7.9
+Tested up to: 2.9.0
+Stable tag: 1.0.0
 
-Stream Video Player for WordPress it's one stop solution for high quality video publishing for web or iPhone.
+Stream Video Player for WordPress its one stop solution for high quality video publishing for web or iPhone.
 
 == Description ==
 
-Stream Video Player for WordPress is the complete solution for video publishing on blogs, most public sites for video publishing have some limits on the video size or time, with this plug-in the only limit it's your host capacity, you can seek in any place and the video start in that position without having to load the entire video.
+Stream Video Player for WordPress is the complete solution for video publishing on blogs, most public sites for video publishing have some limits on the video size or time, with this plug-in the only limit it's your host capacity, you can seek in any place and the video start in that position without having to load the entire video thanks to the pseudo-streaming technique.
 
 Important Links:
 
@@ -21,14 +21,16 @@ Important Links:
 * <a href="http://www.rodrigopolo.com/about/wp-stream-video/faq" title="Stream Video Player FAQ">FAQ</a>
 
 = Features =
-
-* Timeless videos, you can upload more than 24hrs videos if you want.
 * Random access to any position on the video thanks to the pseudo streaming technique
+* Embed code generator for any video.
+* Captions (subtitles) capable.
+* Social sharing and video URL sharing.
 * iPhone, WPTouch, MobilePress and feeds compatible.
-* Only open source software needed for video encoding
-* Multi-Language (Currently English, Spanish and Russian)
-* I made every component of this player, so the source code of the Flash file will be available in the mean time (First I need to clean up the code a little).
-* The player is made thinking about customization, so it has already a full skin capability, and you can make your own skin very easily with the Flash IDE.
+* Skins capable thanks to JW Media Player it can load SWF and XML-PNG custom skins.
+* Multi-Language (Currently English, Spanish, French and Russian)
+* Based on a very fine tuned custom build of the JW Media Player Version 5 Build 764.
+* Only open source software needed for video encoding.
+* JW Media Player plug-ins supported
 * 100% Standard code
 
 
@@ -50,6 +52,11 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
+IMPORTANT: This plug-in use a fine tuned custom build of the JW Player
+The JW Player is free to use in non-commercial websites, for commercial 
+websites you need to buy a license, for more 
+information check https://www.longtailvideo.com/players/order/license/ 
+
 == Installation ==
 
 1. Download and unzip the current version of the Stream Video Player plugin.
@@ -61,19 +68,25 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 = What's new in the latest version? =
 
-* There was a problem with the IE conditional comments that affect some FireFox versions, fixed.
-* The streamer.php has some issues with some older PHP versions, Fixed but PHP5 IT'S RECOMENDED.
-* Some fixes to the SWF Player.
-* Some fixes to the default values in the tag generator.
-* An experimental BUT NOT FINAL FLA skin for your tests it's now included.
-* New screencasts online to learn how to use it, English and Spanish.
+* Now using a very custom and fine tuned build of the JW Player version 5 SVN 764, Legacy GNU Player in the next release, bugs and known issue on the JW Player can be checked here: http://developer.longtailvideo.com/trac/report/
+* New! Captions capable player, now you can add text captions to your videos, information on how to make your captions.xml available soon on the plug-in page.
+* New! URL Sharing option - Use "share=true" and the URL is Generated automatically.
+* New! Embed option - Use "embed=true" and the embed code is Generated automatically AND it is persistent in other sites that use you’re embed code, IMPORTANT In order to share your video player you need to place the included file crossdomain.xml in your domain root directory, more information at: http://kb2.adobe.com/cps/142/tn_14213.html
+* Added French translation by Stéphane Benoit, because this is a major release some parts can be not well translated but will be updated.
+* Pseudo-streaming now optional, you can choose you can choose whether or not to use the streaming by selecting other provider. 
+* Pseudo streaming script can be placed on other domains.
+* Update on streamer.php to show URL errors and hide PHP warnings.
+* New! YouTube and other formats supported. Now you can load many other media using the "provider" parameter in the stream tag, the current supported media is the same supported by JW Player, "video" for progressively downloaded FLV / MP4 video, but also AAC audio, "sound" for progressively downloaded MP3 files, "image" for JPG/GIF/PNG images, "youtube" for videos from Youtube, "http" for FLV/MP4 videos played as http pseudo-streaming, "rtmp" for FLV/MP4/MP3 files played from an RTMP server.
+* Fix in embed code, "wmode" param set to "opaque" by default to prevent HTML overlapping.
+* COMING SOON: Server side encoding, Media Library Integration and a Multi-Platform Desktop Graphic Application to encode and upload your videos directly to your WordPress blog.
+* IMPORTANT NOTE: After several tests I have decided to use FLVMeta as the metadata injection utility for FLV Videos, is extremely faster, very very very low footprint on CPU and RAM and of course, can handle very large videos, can inject the “with” and “height” and is multi-platform, download at http://code.google.com/p/flvmeta/ (BinKit release coming soon: http://www.rodrigopolo.com/about/wp-stream-video/ffmpeg-binary-installers-for-win-mac-and-linux ).
 
 
 = I have activated the plugin, but don't see the video player. What do I do? =
 
 Check and make sure that you have the appropriate hook in your template file for the header: '<?php wp_head(); ?>'
 
-= I recieve video a red error message on the player. What can be wrong? =
+= I receive video a red error message on the player. What can be wrong? =
 
 Check and make sure that you are using absolute urls like "http://yourblog.com/yourvideo.flv" and not relative urls like "../video.flv"
 AND BE CERTAIN to have all videos in your site and on the same domain
@@ -82,8 +95,8 @@ Important Note: This plug-in requires PHP 5 to work correctly
 
 = I can't scroll (or scrub) the video. What can be wrong? =
 In order to use the random access feature, your videos must be injected with flv metadata.
-You will need "Yamdi" for this, you can download and install it from here: http://yamdi.sourceforge.net/ or use the intaller I on this site.
-Yamdi runs on Windows, Mac OS X and Linux and it's the faster free open source injection tool.
+You will need "FLVMeta" for this, you can download and install it from here: http://code.google.com/p/flvmeta/ or use the installer I on this site.
+FLVMeta runs on Windows, Mac OS X and Linux and it's extremely faster, low footprint on CPU and RAM, easy to use and free open source.
 
 = How can I get help? =
 
@@ -101,11 +114,25 @@ Yamdi runs on Windows, Mac OS X and Linux and it's the faster free open source i
 
 == Changelog ==  
 
+= 1.0.0 = 
+* Now using a very custom and fine tuned build of the JW Player version 5 SVN 764, Legacy GNU Player in the next release, bugs and known issue on the JW Player can be checked here: http://developer.longtailvideo.com/trac/report/
+* New! Captions capable player, now you can add text captions to your videos, information on how to make your captions.xml available soon on the plug-in page.
+* New! URL Sharing option - Use "share=true" and the URL is Generated automatically.
+* New! Embed option - Use "embed=true" and the embed code is Generated automatically AND it is persistent in other sites that use you’re embed code, IMPORTANT In order to share your video player you need to place the included file crossdomain.xml in your domain root directory, more information at: http://kb2.adobe.com/cps/142/tn_14213.html
+* Added French translation by Stéphane Benoit, because this is a major release some parts can be not well translated but will be updated.
+* Pseudo-streaming now optional, you can choose you can choose whether or not to use the streaming by selecting other provider. 
+* Pseudo streaming script can be placed on other domains.
+* Update on streamer.php to show URL errors and hide PHP warnings.
+* New! YouTube and other formats supported. Now you can load many other media using the "provider" parameter in the stream tag, the current supported media is the same supported by JW Player, "video" for progressively downloaded FLV / MP4 video, but also AAC audio, "sound" for progressively downloaded MP3 files, "image" for JPG/GIF/PNG images, "youtube" for videos from Youtube, "http" for FLV/MP4 videos played as http pseudo-streaming, "rtmp" for FLV/MP4/MP3 files played from an RTMP server.
+* Fix in embed code, "wmode" param set to "opaque" by default to prevent HTML overlapping.
+* COMING SOON: Server side encoding, Media Library Integration and a Multi-Platform Desktop Graphic Application to encode and upload your videos directly to your WordPress blog.
+* IMPORTANT NOTE: After several tests I have decided to use FLVMeta as the metadata injection utility for FLV Videos, is extremely faster, very very very low footprint on CPU and RAM and of course, can handle very large videos, can inject the “with” and “height” and is multi-platform, download at http://code.google.com/p/flvmeta/ (BinKit release coming soon: http://www.rodrigopolo.com/about/wp-stream-video/ffmpeg-binary-installers-for-win-mac-and-linux ).
+
 = 0.7.9 = 
 * Fix in the option "Show player only on single pages" to work on single posts AND pages
 
 = 0.7.8 = 
-* Added the option to to choose to show the player only on single pages, this is because "the_excerpt" function strips the HTML from the player.
+* Added the option to choose to show the player only on single pages, this is because "the_excerpt" function strips the HTML from the player.
 * Added the "ru_Ru" translation file thanks to [Fat Cow](http://fatcow.com).
 * A huge fix to the way the language loads in the settings page
 
@@ -114,8 +141,8 @@ Yamdi runs on Windows, Mac OS X and Linux and it's the faster free open source i
 * Now you can click on the bar to go to any place in the video, TAKE NOTE: The stream goes to the closest key frame to the place you clicked, NOT the exactly place where you clicked.
 * A Bug in the way the plug-in include the SWFObject fixed (thanks to Korin Unka advice).
 * A bug generated in v0.7.6 with the title fixed (thanks to Bastiaan Bergman advice).
-* The conditional comments issue revisited, if you have problems with those, use PHP5 (thanks to Walter sugestion).
-* The HD button now enables or disables the HD option AND you can see which option is with the button transparency (thanks to Bastiaan Bergman sugestion).
+* The conditional comments issue revisited, if you have problems with those, use PHP5 (thanks to Walter suggestion).
+* The HD button now enables or disables the HD option AND you can see which option is with the button transparency (thanks to Bastiaan Bergman suggestion).
 
 
 = 0.7.6 = 
@@ -128,31 +155,8 @@ Yamdi runs on Windows, Mac OS X and Linux and it's the faster free open source i
 = 0.7.5 = 
 * Fix to de wmode in the Flash Embed.
 * Changes to prepare the EMBED option.
-* Adding the crossdomain.xml to prepere for the EMBED option.
+* Adding the crossdomain.xml to prepare for the EMBED option.
 
-= 0.7.4 = 
-* Conditional comments fix.
-* streamer.php Fixed but PHP5 IT'S RECOMENDED.
-* Some fixes to the SWF Player.
-* Some fixes to the default values in the tag generator.
-* An experimental FLA skin for tests it's included.
-* New screencasts online to learn how to use it, English and Spanish.
-
-= 0.7.3 =  
-* An upgrade to fix a compatibility with other plug-ins.
-
-= 0.7.2 =  
-* The HD option it's completed and working.
-* Some optimizations on the SWF.
-* The PHP Class it's working with older PHP versions. (Syntax fixed).
-   
-= 0.7 =  
-* A little problem with the use of WWW on the FLV URL Fixed.
-* PHP Pseudo Streamer URL fixed.
-* Future options disabled to prevent confusion.
-   
-= 0.6 =  
-* First beta release.
 
 == Screenshots ==
 
@@ -160,4 +164,3 @@ Yamdi runs on Windows, Mac OS X and Linux and it's the faster free open source i
 2. Tag Generator Button.
 3. Tag Generator Panel.
 4. Plugin Settings.
-5. Stream Video Player Time Tooltip.
