@@ -73,7 +73,7 @@ class rp_splayer {
 	
 
 	// Return a string with all the text of the code
-	function getHTML($single,$inc_js=true){
+	function getHTML($inc_js=true){
 		
 		// Mobile detector
 		$container = $_SERVER['HTTP_USER_AGENT'];
@@ -171,25 +171,27 @@ class rp_splayer {
 		'<!--[if !IE]>-->'."\n".
 		'</object>'."\n".
 		'<!--<![endif]-->'."\n".
-		'</object>'."\n";
+		'</object>'."\n".
+		'<style>object {outline:none;}</style>';
+		
+
+		
+		// Remove some spaces
+		$html = ereg_replace("/\n\r|\r\n|\n|\r/", "", $html);
+		$html = preg_replace("/\t/", "", $html);
+		
 		
 		// For the SWFObject registrations
 		if(!$this->mobile && $inc_js){
-			$html .= '<script type="text/javascript">'."\n<!--\n".'swfobject.registerObject("'.$this->id.'", "9.0.115");'."\n//-->\n".'</script>';
+			$html .= "\n".'<script type="text/javascript">'."\n<!--\n".'swfobject.registerObject("'.$this->id.'", "9.0.115");'."\n//-->\n</script>\n";
 		}
 		
+		// make the final code
+		$embedcode = $html.$wrp_b;
 		
-		// To show the result ONLY if it is ingle
-		if($single){
-			if(is_single() || is_page()){
-				return $html.$wrp_b;
-			}else{
-				return '(Video)';
-			}
-		}else{
-			return $html.$wrp_b;
-		}
-		
+		// return the code
+		return $embedcode;
+
 
 	}
 	
@@ -494,10 +496,7 @@ function StreamVideo_Render($matches){
 			}
 			
 			// Get HTML
-			$embedhtml = $player->getHTML($StreamVideoSingle,false);
-			// Remove some spaces
-			$embedhtml = ereg_replace("/\n\r|\r\n|\n|\r/", "", $embedhtml);
-			$embedhtml = preg_replace("/\t/", "", $embedhtml);
+			$embedhtml = $player->getHTML(false);
 			
 			// Set the embed code
 			$player->setFv('sharing.code',urlencode($embedhtml));
@@ -516,7 +515,18 @@ function StreamVideo_Render($matches){
 	}
 
 	// Generate and return the HTML
-	return $player->getHTML($StreamVideoSingle);
+	
+	if($StreamVideoSingle){
+		if(is_single() || is_page()){
+			return $player->getHTML();
+		}else{
+			return '(Video)';
+		}
+	}else{
+		return $player->getHTML();
+	}
+	
+	
 	
 }
 
