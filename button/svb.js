@@ -28,35 +28,45 @@ var RodrigoPolo = window.RodrigoPolo || {};
 	// to validate and generate the tag
 	var vt = function(id){
 		var form = jQuery('#'+id).val();
-		/*if(form==''){
+		if(form==''){
+			return '';
+		}else if(form.substring(0, 22)=='http://www.youtube.com' || form.substring(0, 18)=='http://youtube.com'){
+			return ' '+id+'='+escape(form);
+		}else if(id=='provider' && form=='http'){
+			return '';
+		}else if(id=='skin' && form=='default'){
+			return '';
+		}else if(id=='opfix' && form=='false'){
 			return '';
 		}else{
-			return ' '+tag+'='+form
-		}*/
-		return (form=='' || form == 'false' || form == 'default')?'':' '+id+'='+form;
+			return ' '+id+'='+form;
+		}
+		//return (form=='' || form == 'false' || form == 'default')?'':' '+id+'='+escape(form);
 	}
 	// to build tag
 	var buildTag = function() {
 		return '[stream'+
-			vt('flv')+
-			vt('width')+
-			vt('height')+
-			vt('img')+
-			vt('bandwidth')+
-			vt('mp4')+
-			vt('hd')+
-			vt('captions')+
-			vt('title')+
-			vt('volume')+
-			vt('dock')+
-			vt('controlbar')+
 			vt('provider')+
-			vt('streamer')+
-			vt('skin')+
-			vt('logo')+
-			vt('autostart')+
+			vt('base')+
+			vt('flv')+
+			vt('img')+
+			vt('hd')+
+			vt('mp4')+
+			vt('captions')+
 			vt('embed')+
 			vt('share')+
+			vt('width')+
+			vt('height')+
+			vt('dock')+
+			vt('controlbar')+
+			vt('skin')+
+			vt('logo')+
+			vt('bandwidth')+
+			vt('title')+
+			vt('volume')+
+			vt('autostart')+
+			vt('streamer')+
+			vt('opfix')+
 			' /]';
 	};
 	// to insert tag

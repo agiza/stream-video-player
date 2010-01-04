@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Stream Video Player
-Version: 1.0.1
+Version: 1.0.2
 Plugin URI: http://www.rodrigopolo.com/about/wp-stream-video
 Description: The best way to include Stream Video to your blog, iPhone and HD video compatible. (SWFObject by Geoff Stearns)
 Author: Rodrigo Polo
@@ -35,7 +35,7 @@ Copyright (C) 2009  Rodrigo J. Polo
 class rp_splayer {
 	
 	// Public vars
-	var $swf, $flv, $mp4, $id, $name, $width, $height, $image, $wrapper;
+	var $swf, $flv, $mp4, $id, $name, $width, $height, $image, $opfix, $wrapper;
 	var $message='<div style="background-color:#ff9;padding:10px;">You need to install or upgrade Flash Player to view this content, install or upgrade here:<br /><a href="http://www.adobe.com/go/getflashplayer"> <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></div>';
 	
 	// Private vars, params and flashvars
@@ -69,6 +69,12 @@ class rp_splayer {
 			$flva[]=htmlspecialchars($key).'='.htmlspecialchars($value);
 		}
 		return implode('&amp;',$flva);
+	}
+	
+	// remove breacklines
+	function remove_breacklines($str){
+		$str = ereg_replace("/\n\r|\r\n|\n|\r/", "", $str);
+		return preg_replace("/\t/", "", $str);
 	}
 	
 
@@ -135,7 +141,9 @@ class rp_splayer {
 		$this->setParam('quality','high');
 		
 		// Set wmode to opaque to fix the overlaping elements with flash
-		$this->setParam('wmode','opaque');
+		if($this->opfix==true){
+			$this->setParam('wmode','opaque');
+		}
 		
 		// Allow the fullscreen mode
 		$this->setParam('allowfullscreen','true');
@@ -171,14 +179,14 @@ class rp_splayer {
 		'<!--[if !IE]>-->'."\n".
 		'</object>'."\n".
 		'<!--<![endif]-->'."\n".
-		'</object>'."\n".
-		'<style>object {outline:none;}</style>';
+		'</object>'."\n";
 		
+		if($this->opfix==true){
+			$html .= '<style>object {outline:none;}</style>';
+		}
 
-		
 		// Remove some spaces
-		$html = ereg_replace("/\n\r|\r\n|\n|\r/", "", $html);
-		$html = preg_replace("/\t/", "", $html);
+		$html = $this->remove_breacklines($html);
 		
 		
 		// For the SWFObject registrations
@@ -197,7 +205,7 @@ class rp_splayer {
 	
 	// Restart the class
 	function restart(){
-		$this->swf=$this->flv=$this->mp4=$this->id=$this->name=$this->width=$this->height=$this->image=$this->wrapper='';
+		$this->swf=$this->flv=$this->mp4=$this->id=$this->name=$this->width=$this->height=$this->image=$this->opfix=$this->wrapper='';
 		$this->flashvars=$this->params = array();
 		$this->message='<div style="background-color:#ff9;padding:10px;">You need to install or upgrade Flash Player to view this video, install or upgrade here:<br />'.
 		'<a href="http://www.adobe.com/go/getflashplayer"> <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></div>';
@@ -210,7 +218,7 @@ function StreamVideo_trim($str){
 	return trim(preg_replace('/^(\xc2|\xa0|\x20|\x09|\x0a|\x0d|\x00|\x0B)|(\xc2|\xa0|\x20|\x09|\x0a|\x0d|\x00|\x0B)$/', '', $str)); 
 }
 // To handle version on JS files
-$StreamVideoVersion = '1.0.1';
+$StreamVideoVersion = '1.0.2';
 
 // To handle ids
 $videoid = 0;
@@ -299,6 +307,38 @@ function StreamVideo_Render($matches){
 	/**
 	 * Override default parameters 
 	 **/
+	 
+	// Check if there is a base url declared
+	if(!empty($arguments['base'])){
+		// arguments to add base url
+		$ar2up = explode(',','flv,img,mp4,hd,captions');
+		
+		// base url
+		$baseurl = StreamVideo_trim($arguments['base']);
+		
+		// remove base URL if found
+		foreach($ar2up as $sar2up){
+			if(!empty($arguments[$sar2up])){
+				$arguments[$sar2up] = str_ireplace($baseurl, '', $arguments[$sar2up]);
+			}
+		}
+		
+		// check if base url dont have / at the end
+		if(substr($baseurl, -1)!='/'){
+			$baseurl = $baseurl.'/';
+		}
+		
+		// change each argument
+		foreach($ar2up as $sar2up){
+			$carg = $arguments[$sar2up]; 
+			if(!empty($carg)){
+				if(substr($carg,0,1)=='/'){
+					$carg = substr($carg,1);
+				}
+				$arguments[$sar2up] = $baseurl.$carg;
+			}
+		}
+	}
 	
 	// Width
 	if (array_key_exists('width', $arguments)){
@@ -340,6 +380,13 @@ function StreamVideo_Render($matches){
 	/////
 	// Set all the settings acording to the specified arguments and default options
 	/////
+	
+	// wmode and style added if it requires a CSS OverLap Fix
+	$overlfix = StreamVideo_trim($arguments['opfix']);
+	if($overlfix=='true'){
+		$player->opfix = true;
+	}
+
 	
 	// HTML Wraper
 	$player->wrapper=$options[3][1]['v'];

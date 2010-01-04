@@ -1,4 +1,4 @@
-# Translation of the WordPress plugin Stream Video Player 1.0.0 by Rodrigo Polo.
+# Translation of the WordPress plugin Stream Video Player 1.0.2 by Rodrigo Polo.
 # Copyright (C) 2010 Rodrigo Polo
 # This file is distributed under the same license as the Stream Video Player package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Stream Video Player 1.0.0\n"
+"Project-Id-Version: Stream Video Player 1.0.2\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/stream-video-player\n"
-"POT-Creation-Date: 2010-01-01 15:16-0800\n"
+"POT-Creation-Date: 2010-01-04 08:52-0800\n"
 "PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,52 +34,60 @@ msgstr ""
 msgid "Stream Player Tag Atributes"
 msgstr ""
 
-#: config.php:53
-msgid "The absolute path to your file"
+#: config.php:55
+msgid ""
+"Set the media provider, &quot;http&quot; is for pseudo-streming and is "
+"enable by default, choose &quot;video&quot; for progressively downloaded "
+"FLV, MP4, and AAC audio, choose &quot;sound&quot; for progressively "
+"downloaded MP3 files, choose &quot;image&quot; for JPG/GIF/PNG images, "
+"choose &quot;youtube&quot; for videos from Youtube and &quot;rtmp&quot; for "
+"FLV/MP4/MP3 files played from an RTMP server."
 msgstr ""
 
-#: config.php:53
-msgid "Video for Player:"
+#: config.php:55
+msgid "Media provider:"
 msgstr ""
 
-#: config.php:59
-msgid "Width &times; height in pixels"
+#: config.php:71
+msgid ""
+"Base URL to save writing over and over again the full URL for the flv, img, "
+"mp4, hd and captions tags"
 msgstr ""
 
-#: config.php:59
-msgid "Dimensions:"
+#: config.php:71
+msgid "URL Base:"
 msgstr ""
 
-#: config.php:68
+#: config.php:77
+msgid "The absolute path to your file OR YouTube address"
+msgstr ""
+
+#: config.php:77
+msgid "Video:"
+msgstr ""
+
+#: config.php:83
 msgid "The absolute path to your image preview"
 msgstr ""
 
-#: config.php:68
+#: config.php:83
 msgid "Image Preview (.jpg):"
 msgstr ""
 
-#: config.php:74
-msgid "Set the desired bandwidth for cache and site bandwidth control"
-msgstr ""
-
-#: config.php:74
-msgid "Bandwidth:"
-msgstr ""
-
 #: config.php:89
-msgid "The absolute path to your MP4 video (for iPhone)"
-msgstr ""
-
-#: config.php:89
-msgid "Video for iPhone (.mp4):"
-msgstr ""
-
-#: config.php:95
 msgid "The absolute path to your HD video"
 msgstr ""
 
-#: config.php:95
+#: config.php:89
 msgid "HD Video for Player:"
+msgstr ""
+
+#: config.php:95
+msgid "The absolute path to your MP4 video (for iPhone)"
+msgstr ""
+
+#: config.php:95
+msgid "Video for iPhone (.mp4):"
 msgstr ""
 
 #: config.php:101
@@ -91,140 +99,153 @@ msgid "Captions (.xml):"
 msgstr ""
 
 #: config.php:107
-msgid "Your video title"
+msgid "Width &times; height in pixels"
 msgstr ""
 
 #: config.php:107
-msgid "Title:"
+msgid "Dimensions:"
 msgstr ""
 
-#: config.php:113
-msgid ""
-"Your video volume, from 0 to 100, if empty takes the default value on the "
-"plug-in settings"
+#: config.php:116
+msgid "Enable embed the player in other sites"
 msgstr ""
 
-#: config.php:113
-msgid "Volume:"
+#: config.php:116
+msgid "Enable Embed:"
 msgstr ""
 
-#: config.php:120
+#: config.php:126
+msgid "Enable the sharing of the URL of the post where the video is inserted"
+msgstr ""
+
+#: config.php:126
+msgid "Enable URL Share:"
+msgstr ""
+
+#: config.php:136
 msgid "Show the Dock for this player"
 msgstr ""
 
-#: config.php:120
+#: config.php:136
 msgid "Dock:"
 msgstr ""
 
-#: config.php:135
+#: config.php:151
 msgid "Set the Control Bar position and visibility"
 msgstr ""
 
-#: config.php:135
+#: config.php:151
 msgid "Control Bar:"
 msgstr ""
 
-#: config.php:151
-msgid ""
-"Set the media provider, &quot;http&quot; is for pseudo-streming and is "
-"enable by default, choose &quot;video&quot; for progressively downloaded "
-"FLV, MP4, and AAC audio, choose &quot;sound&quot; for progressively "
-"downloaded MP3 files, choose &quot;image&quot; for JPG/GIF/PNG images, "
-"choose &quot;youtube&quot; for videos from Youtube and &quot;rtmp&quot; for "
-"FLV/MP4/MP3 files played from an RTMP server."
-msgstr ""
-
-#: config.php:151
-msgid "Media provider:"
-msgstr ""
-
-#: config.php:169
-msgid ""
-"To use another pseudo streaming script on other server, if is empty it takes "
-"the default value on the plug-in settings."
-msgstr ""
-
-#: config.php:169
-msgid "Streamer:"
-msgstr ""
-
-#: config.php:177
+#: config.php:166
 msgid "Skin for this player"
 msgstr ""
 
-#: config.php:177
+#: config.php:166
 msgid "Skin:"
 msgstr ""
 
-#: config.php:192
+#: config.php:181
 msgid ""
 "The absolute path to your video player logo, if empty takes the default "
 "value on the plug-in settings"
 msgstr ""
 
-#: config.php:192
+#: config.php:181
 msgid "Logo (.jpg, .png, .flv):"
 msgstr ""
 
-#: config.php:199
+#: config.php:187
+msgid "Set the desired bandwidth for cache and site bandwidth control"
+msgstr ""
+
+#: config.php:187
+msgid "Bandwidth:"
+msgstr ""
+
+#: config.php:202
+msgid "Your video title"
+msgstr ""
+
+#: config.php:202
+msgid "Title:"
+msgstr ""
+
+#: config.php:208
+msgid ""
+"Your video volume, from 0 to 100, if empty takes the default value on the "
+"plug-in settings"
+msgstr ""
+
+#: config.php:208
+msgid "Volume:"
+msgstr ""
+
+#: config.php:214
 msgid "Auto Start the video with the Stream Player"
 msgstr ""
 
-#: config.php:199
+#: config.php:214
 msgid "Auto Start:"
 msgstr ""
 
-#: config.php:209
-msgid "Enable embed the player in other sites"
+#: config.php:224
+msgid ""
+"To use another pseudo streaming script on other server, if is empty it takes "
+"the default value on the plug-in settings."
 msgstr ""
 
-#: config.php:209
-msgid "Enable Embed:"
+#: config.php:224
+msgid "Streamer:"
 msgstr ""
 
-#: config.php:219
-msgid "Enable the sharing of the URL of the post where the video is inserted"
+#: config.php:234
+msgid ""
+"Fixes the HTML overlapping of the Flash Video by adding the parameter "
+"[wmode=opaue] and it adds a CSS style to prevent FireFox dotted frame around "
+"the video."
 msgstr ""
 
-#: config.php:219
-msgid "Enable URL Share:"
+#: config.php:234
+msgid "Fix HTML overlapping:"
 msgstr ""
 
-#: config.php:231
+#: config.php:246
 msgid "Generate"
 msgstr ""
 
-#: config.php:242
+#: config.php:257
 msgid ""
 "Stream Video: This tag generator isn't going to put the stream video tag in "
 "your code."
 msgstr ""
 
-#: stream-video-player.php:558
+#: stream-video-player.php:613
 msgid "Video Properties"
 msgstr ""
 
-#: stream-video-player.php:558
+#: stream-video-player.php:613
 msgid "Layout"
 msgstr ""
 
-#: stream-video-player.php:558
+#: stream-video-player.php:613
 msgid "Behavior"
 msgstr ""
 
-#: stream-video-player.php:558
+#: stream-video-player.php:613
 msgid "System"
 msgstr ""
 
-#: stream-video-player.php:587
+#: stream-video-player.php:642
 msgid "Options saved."
 msgstr ""
 
-#: stream-video-player.php:591
+#: stream-video-player.php:646
 msgid "Stream Video Options"
 msgstr ""
 
-#: stream-video-player.php:594
+#: stream-video-player.php:649
 msgid ""
 "Here you can set some default global options for all your videos, if you "
 "need help or more information on how to encode and prepare your video to be "
@@ -233,79 +254,79 @@ msgid ""
 "find a lot of free and open resources to encode your video."
 msgstr ""
 
-#: stream-video-player.php:636
+#: stream-video-player.php:691
 msgid "Update Options"
 msgstr ""
 
-#: stream-video-player.php:668
+#: stream-video-player.php:723
 msgid "Title"
 msgstr ""
 
-#: stream-video-player.php:673
+#: stream-video-player.php:728
 msgid "Preview Image"
 msgstr ""
 
-#: stream-video-player.php:680
+#: stream-video-player.php:735
 msgid "Player Width"
 msgstr ""
 
-#: stream-video-player.php:685
+#: stream-video-player.php:740
 msgid "Player Height"
 msgstr ""
 
-#: stream-video-player.php:690
+#: stream-video-player.php:745
 msgid "Skin"
 msgstr ""
 
-#: stream-video-player.php:696
+#: stream-video-player.php:751
 msgid "Logo"
 msgstr ""
 
-#: stream-video-player.php:701
+#: stream-video-player.php:756
 msgid "Dock"
 msgstr ""
 
-#: stream-video-player.php:707
+#: stream-video-player.php:762
 msgid "Control Bar"
 msgstr ""
 
-#: stream-video-player.php:715
+#: stream-video-player.php:770
 msgid "Auto Start"
 msgstr ""
 
-#: stream-video-player.php:720
+#: stream-video-player.php:775
 msgid "Startup Volume"
 msgstr ""
 
-#: stream-video-player.php:726
+#: stream-video-player.php:781
 msgid "Show Share URL"
 msgstr ""
 
-#: stream-video-player.php:731
+#: stream-video-player.php:786
 msgid "Show Embed HTML Code"
 msgstr ""
 
-#: stream-video-player.php:738
+#: stream-video-player.php:793
 msgid "Default media provider<br /><small>http = pseudo-streaming</small>"
 msgstr ""
 
-#: stream-video-player.php:744
+#: stream-video-player.php:799
 msgid "Pseudo-Streamer URL"
 msgstr ""
 
-#: stream-video-player.php:750
+#: stream-video-player.php:805
 msgid "Bandwidth"
 msgstr ""
 
-#: stream-video-player.php:756
+#: stream-video-player.php:811
 msgid "HTML Wrapper"
 msgstr ""
 
-#: stream-video-player.php:761
+#: stream-video-player.php:816
 msgid "Use SWFObject.js"
 msgstr ""
 
-#: stream-video-player.php:766
+#: stream-video-player.php:821
 msgid "Show player only on single pages"
 msgstr ""
 
