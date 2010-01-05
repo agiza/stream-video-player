@@ -1,4 +1,9 @@
 <?php
+// lame temporal fix for the contact-form-7 problem
+// http://wordpress.org/extend/plugins/contact-form-7/
+function wpcf7_add_tag_generator(){
+}
+
 /* Finding the path to the wp-admin folder */
 $iswin = preg_match('/:\\\/', dirname(__file__));
 $slash = ($iswin) ? "\\" : "/";
