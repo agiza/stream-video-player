@@ -25,6 +25,8 @@ var RodrigoPolo = window.RodrigoPolo || {};
 	Generator specific script
 */
 (RodrigoPolo.Tag.Generator = function(){
+	// tags to find
+	var tags = 'provider,base,flv,img,hd,mp4,captions,embed,share,width,height,dock,controlbar,skin,logo,bandwidth,title,volume,autostart,streamer,opfix'.split(',');				  
 	// to validate and generate the tag
 	var vt = function(id){
 		var form = jQuery('#'+id).val();
@@ -42,44 +44,97 @@ var RodrigoPolo = window.RodrigoPolo || {};
 			return ' '+id+'='+form;
 		}
 		//return (form=='' || form == 'false' || form == 'default')?'':' '+id+'='+escape(form);
-	}
+	};
 	// to build tag
 	var buildTag = function() {
-		return '[stream'+
-			vt('provider')+
-			vt('base')+
-			vt('flv')+
-			vt('img')+
-			vt('hd')+
-			vt('mp4')+
-			vt('captions')+
-			vt('embed')+
-			vt('share')+
-			vt('width')+
-			vt('height')+
-			vt('dock')+
-			vt('controlbar')+
-			vt('skin')+
-			vt('logo')+
-			vt('bandwidth')+
-			vt('title')+
-			vt('volume')+
-			vt('autostart')+
-			vt('streamer')+
-			vt('opfix')+
-			' /]';
+		var r = '[stream'; 
+		for (i=0;i<tags.length;i++){
+			r += vt(tags[i]);
+		}	
+		return r + ' /]';
 	};
+	
+	// get the selected text in the box
+	var getSel = function(){
+		var win = window.parent || window;
+		var ret = '';
+		if ( typeof win.tinyMCE !== 'undefined' && ( win.ed = win.tinyMCE.activeEditor ) && !win.ed.isHidden() ) {
+			win.ed.focus();
+			if (win.tinymce.isIE){
+				win.ed.selection.moveToBookmark(win.tinymce.EditorManager.activeEditor.windowManager.bookmark);
+			}
+			ret = win.tinymce.EditorManager.activeEditor.selection.getContent({format : 'text'});
+		} else {
+			var myField = win.edCanvas;
+			// IE
+			if (document.selection) {
+				myField.focus();
+				ret = (win.document.all) ? win.document.selection.createRange().text : win.document.getSelection();			
+			}
+			// Moxilla, Netscape
+			else if (myField.selectionStart || myField.selectionStart == '0') {
+				ret = myField.value.substring(myField.selectionStart, myField.selectionEnd);
+			} 
+		}
+		return (ret=='')?false:ret;
+	};
+	
+	// Tag parser
+	var parseTagEdit = function(){
+		// get selection
+		var selec = getSel();
+		if(selec != false){
+			// trim
+			selec = selec.replace(/^\s+|\s+$/g,'');
+			
+			// look for the ending poing
+			var endp = selec.lastIndexOf(' /]');
+			// if no ending point is found
+			if(endp == -1){
+				return;
+			}
+			
+			// look for the starting point
+			if(selec.substring(0,8) != '[stream '){
+				return;
+			}
+
+			// only params
+			selec = selec.substring(8, endp);
+			
+			// remove more than two white spaces
+			selec = selec.replace(/\s+/g, ' ')
+			
+			// get params separated by space
+			var params = selec.split(' ');
+			
+			// modify values
+			for (i=0;i<params.length;i++){
+				var parval = params[i].split('=');
+				jQuery('#'+parval[0]).val(parval[1]);
+			}			
+		}
+		
+/*
+[stream provider=video base=1 flv=2 img=3 hd=4 mp4=5 captions=6 embed=true share=true width=7 height=8 dock=true controlbar=bottom skin=beelden.zip logo=14 bandwidth=low title=16 volume=17 autostart=true streamer=19 opfix=true /]
+*/
+		
+	};
+	
 	// to insert tag
 	var insertTag = function() {
+		
+		
 		
 		var tag = buildTag() || "";
 		var win = window.parent || window;
 				
 		if ( typeof win.tinyMCE !== 'undefined' && ( win.ed = win.tinyMCE.activeEditor ) && !win.ed.isHidden() ) {
 			win.ed.focus();
-			if (win.tinymce.isIE)
+			if (win.tinymce.isIE){
 				win.ed.selection.moveToBookmark(win.tinymce.EditorManager.activeEditor.windowManager.bookmark);
-
+			}
+						
 			win.ed.execCommand('mceInsertContent', false, tag);
 		} else {
 			win.edInsertContent(win.edCanvas, tag);
@@ -98,6 +153,7 @@ var RodrigoPolo = window.RodrigoPolo || {};
 				e.preventDefault();
 				insertTag();
 			});
+			parseTagEdit();
 		}
 	};
 }());

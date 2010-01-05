@@ -3,8 +3,8 @@ Contributors: Rodrigo Polo
 Donate link: http://www.rodrigopolo.com/about/wp-stream-video/donate
 Tags: stream, video, flv, mp4, flash, swf, iphone, player, wordpress, plugin, media
 Requires at least: 2.2.2
-Tested up to: 2.9.0
-Stable tag: 1.0.2
+Tested up to: 2.9.1
+Stable tag: 1.0.3
 
 Stream Video Player for WordPress its one stop solution for high quality video publishing for web or iPhone.
 
@@ -67,6 +67,7 @@ information check https://www.longtailvideo.com/players/order/license/
 == Frequently Asked Questions ==
 
 = What's new in the latest version? =
+* NEW! Now you can edit your video tags by selecting them and pressing the "tag generator" button.
 * NEW! Added the "base" URL parameter into the video tag to save writing over and over again the full URL for the tags flv, img, mp4, hd and captions.
 * FIXED! HD, Share and Captions Plug-Ins included.
 * Lulu.zip and Stormtrooper.zip skins uncluded.
@@ -74,6 +75,7 @@ information check https://www.longtailvideo.com/players/order/license/
 * French and Spanish Translation updated, still wating for some one from Russia tu update the russian translation.
 * FIXED! wmode=opque ONLY applied if the video tag include the parameter "opfix=true".
 * Dotted frame in FireFox because the "wmode=opaque" removed with CSS, check http://rod.gs/dT for more information.
+* Fix! There was some problem with the "contact-form-7" plug-in that runs an undefined PHP function called "wpcf7_add_tag_generator", temporally fixed.
 
 = Where I can get help and support? =
 * [You can contact me on my website](http://www.rodrigopolo.com/contact)
@@ -106,6 +108,11 @@ FLVMeta runs on Windows, Mac OS X and Linux and it's extremely faster, low footp
 * Make the video tag accept line breaks to improve readability
 
 == Changelog ==  
+
+= 1.0.3 =
+* NEW! Now you can edit your video tags by selecting them and pressing the "tag generator" button.
+* Fix! There was some problem with the "contact-form-7" plug-in that runs an undefined PHP function called "wpcf7_add_tag_generator", temporally fixed.
+
 
 = 1.0.2 =
 * NEW! Added the "base" URL parameter into the video tag to save writing over and over again the full URL for the tags flv, img, mp4, hd and captions.
@@ -143,7 +150,8 @@ FLVMeta runs on Windows, Mac OS X and Linux and it's extremely faster, low footp
 * A huge fix to the way the language loads in the settings page
 
 == Upgrade Notice ==
- 
+* There was some problem with the "contact-form-7" plug-in that runs an undefined PHP function called "wpcf7_add_tag_generator", temporally fixed.
+* Now you can edit your video tags by selecting them and pressing the "tag generator" button.
 As you can see in the "Changelog" section for version 1.0.0 and 1.0.2, there is a lot of new futures, Now the plug-in is using a custom build of the JW Player and custom build of the HD, Captions and Share plug-ins for the JW Player that enables you a full modern player that can have captions (subtitles), persistent Embed code in other sites, URL Share and share with Twitter, Facebook and MySpace.
 
 
