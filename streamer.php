@@ -1,14 +1,4 @@
-<?
-ini_set('output_buffering', 'Off'); 
-ini_set('memory_limit', '128M'); 
-ini_set('variables_order', 'EGPCS');
-ini_set('register_long_arrays', 'On');
-ini_set('max_input_time', '86400');
-ini_set('max_execution_time', '86400');
-
-
-// Fix for max execution time
-set_time_limit(86400);
+<?php
 
 /**
  * FLV Streamer for WordPress by Rodrigo Polo, inspired on some xmoov-php main ideas.
@@ -35,6 +25,23 @@ set_time_limit(86400);
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  **/
+
+// Set some limits
+/*ini_set('output_buffering', 'Off'); 
+ini_set('memory_limit', '128M'); 
+ini_set('variables_order', 'EGPCS');
+ini_set('register_long_arrays', 'On');
+ini_set('max_input_time', '86400');
+ini_set('max_execution_time', '86400');
+*/
+
+// Turn off all error reporting
+error_reporting(0);
+
+// Fix for max execution time
+set_time_limit(86400);
+
+ 
 
 /**
  *
@@ -163,22 +170,8 @@ class flv_streamer{
 	
 	// To match a relative path
 	function getRelPa($scr,$fil){
-		
 		$scr = str_replace("http://www.", "http://", $scr);
 		$fil = str_replace("http://www.", "http://", $fil);
-		
-		
-		$urlnfo_a=parse_url($scr);
-		$urlnfo_b=parse_url($fil);
-		
-		if($urlnfo_a['host']!=$urlnfo_b['host']){
-			header('HTTP/1.0 404 Not Found'); 
-			die("<h1>404</h1> You are requesting a video from other domain.\n<br />this script can only stream videos from the domain where it’s placed.\n<br />This script is currently located at: &ldquo;".$urlnfo_a['host'].'&rdquo;.');  
-		}
-		
-		
-		
-
 		$scr_a = explode('/',$scr);
 		$fil_a = explode('/',$fil);
 		$scr_ab = $scr_a;
