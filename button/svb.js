@@ -102,30 +102,38 @@ var RodrigoPolo = window.RodrigoPolo || {};
 			// only params
 			selec = selec.substring(8, endp);
 			
-			// remove more than two white spaces
-			selec = selec.replace(/\s+/g, ' ')
+			// Get the params as object
+			params = proc_params(selec);
 			
-			// get params separated by space
-			var params = selec.split(' ');
+			// Change the params in the form
+			jQuery.each(params, function(i, val) {
+			  jQuery('#'+i).val(unescape(val));
+			});			
 			
-			// modify values
-			for (i=0;i<params.length;i++){
-				var parval = params[i].split('=');
-				jQuery('#'+parval[0]).val(parval[1]);
-			}			
 		}
 		
-/*
-[stream provider=video base=1 flv=2 img=3 hd=4 mp4=5 captions=6 embed=true share=true width=7 height=8 dock=true controlbar=bottom skin=beelden.zip logo=14 bandwidth=low title=16 volume=17 autostart=true streamer=19 opfix=true /]
-*/
-		
+	};
+	
+	var proc_params = function(cmd){
+		cmd = cmd.replace(/\s+/g, ' ')
+		var tmp1 = cmd.split(' '); //explode(' ',);
+		var tmp2 = [];
+		var xarr = {};
+		var last_key = '';
+		jQuery.each(tmp1, function() {
+			tmp2 = (''+this+'').split('=');//explode('=',val);
+			if(tmp2.length==2){
+				xarr[tmp2[0]]=tmp2[1].replace(/["']{1}/gi,"");
+				last_key = tmp2[0];
+			}else if(tmp2.length==1){
+				xarr[last_key] +=' '+tmp2[0].replace(/["']{1}/gi,"");
+			}		
+		});
+		return xarr;
 	};
 	
 	// to insert tag
 	var insertTag = function() {
-		
-		
-		
 		var tag = buildTag() || "";
 		var win = window.parent || window;
 				

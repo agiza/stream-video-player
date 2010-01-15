@@ -4,7 +4,7 @@ Donate link: http://www.rodrigopolo.com/about/wp-stream-video/donate
 Tags: stream, video, flv, mp4, flash, swf, iphone, player, wordpress, plugin, media
 Requires at least: 2.2.2
 Tested up to: 2.9.1
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 
 Stream Video Player for WordPress its one stop solution for high quality video publishing for web or iPhone.
 
@@ -67,15 +67,9 @@ information check https://www.longtailvideo.com/players/order/license/
 == Frequently Asked Questions ==
 
 = What's new in the latest version? =
-* NEW! Now you can edit your video tags by selecting them and pressing the "tag generator" button.
-* NEW! Added the "base" URL parameter into the video tag to save writing over and over again the full URL for the tags flv, img, mp4, hd and captions.
-* FIXED! HD, Share and Captions Plug-Ins included.
-* Lulu.zip and Stormtrooper.zip skins uncluded.
-* Fix: YouTube Video working.
-* French and Spanish Translation updated, still wating for some one from Russia tu update the russian translation.
-* FIXED! wmode=opque ONLY applied if the video tag include the parameter "opfix=true".
-* Dotted frame in FireFox because the "wmode=opaque" removed with CSS, check http://rod.gs/dT for more information.
-* Fix! There was some problem with the "contact-form-7" plug-in that runs an undefined PHP function called "wpcf7_add_tag_generator", temporally fixed.
+* Update: JW Player now can load the logo image and follow the URL, BUT YOU HAVE TO BUY THE LICENSE for that.
+* Fix: A small fix to the tag edition to handle spaces and YouTube links.
+* Known issue: Video "Title" Currently not implemented by the JW Player: [Check the supported Flash Vars](http://developer.longtailvideo.com/trac/wiki/Player5FlashVars)
 
 = Where I can get help and support? =
 * [You can contact me on my website](http://www.rodrigopolo.com/contact)
@@ -109,10 +103,14 @@ FLVMeta runs on Windows, Mac OS X and Linux and it's extremely faster, low footp
 
 == Changelog ==  
 
+= 1.0.4 =
+* Update: JW Player now can load the logo image and follow the URL, BUT YOU HAVE TO BUY THE LICENSE for that.
+* Fix: A small fix to the tag edition to handle spaces and YouTube links.
+* Known issue: Video "Title" Currently not implemented by the JW Player: [Check the supported Flash Vars](http://developer.longtailvideo.com/trac/wiki/Player5FlashVars)
+
 = 1.0.3 =
 * NEW! Now you can edit your video tags by selecting them and pressing the "tag generator" button.
 * Fix! There was some problem with the "contact-form-7" plug-in that runs an undefined PHP function called "wpcf7_add_tag_generator", temporally fixed.
-
 
 = 1.0.2 =
 * NEW! Added the "base" URL parameter into the video tag to save writing over and over again the full URL for the tags flv, img, mp4, hd and captions.

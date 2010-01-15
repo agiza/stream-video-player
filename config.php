@@ -54,9 +54,13 @@ $def_options = get_option('StreamVideoSettings');
 		<div class="note"><?php _e('(<span class="req">*</span>) indicates required field', 'stream-video-player'); ?></div> 
 		<fieldset> 
 			<legend><?php _e('Stream Player Tag Atributes', 'stream-video-player'); ?></legend>
-            
-            
 				<div class="col1"> 
+					<label class="info" title="<?php _e('Base URL to save writing over and over again the full URL for the flv, img, mp4, hd and captions tags', 'stream-video-player'); ?>" for="base"><?php _e('URL Base:', 'stream-video-player'); ?></label>
+				</div>
+				<div class="col2"> 
+					<input type="text" size="18" name="base" id="base"/> 
+				</div>
+<div class="col1"> 
 					<label class="info" title="<?php _e('Set the media provider, &quot;http&quot; is for pseudo-streming and is enable by default, choose &quot;video&quot; for progressively downloaded FLV, MP4, and AAC audio, choose &quot;sound&quot; for progressively downloaded MP3 files, choose &quot;image&quot; for JPG/GIF/PNG images, choose &quot;youtube&quot; for videos from Youtube and &quot;rtmp&quot; for FLV/MP4/MP3 files played from an RTMP server.', 'stream-video-player'); ?>" for="provider"><?php _e('Media provider:', 'stream-video-player'); ?></label>
 				</div>
 				<div class="col4">
@@ -72,12 +76,6 @@ $def_options = get_option('StreamVideoSettings');
                     </select> 
 				</div>
                 <div class="clear">&nbsp;</div>
-				<div class="col1"> 
-					<label class="info" title="<?php _e('Base URL to save writing over and over again the full URL for the flv, img, mp4, hd and captions tags', 'stream-video-player'); ?>" for="base"><?php _e('URL Base:', 'stream-video-player'); ?></label>
-				</div>
-				<div class="col2"> 
-					<input type="text" size="18" name="base" id="base"/> 
-				</div>
 				<div class="col1"> 
 					<label class="info" title="<?php _e('The absolute path to your file OR YouTube address', 'stream-video-player'); ?>" for="flv"><?php _e('Video:', 'stream-video-player'); ?></label> <span class="req">*</span> 
 				</div>
