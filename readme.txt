@@ -4,7 +4,7 @@ Donate link: http://www.rodrigopolo.com/about/wp-stream-video/donate
 Tags: stream, video, flv, mp4, flash, swf, iphone, player, wordpress, plugin, media
 Requires at least: 2.2.2
 Tested up to: 2.9.1
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 
 Stream Video Player for WordPress its one stop solution for high quality video publishing for web or iPhone.
 
@@ -67,6 +67,7 @@ information check https://www.longtailvideo.com/players/order/license/
 == Frequently Asked Questions ==
 
 = What's new in the latest version? =
+* Added the LongTail Ads plug-in
 * Update: JW Player now can load the logo image and follow the URL, BUT YOU HAVE TO BUY THE LICENSE for that.
 * Fix: A small fix to the tag edition to handle spaces and YouTube links.
 * Known issue: Video "Title" Currently not implemented by the JW Player: [Check the supported Flash Vars](http://developer.longtailvideo.com/trac/wiki/Player5FlashVars)
@@ -102,6 +103,9 @@ FLVMeta runs on Windows, Mac OS X and Linux and it's extremely faster, low footp
 * Make the video tag accept line breaks to improve readability
 
 == Changelog ==  
+
+= 1.0.5 =
+* Added the LongTail Ads plug-in
 
 = 1.0.4 =
 * Update: JW Player now can load the logo image and follow the URL, BUT YOU HAVE TO BUY THE LICENSE for that.

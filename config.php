@@ -181,6 +181,12 @@ $def_options = get_option('StreamVideoSettings');
 				</div>
                 <div class="clear">&nbsp;</div>
 				<div class="col1"> 
+					<label class="info" title="<?php _e('LongTail Ads Code', 'stream-video-player'); ?>" for="adscode"><?php _e('Ads Code:', 'stream-video-player'); ?></label>
+				</div>
+				<div class="col2"> 
+					<input type="text" size="18" name="adscode" id="adscode"/> 
+				</div>
+				<div class="col1"> 
 					<label class="info" title="<?php _e('The absolute path to your video player logo, if empty takes the default value on the plug-in settings', 'stream-video-player'); ?>" for="logo"><?php _e('Logo (.jpg, .png, .flv):', 'stream-video-player'); ?></label>
 				</div>
 				<div class="col2"> 
