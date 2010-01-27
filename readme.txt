@@ -10,7 +10,7 @@ Stream Video Player for WordPress its one stop solution for high quality video p
 
 == Description ==
 
-Stream Video Player for WordPress is by far the best and most complete video-audio player plug-in for WordPress, Easy to use with a tag generator in the editor, support for viewing on the iPhone and iPod touch, support for YouTube and Pseudo-Streaming so you can randomly seek any place of your videos without having to load the entire video before.
+Stream Video Player for WordPress is by far the best and most complete video-audio player plug-in for WordPress, Easy to use with a tag generator in the editor, support for viewing on the iPad, iPhone and iPod touch, support for YouTube and Pseudo-Streaming so you can randomly seek any place of your videos without having to load the entire video before.
 
 Important Links:
 
@@ -22,11 +22,11 @@ Important Links:
 
 
 = Features =
+* iPad, iPhone, iPod Touch, WPTouch, MobilePress and feeds compatible.
 * Embed code generator for any video.
 * Captions (subtitles) capable.
 * Social sharing and video URL sharing.
 * Random access to any position on the video thanks to the pseudo streaming technique
-* iPhone, WPTouch, MobilePress and feeds compatible.
 * Skins capable thanks to JW Media Player it can load SWF and XML-PNG custom skins.
 * Multi-Language (Currently English, Spanish, French and Russian)
 * Based on a very fine tuned custom build of the JW Media Player Version 5 Build 764.
