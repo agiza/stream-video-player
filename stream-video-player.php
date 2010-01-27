@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Stream Video Player
-Version: 1.0.5
+Version: 1.0.6
 Plugin URI: http://www.rodrigopolo.com/about/wp-stream-video
 Description: The best way to include Stream Video to your blog, iPhone and HD video compatible. (SWFObject by Geoff Stearns)
 Author: Rodrigo Polo
@@ -71,8 +71,8 @@ class rp_splayer {
 		return implode('&amp;',$flva);
 	}
 	
-	// remove breacklines
-	function remove_breacklines($str){
+	// remove breaklines
+	function remove_breaklines($str){
 		$str = ereg_replace("/\n\r|\r\n|\n|\r/", "", $str);
 		return preg_replace("/\t/", "", $str);
 	}
@@ -186,7 +186,7 @@ class rp_splayer {
 		}
 
 		// Remove some spaces
-		$html = $this->remove_breacklines($html);
+		$html = $this->remove_breaklines($html);
 		
 		
 		// For the SWFObject registrations
@@ -218,7 +218,7 @@ function StreamVideo_trim($str){
 	return trim(preg_replace('/^(\xc2|\xa0|\x20|\x09|\x0a|\x0d|\x00|\x0B)|(\xc2|\xa0|\x20|\x09|\x0a|\x0d|\x00|\x0B)$/', '', $str)); 
 }
 // To handle version on JS files
-$StreamVideoVersion = '1.0.5';
+$StreamVideoVersion = '1.0.6';
 
 // To handle ids
 $videoid = 0;
@@ -377,6 +377,7 @@ function StreamVideo_Render($matches){
 	// Restart the HTML Player Generator
 	$player->restart();
 	$StreamVideo_jwp = array();
+
 	
 	/////
 	// Set all the settings acording to the specified arguments and default options
@@ -711,7 +712,7 @@ function StreamVideoSWFObj(){
 	$options = get_option('StreamVideoSettings');
 	// add JS If is set.
 	if($options[3][2]['v']=='true'){
-		wp_enqueue_script( 'swfobject', plugins_url('/stream-video-player/swfobject.js'), array(), '2.1' );
+		wp_enqueue_script( 'swfobject', plugins_url('/stream-video-player/swfobject.js'), array(), '2.1'); //, true
 	}
 }
 
@@ -890,7 +891,7 @@ function StreamVideo_addbuttons() {
 
 		// Queue Embed JS
 		add_action( 'admin_head', 'set_admin_js_vars');
-		wp_enqueue_script( 'streamvideoqt', plugins_url('/stream-video-player/button/svb.js'), array(), $StreamVideoVersion );
+		wp_enqueue_script( 'streamvideoqt', plugins_url('/stream-video-player/button/svb.js'), array(), $StreamVideoVersion);
 		
 	}
 	

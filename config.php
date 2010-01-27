@@ -1,8 +1,11 @@
 <?php
 // lame temporal fix for the contact-form-7 problem
 // http://wordpress.org/extend/plugins/contact-form-7/
-function wpcf7_add_tag_generator(){
-}
+/*if (!function_exists('wpcf7_add_tag_generator')) {
+	function wpcf7_add_tag_generator(){
+	}
+}*/
+
 
 /* Finding the path to the wp-admin folder */
 $iswin = preg_match('/:\\\/', dirname(__file__));
@@ -95,7 +98,7 @@ $def_options = get_option('StreamVideoSettings');
 					<input type="text" size="18" name="hd" id="hd"/> 
 				</div>
 				<div class="col1"> 
-					<label class="info" title="<?php _e('The absolute path to your MP4 video (for iPhone)', 'stream-video-player'); ?>" for="mp4"><?php _e('Video for iPhone (.mp4):', 'stream-video-player'); ?></label>
+					<label class="info" title="<?php _e('The absolute path to your MP4 video for iPad, iPhone or iPod Touch', 'stream-video-player'); ?>" for="mp4"><?php _e('iPhone-iPad Video (.mp4):', 'stream-video-player'); ?></label>
 				</div>
 				<div class="col2"> 
 					<input type="text" size="18" name="mp4" id="mp4"/> 

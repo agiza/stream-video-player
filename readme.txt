@@ -4,7 +4,7 @@ Donate link: http://www.rodrigopolo.com/about/wp-stream-video/donate
 Tags: stream, video, flv, mp4, flash, swf, iphone, player, wordpress, plugin, media
 Requires at least: 2.2.2
 Tested up to: 2.9.1
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 
 Stream Video Player for WordPress its one stop solution for high quality video publishing for web or iPhone.
 
@@ -15,10 +15,11 @@ Stream Video Player for WordPress is by far the best and most complete video-aud
 Important Links:
 
 * <a href="http://www.rodrigopolo.com/about/wp-stream-video" title="Demonstration and Info">Demonstration and info.</a>
+* <a href="http://www.rodrigopolo.com/about/wp-stream-video/faq" title="Stream Video Player FAQ">FAQ</a>
 * <a href="http://www.rodrigopolo.com/about/wp-stream-video/how-to" title="Full guide on how to use the plug-in and encode video">How to use the plug-in and encode video</a>
 * <a href="http://www.rodrigopolo.com/about/wp-stream-video/ffmpeg-binary-installers-for-win-mac-and-linux" title="Video Encoder Installer">Video Encoder for Mac, Win, Linux</a>
 * <a href="http://www.rodrigopolo.com/about/wp-stream-video/known-issues-and-to-do-list" title="Known issues and To-do list">Known issues and To-do list</a>
-* <a href="http://www.rodrigopolo.com/about/wp-stream-video/faq" title="Stream Video Player FAQ">FAQ</a>
+
 
 = Features =
 * Embed code generator for any video.
@@ -76,33 +77,16 @@ information check https://www.longtailvideo.com/players/order/license/
 * [You can contact me on my website](http://www.rodrigopolo.com/contact)
 * [Or you can follow me on Twitter](http://twitter.com/rodrigopolo)
 * [How to use the plug-in and encode video](http://www.rodrigopolo.com/about/wp-stream-video/how-to)
-* [Stream Video Player information](http://www.rodrigopolo.com/about/wp-stream-video)
 * [Stream Video Player Frequently Asked Questions (F.A.Q.)](http://www.rodrigopolo.com/about/wp-stream-video/faq)
+* [Stream Video Player information](http://www.rodrigopolo.com/about/wp-stream-video)
 * [FFmpeg Video Encoder Installs](http://www.rodrigopolo.com/about/wp-stream-video/ffmpeg-binary-installers-for-win-mac-and-linux)
 
 
-= I have activated the plugin, but don't see the video player. What do I do? =
-
-Check and make sure that you have the appropriate hook in your template file for the header: '<?php wp_head(); ?>'
-
-= I receive video a red error message on the player. What can be wrong? =
-
-Check and make sure that you are using absolute urls like "http://yourblog.com/yourvideo.flv" and not relative urls like "../video.flv"
-AND BE CERTAIN to have all videos in your site and on the same domain
-
-Important Note: This plug-in requires PHP 5 to work correctly
-
-= I can't scroll (or scrub) the video. What can be wrong? =
-In order to use the random access feature, your videos must be injected with flv metadata.
-You will need "FLVMeta" for this, you can download and install it from here: http://code.google.com/p/flvmeta/ or use the installer I on this site.
-FLVMeta runs on Windows, Mac OS X and Linux and it's extremely faster, low footprint on CPU and RAM, easy to use and free open source.
-
-
-= To-Do =
-* File navigator to select your videos from your WordPres upload directory
-* Make the video tag accept line breaks to improve readability
-
 == Changelog ==  
+
+= 1.0.6 =
+* Added support for iPad
+* FIX: Tag generator issues with bad implementation of contact-form-7 fixed.
 
 = 1.0.5 =
 * Added the LongTail Ads plug-in
