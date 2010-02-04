@@ -35,7 +35,7 @@ Important Links:
 * 100% Standard code
 
 = Translators =
-* French (fr_FR) - [Stéphane Benoit](http://caracteremultimedia.com)
+* French (fr_FR) - [StÃ©phane Benoit](http://caracteremultimedia.com)
 * Russian (ru_RU) - Roman Kireev
 * Spanish (es_ES) - [Rodrigo Polo](http://rodrigopolo.com)
 
@@ -145,8 +145,8 @@ information check https://www.longtailvideo.com/players/order/license/
 * Now using a very custom and fine tuned build of the JW Player version 5 SVN 764, Legacy GNU Player in the next release, bugs and known issue on the JW Player can be checked here: http://developer.longtailvideo.com/trac/report/
 * New! Captions capable player, now you can add text captions to your videos, information on how to make your captions.xml available soon on the plug-in page.
 * New! URL Sharing option - Use "share=true" and the URL is Generated automatically.
-* New! Embed option - Use "embed=true" and the embed code is Generated automatically AND it is persistent in other sites that use you’re embed code, IMPORTANT In order to share your video player you need to place the included file crossdomain.xml in your domain root directory, more information at: http://kb2.adobe.com/cps/142/tn_14213.html
-* Added French translation by Stéphane Benoit, because this is a major release some parts can be not well translated but will be updated.
+* New! Embed option - Use "embed=true" and the embed code is Generated automatically AND it is persistent in other sites that use youâ€™re embed code, IMPORTANT In order to share your video player you need to place the included file crossdomain.xml in your domain root directory, more information at: http://kb2.adobe.com/cps/142/tn_14213.html
+* Added French translation by StÃ©phane Benoit, because this is a major release some parts can be not well translated but will be updated.
 * Pseudo-streaming now optional, you can choose you can choose whether or not to use the streaming by selecting other provider. 
 * Pseudo streaming script can be placed on other domains.
 * Update on streamer.php to show URL errors and hide PHP warnings.
