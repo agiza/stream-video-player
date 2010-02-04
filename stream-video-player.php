@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Stream Video Player
-Version: 1.0.6
-Plugin URI: http://www.rodrigopolo.com/about/wp-stream-video
-Description: The best way to include Stream Video to your blog, iPhone and HD video compatible. (SWFObject by Geoff Stearns)
+Version: 1.1.0
+Plugin URI: http://rodrigopolo.com/about/wp-stream-video
+Description: By far the best and most complete video-audio player plug-in for WordPress. iPhone, iPad and HD video compatible.
 Author: Rodrigo Polo
-Author URI: http://www.rodrigopolo.com
+Author URI: http://rodrigopolo.com
 
 Copyright (C) 2009  Rodrigo J. Polo
   
@@ -26,23 +26,35 @@ Copyright (C) 2009  Rodrigo J. Polo
  Website: http://code.google.com/p/swfobject/
  License: http://www.opensource.org/licenses/mit-license.php
  
- 2) Portions of this code are based on the Flash Video Player Plugin 
- for WordPress by Joshua Eldridge Website: http://www.mac-dev.net
 		
 */
+
+// Plug-in Functions
+require_once("functions.php");
 
 // The class to generate players
 class rp_splayer {
 	
 	// Public vars
-	var $swf, $flv, $mp4, $id, $name, $width, $height, $image, $opfix, $wrapper;
-	var $message='<div style="background-color:#ff9;padding:10px;">You need to install or upgrade Flash Player to view this content, install or upgrade here:<br /><a href="http://www.adobe.com/go/getflashplayer"> <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></div>';
+	var $swf, $flv, $mp4, $id, $name, $width, $height, $image, $opfix, $wrapper, $message;
+	
+
 	
 	// Private vars, params and flashvars
 	var $params;
 	var $flashvars;
 	var $mobile = false;
-		
+	var $fixmobilestyle = true;
+	
+	// init
+	function rp_splayer(){
+		$this->message='<div style="background-color:#ff9;padding:10px;">'.
+		__('You need to install or upgrade Flash Player to view this content, install or upgrade by ', 'stream-video-player').
+		'<a href="http://www.adobe.com/go/getflashplayer">'.
+		__('clicking here', 'stream-video-player').
+		'</a>.</div>';
+	}
+
 	// Set an object param
 	function setParam($name,$val){
 		$this->params[$name]=$val;
@@ -82,12 +94,8 @@ class rp_splayer {
 	function getHTML($inc_js=true){
 		
 		// Mobile detector
-		$container = $_SERVER['HTTP_USER_AGENT'];
-		$useragents = array("iphone", "ipod", "aspen", "dream", "incognito", "webmate");
-		foreach ($useragents as $useragent) {
-			if (eregi($useragent, $container)) {
-				$this->mobile = true;
-			}
+		if($this->fixmobilestyle){
+			$this->mobile = StreamVideo_is_mobile();
 		}
 		
 		if(!empty($this->wrapper)){
@@ -115,7 +123,7 @@ class rp_splayer {
 			if(!$this->mobile){
 				$last_object = $this->message;
 			}else{
-				$last_object = '(video)';
+				$last_object = __('(Video: Available only on a desktop browser)', 'stream-video-player');
 			}
 		}else{
 			$image_obj = (empty($this->image))?'':' data="'.$this->image.'"';
@@ -129,7 +137,7 @@ class rp_splayer {
 				if(!$this->mobile){
 					$last_object .= $this->message;
 				}else{
-					$last_object .= '(video)';
+					$last_object .= __('(video)', 'stream-video-player');
 				}
 				$last_object .= '<!--[if !IE]>-->'.
 				'</object>'.
@@ -181,8 +189,11 @@ class rp_splayer {
 		'<!--<![endif]-->'."\n".
 		'</object>'."\n";
 		
-		if($this->opfix==true){
-			$html .= '<style>object {outline:none;}</style>';
+		if($this->fixmobilestyle){
+			if($this->mobile){
+				$this->fixmobilestyle = false;
+				$html .= "<style>.post object,.post embed{width:100% !important;height:auto;position:relative;z-index:0;}</style>\n";
+			}
 		}
 
 		// Remove some spaces
@@ -191,7 +202,7 @@ class rp_splayer {
 		
 		// For the SWFObject registrations
 		if(!$this->mobile && $inc_js){
-			$html .= "\n".'<script type="text/javascript">'."\n<!--\n".'swfobject.registerObject("'.$this->id.'", "9.0.115");'."\n//-->\n</script>\n";
+			$html .= "\n".'<script type="text/javascript">'."\n// <!--\n".'swfobject.registerObject("'.$this->id.'", "9.0.115");'."\n// -->\n</script>\n";
 		}
 		
 		// make the final code
@@ -207,18 +218,28 @@ class rp_splayer {
 	function restart(){
 		$this->swf=$this->flv=$this->mp4=$this->id=$this->name=$this->width=$this->height=$this->image=$this->opfix=$this->wrapper='';
 		$this->flashvars=$this->params = array();
-		$this->message='<div style="background-color:#ff9;padding:10px;">You need to install or upgrade Flash Player to view this video, install or upgrade here:<br />'.
-		'<a href="http://www.adobe.com/go/getflashplayer"> <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></div>';
 	}
 	
 }
 
+// Check if it is a mobile device.
+function StreamVideo_is_mobile(){
+	$container = $_SERVER['HTTP_USER_AGENT'];
+	$useragents = array("iphone", "ipod", "aspen", "dream", "incognito", "webmate");
+	foreach ($useragents as $useragent) {
+		if (eregi($useragent, $container)) {
+			return true;
+		}
+	}
+	return false;
+}
+
 // To clean up some texts
-function StreamVideo_trim($str){ 
+function StreamVideo_trim($str){
 	return trim(preg_replace('/^(\xc2|\xa0|\x20|\x09|\x0a|\x0d|\x00|\x0B)|(\xc2|\xa0|\x20|\x09|\x0a|\x0d|\x00|\x0B)$/', '', $str)); 
 }
 // To handle version on JS files
-$StreamVideoVersion = '1.0.6';
+$StreamVideoVersion = '1.1.0';
 
 // To handle ids
 $videoid = 0;
@@ -256,6 +277,58 @@ function StreamVideo_SaveRender($matches){
 	return  '[stream '.str_replace("http://", "x:/", $matches[1]).'/]';
 }
 
+// Parse content
+function StreamVideo_Parse_content($c){
+	global $svp_is_content;
+	$svp_is_content = true;
+	$r = StreamVideo_Parse($c);
+	$svp_is_content = false;
+	return $r;
+	
+}
+// Parse the_excerpt
+function StreamVideo_Parse_excerpt($c){
+	global $svp_is_excerpt;
+	$svp_is_excerpt = true;
+	$r = StreamVideo_Parse($c);
+	$svp_is_excerpt = false;
+	return $r;
+}
+// Parse widget
+function StreamVideo_Parse_widget($c){
+	global $svp_is_widget;
+	$svp_is_widget = true;
+	$r = StreamVideo_Parse($c);
+	$svp_is_widget = false;
+	return $r;
+}
+
+// Replace the common excerpt function with this one in order to know when is running
+function improved_trim_excerpt($text) {
+	global $svp_is_excerpt;
+	$svp_is_excerpt = true;
+	
+	$raw_excerpt = $text;
+	if ( '' == $text ) {
+		$text = get_the_content('');
+
+		$text = strip_shortcodes( $text );
+
+		$text = apply_filters('the_content', $text);
+		$text = str_replace(']]>', ']]&gt;', $text);
+		$text = strip_tags($text);
+		$excerpt_length = apply_filters('excerpt_length', 55);
+		$excerpt_more = apply_filters('excerpt_more', ' ' . '[...]');
+		$words = explode(' ', $text, $excerpt_length + 1);
+		if (count($words) > $excerpt_length) {
+			array_pop($words);
+			$text = implode(' ', $words);
+			$text = $text . $excerpt_more;
+		}
+	}
+	return apply_filters('wp_trim_excerpt', $text, $raw_excerpt);
+}
+
 // Parse the content to replace the tags with the player
 function StreamVideo_Parse($content){
 	global $StreamVideoSingle;
@@ -270,7 +343,15 @@ function StreamVideo_Parse($content){
 
 // Render each player instance
 function StreamVideo_Render($matches){
-	global $videoid, $site_url, $player, $StreamVideoVersion, $StreamVideoSingle, $post;
+	global $videoid, $site_url, $player, $StreamVideoVersion, $StreamVideoSingle, $post, $svp_is_content, $svp_is_excerpt, $svp_is_widget;
+	
+	if($svp_is_excerpt){
+		if(is_feed()){
+			return __('(Video: Watch this video on the post page)', 'stream-video-player');
+		}
+		return __('(video)', 'stream-video-player');
+	}
+	
 	// Not necesary flashvars >>
 	$noflashvar = explode(',','share,embed,logo,onlyonsingle,img,width,height,useobjswf,wrapper,bandwidth');
 	
@@ -294,8 +375,14 @@ function StreamVideo_Render($matches){
 			$arguments[$last_key].=' '.str_replace('"', '', $tmp2[0]);
 		}
 	}
-
 	
+	// Normalize URLs	
+	$thisurl = getSelfUri();
+	foreach($arguments as $kwww => $fxwww){
+		if(substr($fxwww,0,7)=='http://' || substr($fxwww,0,8)=='https://'){
+			$arguments[$kwww] = normURI($thisurl, $fxwww);
+		}
+	}
 	// Display an error on the post if the FLV parameter is missing
 	if (!array_key_exists('flv', $arguments)){
 		return '<div style="background-color:#ff9;padding:10px;"><p>Error: Required parameter "flv" is missing!</p></div>';
@@ -366,7 +453,7 @@ function StreamVideo_Render($matches){
 		// Generate RSS HTML
 		$rss_output = '<a href="'.get_permalink($post->ID).'"><img src="'.$img_fqt.'" width="'.$options[1][0]['v'].'" height="'.$options[1][1]['v'].'" alt="video" /></a>';
 		// Check if is Full Text or Summary option, if Summary just say (Video)
-		$rss_output = (!get_option('rss_use_excerpt'))?$rss_output:'(Video)';
+		$rss_output = (!get_option('rss_use_excerpt'))?$rss_output:__('(Video: Watch this video on the post page)', 'stream-video-player');
 		// A hack for RSS Feed to display images
 		$rss_output = (strpos($_SERVER['REQUEST_URI'],'/feed/rss') !== false)?htmlspecialchars($rss_output):$rss_output;
 		// To control the object id
@@ -495,12 +582,6 @@ function StreamVideo_Render($matches){
 	if(empty($player->flashvars['provider'])){
 		$player->setFv('provider','http');
 	}
-	// Set the provider for JW Player <<
-	
-	// Set the streamer URL
-	/*if($player->flashvars['provider']!='http'){
-		unset($player->flashvars['streamer']);
-	}*/
 	
 	// Set the controlbar for JW Player >>
 	if(empty($player->flashvars['controlbar'])){
@@ -572,11 +653,11 @@ function StreamVideo_Render($matches){
 
 	// Generate and return the HTML
 	
-	if($StreamVideoSingle){
+	if($StreamVideoSingle && !$svp_is_widget){
 		if(is_single() || is_page()){
 			return $player->getHTML();
 		}else{
-			return '(Video)';
+			return __('(video)', 'stream-video-player');
 		}
 	}else{
 		return $player->getHTML();
@@ -588,7 +669,11 @@ function StreamVideo_Render($matches){
 
 // Add page on settings for level 8 (admins)
 function StreamVideoAddPage(){
-	add_options_page('Stream Video Player', 'Stream Video Player', '8', 'stream-video-player.php', 'StreamVideoOptions');
+	if(function_exists('add_object_page')){
+		add_object_page("Stream Video Player", "Stream Video", 8, __FILE__, "StreamVideoOptions", plugins_url('/stream-video-player/button/images/vdo.png'));
+	}else{
+		add_menu_page('Stream Video Player', 'Stream Video', 10, basename(__FILE__), 'StreamVideoOptions', plugins_url('/stream-video-player/button/images/vdo.png'));
+	}
 }
 
 // To read the skin directory
@@ -656,8 +741,8 @@ function StreamVideoOptions(){
 	echo '<div class="wrap">';
 	echo '<h2>'.__('Stream Video Options', 'stream-video-player').'</h2>';
 	echo $message;
-	echo '<form method="post" action="options-general.php?page=stream-video-player.php">';
-	echo "<p>".__('Here you can set some default global options for all your videos, if you need help or more information on how to encode and prepare your video to be a pseudo stream compliant check out the <a href="http://www.rodrigopolo.com/about/wp-stream-video/faq" target="_blank">Player FAQs</a> where you can find a lot of free and open resources to encode your video.', 'stream-video-player')."</p>";
+	echo '<form method="post" action="admin.php?page=stream-video-player/stream-video-player.php">';
+	echo "<p>".__('Here you can set some default global options for all your videos, if you need help or more information on how to encode and prepare your video to be a pseudo stream compliant check out the', 'stream-video-player'). ' <a href="http://rodrigopolo.com/about/wp-stream-video/faq" target="_blank">Plug-in '.__('FAQs', 'stream-video-player').'</a> '.__('where you can find a lot of free and open resources to encode your video.', 'stream-video-player')."</p>";
 
 	// For tests:
 	//echo "<pre>";
@@ -704,8 +789,9 @@ function StreamVideoOptions(){
 	echo '</div>';
 }
 
-// Include the SWFObject
-add_action((preg_match("/(\/\?feed=|\/feed)/i",$_SERVER['REQUEST_URI'])) ? 'template_redirect' : 'plugins_loaded', 'StreamVideoSWFObj');
+function StreamVideoFixStyle(){
+	echo "<style>object {outline:none;}</style>\n";
+}
 
 // Function to include the SWF Object
 function StreamVideoSWFObj(){
@@ -713,7 +799,10 @@ function StreamVideoSWFObj(){
 	// add JS If is set.
 	if($options[3][2]['v']=='true'){
 		wp_enqueue_script( 'swfobject', plugins_url('/stream-video-player/swfobject.js'), array(), '2.1'); //, true
+	}else{
+		wp_enqueue_script('swfobject');
 	}
+	
 }
 
 // Function to load the defaults
@@ -745,12 +834,12 @@ function StreamVideoLoadDefaults(){
 	$f[1][0]['on'] = 'width';
 	$f[1][0]['dn'] = __('Player Width', 'stream-video-player');
 	$f[1][0]['t'] = 'tx';
-	$f[1][0]['v'] = '400';
+	$f[1][0]['v'] = '450';
 
 	$f[1][1]['on'] = 'height';
 	$f[1][1]['dn'] = __('Player Height', 'stream-video-player');
 	$f[1][1]['t'] = 'tx';
-	$f[1][1]['v'] = '224';
+	$f[1][1]['v'] = '253';
 
 	$f[1][2]['on'] = 'skin';
 	$f[1][2]['dn'] = __('Skin', 'stream-video-player');
@@ -815,7 +904,7 @@ function StreamVideoLoadDefaults(){
 	$f[3][0]['on'] = 'bandwidth';
 	$f[3][0]['dn'] = __('Bandwidth', 'stream-video-player');
 	$f[3][0]['t'] = 'dd';
-	$f[3][0]['v'] = 'med';
+	$f[3][0]['v'] = 'high';
 	$f[3][0]['op'] = array('low', 'med', 'high', 'off');
 
 	$f[3][1]['on'] = 'wrapper';
@@ -824,7 +913,7 @@ function StreamVideoLoadDefaults(){
 	$f[3][1]['v'] = '';
 
 	$f[3][2]['on'] = 'useobjswf';
-	$f[3][2]['dn'] = __('Use SWFObject.js', 'stream-video-player');
+	$f[3][2]['dn'] = __('Use own SWFObject.js', 'stream-video-player');
 	$f[3][2]['t'] = 'cb';
 	$f[3][2]['v'] = 'true';
 	
@@ -841,31 +930,10 @@ function StreamVideo_activate(){
 	update_option('StreamVideoSettings', StreamVideoLoadDefaults());
 }
 
-// Set the activation
-register_activation_hook(__FILE__,'StreamVideo_activate');
-
 // Function for deactivation
 function StreamVideo_deactivate(){
 	delete_option('StreamVideoSettings');
 }
-
-// Set the deactivation function
-register_deactivation_hook(__FILE__,'StreamVideo_deactivate');
-
-// Set the content filter for Content and for RSS
-add_filter('the_content', 'StreamVideo_Parse',100);
-
-// For editing
-add_filter('content_edit_pre', 'StreamVideo_ViewPost');
-
-// For writing
-add_filter('content_save_pre', 'StreamVideo_SavePost');
-
-// Add options menu
-add_action('admin_menu', 'StreamVideoAddPage');
-
-// Adding button to the MCE toolbar (Visual Mode) 
-add_action('init', 'StreamVideo_addbuttons');
 
 // Add button hooks to the Tiny MCE 
 function StreamVideo_addbuttons() {
@@ -946,4 +1014,121 @@ function set_admin_js_vars(){
 </script>
 <?php
 }
+
+// Fix to the_excerpt 
+remove_filter('get_the_excerpt', 'wp_trim_excerpt');
+add_filter('get_the_excerpt', 'improved_trim_excerpt');
+
+// Set the activation
+register_activation_hook(__FILE__,'StreamVideo_activate');
+
+// Set the deactivation function
+register_deactivation_hook(__FILE__,'StreamVideo_deactivate');
+
+// Set the content filter for Content and for RSS
+add_filter('the_content', 'StreamVideo_Parse_content',100);
+add_filter('the_excerpt', 'StreamVideo_Parse_excerpt',100);
+
+// For editing
+add_filter('content_edit_pre', 'StreamVideo_ViewPost');
+
+// For writing
+add_filter('content_save_pre', 'StreamVideo_SavePost');
+
+// Add options menu
+add_action('admin_menu', 'StreamVideoAddPage');
+
+// Adding button to the MCE toolbar (Visual Mode) 
+add_action('init', 'StreamVideo_addbuttons');
+
+// Include the SWFObject
+add_action((preg_match("/(\/\?feed=|\/feed)/i",$_SERVER['REQUEST_URI'])) ? 'template_redirect' : 'plugins_loaded', 'StreamVideoSWFObj');
+add_action('wp_head', 'StreamVideoFixStyle');
+
+/***********************
+ * Widget Code  >>>
+ **********************/
+ 
+// Widget hook
+add_action( 'widgets_init', 'svp_load_widget' );
+function svp_load_widget() {
+	register_widget( 'SVP_Widget' );
+}
+
+// Widget Class
+class SVP_Widget extends WP_Widget {
+
+	// Class Init
+	function SVP_Widget() {
+		/* Widget settings. */
+		$widget_ops = array( 'classname' => 'svp_widget', 'description' => __('Put your video tag short code here to include some widget videos.', 'stream-video-player') );
+
+		/* Widget control settings. */
+		$control_ops = array( 'width' => 300, 'height' => 650, 'id_base' => 'svp_widget_id' );
+
+		/* Create the widget. */
+		$this->WP_Widget( 'svp_widget_id', 'Stream Video Player', $widget_ops, $control_ops );
+	}
+
+	// Widget output
+	function widget( $args, $instance ) {
+		extract( $args );
+
+		/* Our variables from the widget settings. */
+		$title = apply_filters('widget_title', $instance['title'] );
+		$vtag = $instance['vtag'];
+		$show_title = isset( $instance['show_title'] ) ? $instance['show_title'] : false;
+
+		/* Before widget (defined by themes). */
+		echo $before_widget;
+		
+		/* Display the widget title if one was input (before and after defined by themes). */
+		if ( $title && $show_title )
+			echo $before_title . $title . $after_title;
+
+		/* Display vtag from widget settings if one was input. */
+		if ( $vtag ){
+			echo StreamVideo_Parse_widget($vtag);
+		}
+
+		/* After widget (defined by themes). */
+		echo $after_widget;
+	}
+
+	// Widget Update
+	function update( $new_instance, $old_instance ) {
+		$instance = $old_instance;
+		$instance['title'] = strip_tags( $new_instance['title'] );
+		$instance['vtag'] = strip_tags( $new_instance['vtag'] );
+		$instance['show_title'] = $new_instance['show_title'];
+		return $instance;
+	}
+	
+	// Widget Form
+	function form( $instance ) {
+		/* Set up some default widget settings. */
+		$defaults = array( 'title' => __('Title', 'stream-video-player'), 'vtag' => "[stream /]", 'show_title' => true);
+		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e('Title:', 'stream-video-player'); ?></label>
+			<input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" style="width:100%;" />
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'vtag' ); ?>"><?php _e('Video Tag:', 'stream-video-player'); ?></label>
+            <textarea id="<?php echo $this->get_field_id( 'vtag' ); ?>" name="<?php echo $this->get_field_name( 'vtag' ); ?>" style="width:100%; height:150px;"><?php echo $instance['vtag']; ?></textarea>
+
+		</p>
+        <p><?php _e('Type or paste here a video tag short code to display a video, you can add multiple tags on this widget and text if you want, if you need a help generating a video tag enter to the page or post editor and generate one with the video tag generator, take in count the widget width size to make your video fit it, if your video is very small consider not using the control bar.', 'stream-video-player'); ?></p>
+		<p>
+			<input class="checkbox" type="checkbox" <?php checked( $instance['show_title'], 'on' ); ?> id="<?php echo $this->get_field_id( 'show_title' ); ?>" name="<?php echo $this->get_field_name( 'show_title' ); ?>" /> 
+			<label for="<?php echo $this->get_field_id( 'show_title' ); ?>"><?php _e('Display Title', 'stream-video-player'); ?></label>
+		</p>
+
+	<?php
+	}
+}
+/***********************
+ * Widget Code  <<<
+ **********************/
+
 ?>

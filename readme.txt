@@ -1,10 +1,10 @@
 === Stream Video Player ===
 Contributors: Rodrigo Polo
-Donate link: http://www.rodrigopolo.com/about/wp-stream-video/donate
+Donate link: http://rodrigopolo.com/about/wp-stream-video/donate
 Tags: stream, video, flv, mp4, flash, swf, iphone, player, wordpress, plugin, media
-Requires at least: 2.2.2
+Requires at least: 2.8.0
 Tested up to: 2.9.1
-Stable tag: 1.0.6
+Stable tag: 1.1.0
 
 Stream Video Player for WordPress its one stop solution for high quality video publishing for web or iPhone.
 
@@ -14,11 +14,11 @@ Stream Video Player for WordPress is by far the best and most complete video-aud
 
 Important Links:
 
-* <a href="http://www.rodrigopolo.com/about/wp-stream-video" title="Demonstration and Info">Demonstration and info.</a>
-* <a href="http://www.rodrigopolo.com/about/wp-stream-video/faq" title="Stream Video Player FAQ">FAQ</a>
-* <a href="http://www.rodrigopolo.com/about/wp-stream-video/how-to" title="Full guide on how to use the plug-in and encode video">How to use the plug-in and encode video</a>
-* <a href="http://www.rodrigopolo.com/about/wp-stream-video/ffmpeg-binary-installers-for-win-mac-and-linux" title="Video Encoder Installer">Video Encoder for Mac, Win, Linux</a>
-* <a href="http://www.rodrigopolo.com/about/wp-stream-video/known-issues-and-to-do-list" title="Known issues and To-do list">Known issues and To-do list</a>
+* <a href="http://rodrigopolo.com/about/wp-stream-video" title="Demonstration and Info">Demonstration and info.</a>
+* <a href="http://rodrigopolo.com/about/wp-stream-video/faq" title="Stream Video Player FAQ">FAQ</a>
+* <a href="http://rodrigopolo.com/about/wp-stream-video/how-to" title="Full guide on how to use the plug-in and encode video">How to use the plug-in and encode video</a>
+* <a href="http://rodrigopolo.com/about/wp-stream-video/ffmpeg-binary-installers-for-win-mac-and-linux" title="Video Encoder Installer">Video Encoder for Mac, Win, Linux</a>
+* <a href="http://rodrigopolo.com/about/wp-stream-video/known-issues-and-to-do-list" title="Known issues and To-do list">Known issues and To-do list</a>
 
 
 = Features =
@@ -33,6 +33,11 @@ Important Links:
 * Only open source software needed for video encoding.
 * JW Media Player plug-ins supported
 * 100% Standard code
+
+= Translators =
+* French (fr_FR) - [Stéphane Benoit](http://caracteremultimedia.com)
+* Russian (ru_RU) - Roman Kireev
+* Spanish (es_ES) - [Rodrigo Polo](http://rodrigopolo.com)
 
 
 == Credits ==
@@ -68,21 +73,44 @@ information check https://www.longtailvideo.com/players/order/license/
 == Frequently Asked Questions ==
 
 = What's new in the latest version? =
-* Added the LongTail Ads plug-in
-* Update: JW Player now can load the logo image and follow the URL, BUT YOU HAVE TO BUY THE LICENSE for that.
-* Fix: A small fix to the tag edition to handle spaces and YouTube links.
-* Known issue: Video "Title" Currently not implemented by the JW Player: [Check the supported Flash Vars](http://developer.longtailvideo.com/trac/wiki/Player5FlashVars)
+* NEW! Widget capable!
+* NEW! Media Library integration, browse for your file instead of copy-paste URLs.
+* NEW! YouTube videos get the image preview and provider automaticaly on the tag generator by just pasting the YouTube URL.
+* Upgrade: Watching the video on any mobile device works better, showing the right video dimensions, better compatibility with WPTouch or MobilePress plug-ins.
+* NEW! Detection of the crossdomain.xml on the tag generator.
+* NEW! Automatic URL change to prevent issues using OR NOT using WWW in the URLs.
+* Upgrade! A work around for "the_excerpt" to prevent bad markup issues.
+* Upgrade! Better internationalization (i18n), so you can translate the plug-in on any language.
+* Fix! FireFox dotted border around the video removed, [more about this issue.](http://code.google.com/p/swfobject/wiki/faq#15._Why_do_I_see_a_dotted_border_around_my_SWF_when_using_Firefo)
+* Upgrade! A complete overhaul to the way the Tag Generator and the Media Library load WordPress dependencies, so no more issues with other plug-ins.
+* Fix! Aspect Ratio work the way it is supposed to in the Player.swf for "video" or "stream" provider, another fix to the JW Player original code.
+* Small fix to the tag generator to give suppor to the "adscode" attribute.
 
 = Where I can get help and support? =
-* [You can contact me on my website](http://www.rodrigopolo.com/contact)
+* [You can contact me on my website](http://rodrigopolo.com/contact)
 * [Or you can follow me on Twitter](http://twitter.com/rodrigopolo)
-* [How to use the plug-in and encode video](http://www.rodrigopolo.com/about/wp-stream-video/how-to)
-* [Stream Video Player Frequently Asked Questions (F.A.Q.)](http://www.rodrigopolo.com/about/wp-stream-video/faq)
-* [Stream Video Player information](http://www.rodrigopolo.com/about/wp-stream-video)
-* [FFmpeg Video Encoder Installs](http://www.rodrigopolo.com/about/wp-stream-video/ffmpeg-binary-installers-for-win-mac-and-linux)
+* [How to use the plug-in and encode video](http://rodrigopolo.com/about/wp-stream-video/how-to)
+* [Stream Video Player Frequently Asked Questions (F.A.Q.)](http://rodrigopolo.com/about/wp-stream-video/faq)
+* [Stream Video Player information](http://rodrigopolo.com/about/wp-stream-video)
+* [FFmpeg Video Encoder Installs](http://rodrigopolo.com/about/wp-stream-video/ffmpeg-binary-installers-for-win-mac-and-linux)
 
 
 == Changelog ==  
+
+= 1.1.0 =
+* NEW! Widget capable!
+* NEW! Media Library integration, browse for your file instead of copy-paste URLs.
+* NEW! YouTube videos get the image preview and provider automaticaly on the tag generator by just pasting the YouTube URL.
+* Upgrade: Watching the video on any mobile device works better, showing the right video dimensions, better compatibility with WPTouch or MobilePress plug-ins.
+* NEW! Detection of the crossdomain.xml on the tag generator.
+* NEW! Automatic URL change to prevent issues using OR NOT using WWW in the URLs.
+* Upgrade! A work around for "the_excerpt" to prevent bad markup issues.
+* Upgrade! Better internationalization (i18n), so you can translate the plug-in on any language.
+* Fix! FireFox dotted border around the video removed, [more about this issue.](http://code.google.com/p/swfobject/wiki/faq#15._Why_do_I_see_a_dotted_border_around_my_SWF_when_using_Firefo)
+* Upgrade! A complete overhaul to the way the Tag Generator and the Media Library load WordPress dependencies, so no more issues with other plug-ins.
+* Fix! Aspect Ratio work the way it is supposed to in the Player.swf for "video" or "stream" provider, another fix to the JW Player original code.
+* Small fix to the tag generator to give suppor to the "adscode" attribute.
+
 
 = 1.0.6 =
 * Added support for iPad
@@ -125,7 +153,7 @@ information check https://www.longtailvideo.com/players/order/license/
 * New! YouTube and other formats supported. Now you can load many other media using the "provider" parameter in the stream tag, the current supported media is the same supported by JW Player, "video" for progressively downloaded FLV / MP4 video, but also AAC audio, "sound" for progressively downloaded MP3 files, "image" for JPG/GIF/PNG images, "youtube" for videos from Youtube, "http" for FLV/MP4 videos played as http pseudo-streaming, "rtmp" for FLV/MP4/MP3 files played from an RTMP server.
 * Fix in embed code, "wmode" param set to "opaque" by default to prevent HTML overlapping.
 * COMING SOON: Server side encoding, Media Library Integration and a Multi-Platform Desktop Graphic Application to encode and upload your videos directly to your WordPress blog.
-* IMPORTANT NOTE: After several tests I have decided to use FLVMeta as the metadata injection utility for FLV Videos, is extremely faster, very very very low footprint on CPU and RAM and of course, can handle very large videos, can inject the "with" and "height" and is multi-platform, download at http://code.google.com/p/flvmeta/ (BinKit release coming soon: http://www.rodrigopolo.com/about/wp-stream-video/ffmpeg-binary-installers-for-win-mac-and-linux ).
+* IMPORTANT NOTE: After several tests I have decided to use FLVMeta as the metadata injection utility for FLV Videos, is extremely faster, very very very low footprint on CPU and RAM and of course, can handle very large videos, can inject the "with" and "height" and is multi-platform, download at http://code.google.com/p/flvmeta/ (BinKit release coming soon: http://rodrigopolo.com/about/wp-stream-video/ffmpeg-binary-installers-for-win-mac-and-linux ).
 
 = 0.7.9 = 
 * Fix in the option "Show player only on single pages" to work on single posts AND pages
@@ -136,14 +164,14 @@ information check https://www.longtailvideo.com/players/order/license/
 * A huge fix to the way the language loads in the settings page
 
 == Upgrade Notice ==
-* There was some problem with the "contact-form-7" plug-in that runs an undefined PHP function called "wpcf7_add_tag_generator", temporally fixed.
-* Now you can edit your video tags by selecting them and pressing the "tag generator" button.
-As you can see in the "Changelog" section for version 1.0.0 and 1.0.2, there is a lot of new futures, Now the plug-in is using a custom build of the JW Player and custom build of the HD, Captions and Share plug-ins for the JW Player that enables you a full modern player that can have captions (subtitles), persistent Embed code in other sites, URL Share and share with Twitter, Facebook and MySpace.
-
+This update is very importat, fixes some issues with "the_excerpt", fixes the video aspect ratio to show the correct size, fixes some issues displaying the player on mobile devices and has a lot of new and cool futures to make it easier to use.
 
 == Screenshots ==
 
-1. Stream Video Player GUI.
-2. Tag Generator Button.
-3. Tag Generator Panel.
-4. Plugin Settings.
+1. Stream Video Player Default Skin.
+2. Tag Generator Button on Editor.
+3. Tag Generator Panel showing a warning.
+4. Media Library File Selection.
+5. Stream Video Player Widget
+6. Plug-in Settings.
+7. Stream Video Player Custom Skin.

@@ -26,13 +26,13 @@ var RodrigoPolo = window.RodrigoPolo || {};
 */
 (RodrigoPolo.Tag.Generator = function(){
 	// tags to find
-	var tags = 'provider,base,flv,img,hd,mp4,captions,embed,share,width,height,dock,controlbar,skin,logo,bandwidth,title,volume,autostart,streamer,opfix'.split(',');				  
+	var tags = 'provider,base,flv,img,hd,mp4,captions,embed,share,width,height,dock,controlbar,skin,adscode,logo,bandwidth,title,volume,autostart,streamer,opfix'.split(',');				  
 	// to validate and generate the tag
 	var vt = function(id){
 		var form = jQuery('#'+id).val();
 		if(form==''){
 			return '';
-		}else if(form.substring(0, 22)=='http://www.youtube.com' || form.substring(0, 18)=='http://youtube.com'){
+		}else if(isyoutube(form)){
 			return ' '+id+'='+escape(form);
 		}else if(id=='provider' && form=='http'){
 			return '';
@@ -45,6 +45,16 @@ var RodrigoPolo = window.RodrigoPolo || {};
 		}
 		//return (form=='' || form == 'false' || form == 'default')?'':' '+id+'='+escape(form);
 	};
+	// Check if it is a YouTube url
+	var isyoutube = function(str){
+		return (str.substring(0, 22)=='http://www.youtube.com' || str.substring(0, 18)=='http://youtube.com');
+	};
+	// Get the image preview from a YouTube URL
+	var getYouTubePreview = function(url){
+		var results = url.match("[\\?&]v=([^&#]*)");
+		var vid = ( results === null ) ? url : results[1];
+		return "http://img.youtube.com/vi/"+vid+"/0.jpg";
+	}
 	// to build tag
 	var buildTag = function() {
 		var r = '[stream'; 
@@ -161,6 +171,17 @@ var RodrigoPolo = window.RodrigoPolo || {};
 				e.preventDefault();
 				insertTag();
 			});
+			
+			// Add the image preview for youtube videos.
+			jQuery("#flv").change(function() {
+				var fldval = jQuery(this).val();
+				if(isyoutube(fldval)){
+					var prev = getYouTubePreview(fldval);
+					jQuery("#img").val(prev);
+					jQuery("#provider").val('youtube');
+				}
+			});
+			
 			parseTagEdit();
 		}
 	};
