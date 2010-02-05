@@ -4,370 +4,378 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/stream-video-player\n"
 "POT-Creation-Date: 2010-02-04 01:57-0800\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Maître Mô <postmaster@maitremo.fr>\n"
-"Language-Team: Stéphane Benoit <revixi5@gmail.com>\n"
+"Last-Translator: Ernestas Kardzys <progmakerlt@yahoo.com>\n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: French\n"
-"X-Poedit-Country: CANADA\n"
+"X-Poedit-Language: Lithuanian\n"
+"X-Poedit-Country: LITHUANIA\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-KeywordsList: $translate->_\n"
-"X-Poedit-Basepath: Mac/Utilisateurs/sbenoit/Bureau/Coop/plugins/stream-video-player\n"
 
 #: bootstrap.php:45
 msgid "You are not allowed to be here"
-msgstr "Vous n'êtes pas autorisé à être ici"
+msgstr "Jums neleidžiama čia būti"
 
 #: config.php:39
 msgid "Learn how to encode &quot;stream-ready&quot; videos with multi-platform free-tools and<br />how to use this plug-in by "
-msgstr "Apprenez comment encoder des vidéos « stream-ready » avec des outils gratuits multi-plateformes, et<br />comment utiliser cette extension en "
+msgstr "Išmokite kaip užkoduoti &quot;stream-ready&quot; video įrašus su palaikomais įvairiose platformose nemokamais įrankiais ir<br />kaip naudoti šį įskiepį"
 
 #: config.php:40
 #: stream-video-player.php:54
 msgid "clicking here"
-msgstr "cliquant ici"
+msgstr "paspausdami čia"
 
 #: config.php:50
 msgid "indicates required field"
-msgstr "indique un champ obligatoire"
+msgstr "nurodo būtiną lauką"
 
 #: config.php:52
+#, fuzzy
 msgid "Stream Player Tag Atributes"
-msgstr "Attributs du Tag Stream Player"
+msgstr "Stream Player tag'ų žymės"
 
 #: config.php:55
 msgid "Base URL to save writing over and over again the full URL for the flv, img, mp4, hd and captions tags"
-msgstr "URL de base, pour éviter d'enregistrer à la main de nombreuses fois l'URL complète des fichiers FLV, img, MP4, HD et des tags et sous-titres"
+msgstr "Pagrindinis URL kuriame bus rašoma vėl ir vėl pilnas URL FLV, IMG, MP4, HD ir antraščių žymėms"
 
 #: config.php:55
 msgid "Base URL:"
-msgstr "URL de base :"
+msgstr "Bazinis URL:"
 
 #: config.php:65
 msgid "Set the media provider, &quot;http&quot; is for pseudo-streming and is enable by default, choose &quot;video&quot; for progressively downloaded FLV, MP4, and AAC audio, choose &quot;sound&quot; for progressively downloaded MP3 files, choose &quot;image&quot; for JPG/GIF/PNG images, choose &quot;youtube&quot; for videos from Youtube and &quot;rtmp&quot; for FLV/MP4/MP3 files played from an RTMP server."
-msgstr "Définir le fournisseur de médias, « http » concerne les pseudo-streamings et est activé par défaut. Choisissez « vidéo » pour télécharger progressivement les fichiers FLV, MP4 et les fichiers audio AAC, choisissez « son » pour télécharger progressivement les fichiers MP3, choisissez « image » pour les images JPG/GIF/PNG, choisissez « youtube » pour les vidéos Youtube, et « rtmp » pour les fichiers FLV/MP4/MP3 joué depuis un serveur RTMP."
+msgstr "Pasirinkite media tiekėją, &quot;http&quot; yra netikro srauto tiekimui ir yra įjungtas standartiškai, pasirinkite &quot;video&quot; progresyviai parsiųstiems FLV, MP4 ir AAC audio įrašams, pasirinkite &quot;sound&quot; progresyviai parsisiųstiems MP3 failams, pasirinkite &quot;image&quot; JPG/GIF/PNG paveiksliukams, pasirinkite &quot;youtube&quot; video įrašams iš YouTube ir &quot;rtmp&quot; FLV/MP4/MP3 failams, grojamiems iš RTMP serverio."
 
 #: config.php:65
+#, fuzzy
 msgid "Media provider:"
-msgstr "Fournisseur de médias :"
+msgstr "Media tiekėjas:"
 
 #: config.php:82
 msgid "The absolute path to your file OR YouTube address"
-msgstr "Le chemin absolu vers votre fichier OU une adresse YouTube"
+msgstr "Absoliutus kelias iki Jūsų failo ARBA YouTube adresas"
 
 #: config.php:82
 msgid "Video:"
-msgstr "Vidéo:"
+msgstr "Video:"
 
 #: config.php:93
 msgid "The absolute path to your image preview"
-msgstr "Le chemin absolu vers votre image d'aperçu"
+msgstr "Absoliutus kelias iki Jūsų paveiksliuko peržiūrai"
 
 #: config.php:93
 msgid "Image Preview (jpg or png):"
-msgstr "Image de l'aperçu (jpg ou png) :"
+msgstr "Paveiksliukų peržiūra (JPG arba PNG):"
 
 #: config.php:104
 msgid "The absolute path to your HD video"
-msgstr "Le chemin absolu vers votre vidéo HD"
+msgstr "Absoliutus kelias iki Jūsų HD video įrašo"
 
 #: config.php:104
 msgid "HD Video for Player:"
-msgstr "Video HD pour le Lecteur :"
+msgstr "Grotuvo HD video įrašas:"
 
 #: config.php:114
 msgid "The absolute path to your MP4 video for iPad, iPhone or iPod Touch"
-msgstr "Le chemin absolu vers votre vidéo MP4 pour iPad, iPhone ou iPod Touch"
+msgstr "Absoliutus kelias iki Jūsų iPad, iPhone arba iPod Touch MP4 video įrašo"
 
 #: config.php:114
 msgid "iPhone-iPad Video (.mp4):"
-msgstr "Vidéo iPhone-iPad (.mp4) :"
+msgstr "iPhone-iPad video įrašai (.mp4):"
 
 #: config.php:124
 msgid "The absolute path to your XML captions file"
-msgstr "Le chemin absolu vers votre fichier de sous-titres XML"
+msgstr "Absoliutus kelias iki Jūsų XML antraščių failo"
 
 #: config.php:124
 msgid "Captions (.xml):"
-msgstr "Sous-titres (.xml) :"
+msgstr "Antraštės (.xml):"
 
 #: config.php:134
 msgid "Width &times; height in pixels"
-msgstr "Largeur &times; hauteur en pixels"
+msgstr "Plotis &kartus; aukštis pikseliais"
 
 #: config.php:134
 msgid "Dimensions:"
-msgstr "Dimensions :"
+msgstr "Matmenys:"
 
 #: config.php:142
+#, fuzzy
 msgid "Enable embed the player in other sites"
-msgstr "Activer l'intégration du lecteur dans d'autres sites"
+msgstr "Įjungti prilipintą grotuvą kitose svetainėse"
 
 #: config.php:142
+#, fuzzy
 msgid "Enable Embed:"
-msgstr "Activer l'Intégration :"
+msgstr "Įjungti prilipintą:"
 
 #: config.php:153
 msgid "Enable the sharing of the URL of the post where the video is inserted"
-msgstr "Permettre le partage de l'URL de l’article où la vidéo est insérée"
+msgstr "Įjungti URL dalinimąsi tiems puslapiams, kuriuose yra įterptas video įrašas"
 
 #: config.php:153
 msgid "Enable URL Share:"
-msgstr "Activer le Partage d’URL :"
+msgstr "Įjungti URL dalinimąsi:"
 
 #: config.php:164
 msgid "Show the Dock for this player"
-msgstr "Afficher le Dock pour ce lecteur"
+msgstr "Rodyti prilipinimą šiam grotuvui"
 
 #: config.php:164
+#, fuzzy
 msgid "Dock:"
-msgstr "Dock :"
+msgstr "Prilipinti:"
 
 #: config.php:180
 msgid "Set the Control Bar position and visibility"
-msgstr "Réglez la position et la visibilité de la Barre de contrôle"
+msgstr "Nustatyti valdymo juostos vietą ir matomumą"
 
 #: config.php:180
 msgid "Control Bar:"
-msgstr "Barre de contrôle :"
+msgstr "Valdymo juosta:"
 
 #: config.php:196
 msgid "Skin for this player"
-msgstr "Thème pour ce lecteur"
+msgstr "Šio grotuvo apvalkalas"
 
 #: config.php:196
 msgid "Skin:"
-msgstr "Théme :"
+msgstr "Apvalkalas:"
 
 #: config.php:212
 msgid "LongTail Ads Code"
-msgstr "Code des Annonces Longues"
+msgstr "LongTail reklamų kodas"
 
 #: config.php:212
 msgid "Ads Code:"
-msgstr "Code des Annonces :"
+msgstr "Reklamų kodas:"
 
 #: config.php:220
 msgid "The absolute path to your video player logo, if empty takes the default value on the plug-in settings"
-msgstr "Le chemin absolu vers le logo de votre lecteur vidéo ; si la case est vide, utilise la valeur par défaut des réglages de l’extension."
+msgstr "Absoliutus kelias iki Jūsų video grotuvo logotipo, jeigu nėra - naudojama standartinė reikšmė iš įskiepio nustatymų"
 
 #: config.php:220
 msgid "Logo (jpg or png):"
-msgstr "Logo (jpg ou png) :"
+msgstr "Logotipas (JPG arba PNG):"
 
 #: config.php:230
+#, fuzzy
 msgid "Set the desired bandwidth for cache and site bandwidth control"
-msgstr "Définissez la bande passante désirée pour le cache, et le contrôle de la bande passante du site"
+msgstr "Nustatykite norimą srautą spartinančiąjai atminčia ir svetainės srauto valdymui"
 
 #: config.php:230
 msgid "Bandwidth:"
-msgstr "Bande passante :"
+msgstr "Srautas:"
 
 #: config.php:247
 msgid "Your video title"
-msgstr "Le titre de votre vidéo"
+msgstr "Jūsų video įrašo antraštė"
 
 #: config.php:247
 #: stream-video-player.php:1113
 msgid "Title:"
-msgstr "Titre :"
+msgstr "Antraštė:"
 
 #: config.php:254
 msgid "Your video volume, from 0 to 100, if empty takes the default value on the plug-in settings"
-msgstr "Le volume de votre vidéo, de 0 à 100. Si la case est vide, utilise la valeur par défaut des réglages de l’extension."
+msgstr "Jūsų video įrašo garsumas, nuo 0 iki 100, jeigu tuščias - bus naudojama standartinė reikšmė iš įskiepio nustatymų"
 
 #: config.php:254
 msgid "Volume:"
-msgstr "Volume :"
+msgstr "Garsas:"
 
 #: config.php:261
 msgid "Auto Start the video with the Stream Player"
-msgstr "Démarrage automatique de la vidéo avec le Lecteur Stream"
+msgstr "Automatiškai paleisti video įrašą su Stream Player"
 
 #: config.php:261
 msgid "Auto Start:"
-msgstr "Démarrage automatique :"
+msgstr "Paleisti automatiškai:"
 
 #: config.php:272
 msgid "To use another pseudo streaming script on other server, if is empty it takes the default value on the plug-in settings."
-msgstr "Pour utiliser un autre script de pseudo-streaming sur un autre serveur. Si la case est vide, utilise la valeur par défaut des réglages de l’extension."
+msgstr "Norėdami naudoti kitą netikro srauto tiekimo skriptą šiame serveryje, jeigu tuščia - naudojama standartinė reikšmė iš įskiepio nustatymų."
 
 #: config.php:272
 msgid "Streamer:"
-msgstr "Streamer :"
+msgstr "Srauto tiekėjas:"
 
 #: config.php:279
 msgid "Fixes the HTML overlapping of the Flash Video by adding the parameter [wmode=opaque]."
-msgstr "Résolution des chevauchements de codes HTML de Viédo Flash en ajoutant le paramètre [wmode opaue]."
+msgstr "Pataiso HTML ir Flash Video persidengimą pridėdamas parametrą [wmode=opaque]."
 
 #: config.php:279
 msgid "Fix HTML overlapping:"
-msgstr "Résolution du chevauchement HTML :"
+msgstr "Pataisyti HTML persidengimą:"
 
 #: config.php:290
 msgid "Generate"
-msgstr "Générer"
+msgstr "Generuoti"
 
 #: config.php:299
 msgid "Stream Video: This tag generator isn't going to put the stream video tag in your code."
-msgstr "Stream Video : Ce générateur de balise ne placera pas la balise Stream Vidéo dans votre code."
+msgstr "Stream Video: šis žymų generatorius neįterps srauto video žymos Jūsų kode."
 
 #: medialibrary.php:30
 msgid "Select a file"
-msgstr "Sélectionnez un fichier"
+msgstr "Pasirinkite failą"
 
 #: stream-video-player.php:52
 msgid "You need to install or upgrade Flash Player to view this content, install or upgrade by "
-msgstr "Vous devez installer ou mettre à jour Flash Player pour visualiser ce contenu. Installez-le ou mettez-le à jour par "
+msgstr "Jums reikia įdiegti arba atnaujinti Flash grotuvą, jeigu norite peržiūrėti šį turinį, instaliuoti arba atnaujinti"
 
 #: stream-video-player.php:126
 msgid "(Video: Available only on a desktop browser)"
-msgstr "(Vidéo: Disponible uniquement sur le tableau de bord du navigateur)"
+msgstr "(Video įrašas: pasiekiamas tik naršyklėje)"
 
 #: stream-video-player.php:140
 #: stream-video-player.php:352
 #: stream-video-player.php:660
 msgid "(video)"
-msgstr "(Vídeo)"
+msgstr "(video įrašas)"
 
 #: stream-video-player.php:350
 #: stream-video-player.php:456
 msgid "(Video: Watch this video on the post page)"
-msgstr "(Vidéo : Regardez cette vidéo sur la page des articles)"
+msgstr "(Video įrašas: peržiūrėti šį video įrašą tik žinutės puslapyje)"
 
 #: stream-video-player.php:709
 msgid "Video Properties"
-msgstr "Propriétés de la vidéo"
+msgstr "Video įrašo nustatymai"
 
 #: stream-video-player.php:709
 msgid "Layout"
-msgstr "Paramètres visuel"
+msgstr "Išdėstymas"
 
 #: stream-video-player.php:709
 msgid "Behavior"
-msgstr "Comportement"
+msgstr "Elgesys"
 
 #: stream-video-player.php:709
 msgid "System"
-msgstr "Système"
+msgstr "Sistema"
 
 #: stream-video-player.php:738
 msgid "Options saved."
-msgstr "Options sauvegardées."
+msgstr "Nustatymai išsaugoti."
 
 #: stream-video-player.php:742
 msgid "Stream Video Options"
-msgstr "Options Stream Video"
+msgstr "Stream video nustatymai"
 
 #: stream-video-player.php:745
 msgid "Here you can set some default global options for all your videos, if you need help or more information on how to encode and prepare your video to be a pseudo stream compliant check out the"
-msgstr "Ici, vous pouvez définir par défaut quelques options globales pour l'ensemble de vos vidéos. Si vous souhaitez de l'aide ou de plus amples informations sur la façon d'encoder et de préparer votre vidéo pour les rendre compatibles avec le pseudo-stream, jetez un oeil sur les"
+msgstr "Čia Jūs galite nustatyti kai kurias visiems video įrašams globalias reikšmes, jeigu Jums reikia pagalbos arba daugiau informacijos apie tai, kaip iškoduoti ir paruošti savo video įrašą, kad jis būtų suderinamas su netikru srautu, patikrintikite"
 
 #: stream-video-player.php:745
 msgid "FAQs"
-msgstr "FAQs"
+msgstr "DUK"
 
 #: stream-video-player.php:745
 msgid "where you can find a lot of free and open resources to encode your video."
-msgstr "où vous pouvez trouver de nombreuses ressources gratuites et libres pour encoder votre vidéo."
+msgstr "kur Jūs galite rasti daug nemokamų ir atvirų resursų savo video įrašo kodavimui."
 
 #: stream-video-player.php:787
 msgid "Update Options"
-msgstr "Mettre les options à jour"
+msgstr "Atnaujinimo nustatymai"
 
 #: stream-video-player.php:823
 #: stream-video-player.php:1110
 msgid "Title"
-msgstr "Titre"
+msgstr "Antraštė"
 
 #: stream-video-player.php:828
 msgid "Preview Image"
-msgstr "Image d'aperçu"
+msgstr "Peržiūrėti paveiksliuką"
 
 #: stream-video-player.php:835
 msgid "Player Width"
-msgstr "Largeur du lecteur"
+msgstr "Grotuvo plotis"
 
 #: stream-video-player.php:840
 msgid "Player Height"
-msgstr "Hauteur du lecteur"
+msgstr "Grotuvo aukštis"
 
 #: stream-video-player.php:845
 msgid "Skin"
-msgstr "Thème"
+msgstr "Apvalkalas"
 
 #: stream-video-player.php:851
 msgid "Logo"
-msgstr "Logo"
+msgstr "Logotipas"
 
 #: stream-video-player.php:856
+#, fuzzy
 msgid "Dock"
-msgstr "Dock"
+msgstr "Prilipinti"
 
 #: stream-video-player.php:862
 msgid "Control Bar"
-msgstr "Barre de contrôle"
+msgstr "Valdymo juosta"
 
 #: stream-video-player.php:870
 msgid "Auto Start"
-msgstr "Démarrage automatique"
+msgstr "Paleisti automatiškai"
 
 #: stream-video-player.php:875
 msgid "Startup Volume"
-msgstr "Volume de départ"
+msgstr "Paleidimo garsumas"
 
 #: stream-video-player.php:881
 msgid "Show Share URL"
-msgstr "Afficher le Partage des URL"
+msgstr "Rodyti dalinimosi URL"
 
 #: stream-video-player.php:886
+#, fuzzy
 msgid "Show Embed HTML Code"
-msgstr "Afficher le code HTML intégré"
+msgstr "Rodyti prilipintą HTML kodą"
 
 #: stream-video-player.php:893
 msgid "Default media provider<br /><small>http = pseudo-streaming</small>"
-msgstr "Fournisseur de médias par défaut<br /><small>http = pseudo-streaming</small>"
+msgstr "Standartinis media tiekėjas <br /><small>http = netikram srauto tiekimui</small>"
 
 #: stream-video-player.php:899
 msgid "Pseudo-Streamer URL"
-msgstr "URL du pseudo-streamer"
+msgstr "Netikro srauto tiekėjo URL"
 
 #: stream-video-player.php:905
 msgid "Bandwidth"
-msgstr "Bande passante"
+msgstr "Srautas"
 
 #: stream-video-player.php:911
+#, fuzzy
 msgid "HTML Wrapper"
-msgstr "Contours HTML"
+msgstr "HTML apgaubėjas"
 
 #: stream-video-player.php:916
 msgid "Use own SWFObject.js"
-msgstr "Utilisez vos propres SWFObject.js"
+msgstr "Naudoti savo SWFObject.js"
 
 #: stream-video-player.php:921
 msgid "Show player only on single pages"
-msgstr "Afficher le lecteur uniquement sur les pages seules"
+msgstr "Rodyti grotuvą tik atskiruose puslapiuose"
 
 #: stream-video-player.php:1064
+#, fuzzy
 msgid "Put your video tag short code here to include some widget videos."
-msgstr "Placez votre code court de tag vidéo ici pour intégrer des vidéos dans le widget."
+msgstr "Įdėkite savo video įrašų žymos trumpąjį kodą jeigu norite įtraukti įskeipių video įrašus."
 
 #: stream-video-player.php:1117
 msgid "Video Tag:"
-msgstr "Tag de Vidéo :"
+msgstr "Video įrašo žyma:"
 
 #: stream-video-player.php:1121
 msgid "Type or paste here a video tag short code to display a video, you can add multiple tags on this widget and text if you want, if you need a help generating a video tag enter to the page or post editor and generate one with the video tag generator, take in count the widget width size to make your video fit it, if your video is very small consider not using the control bar."
-msgstr "Tapez ou collez ici une balise de code court vidéo pour afficher une vidéo, vous pouvez ajouter des tags multiples sur ce widget, et du texte si vous le souhaitez. Si vous avez besoin d'une aide pour générer un tag vidéo, rendez-vous dans l'éditeur de page ou d'article, et générez-en un avec l'éditeur de vidéo par défaut. Tenez compte de la taille de la largeur du widget pour y adapter votre vidéo. Si celle-ci est est trop petite, n'utilisez pas la barre de contrôle."
+msgstr "Įveskite arba įterpkite čia video žymos trumpąjį kodą norėdami parodyti video įrašą, Jūs galite pridėti daug žymų šioje programėlėje ir teksto, jeigu norite, jeigu Jums reikia pagalbos generuojant video žymą - įeikite į puslapį arba paradaguokite ir sugeneruokite su video žymų generatoriumi, turėkite omeny, kad programėlės dydį, norėdami įtalpinti video įrašą, jeigu Jūsų video įrašas yra labai mažas - nenaudokite valdymo juostos."
 
 #: stream-video-player.php:1124
 msgid "Display Title"
-msgstr "Affichage des titres"
+msgstr "Rodyti antraštę"
 
 #. Plugin Name of an extension
 msgid "Stream Video Player"
-msgstr "Lecteur Stream Video"
+msgstr "Stream Video Player"
 
 #. Plugin URI of an extension
 msgid "http://rodrigopolo.com/about/wp-stream-video"
@@ -375,7 +383,7 @@ msgstr "http://rodrigopolo.com/about/wp-stream-video"
 
 #. Description of an extension
 msgid "By far the best and most complete video-audio player plug-in for WordPress. iPhone, iPad and HD video compatible."
-msgstr "De loin la meilleure et la plus compléte des extension de lecteur vidéo et audio pour WordPress. Compatible avec les vidéos iPhone, iPad et HD."
+msgstr "Kol kas geriausias ir labiausiai išbaigtas video-audio grotuvo įskiepis Wordpress'ui. Suderinamas su iPhone, iPad ir HD video."
 
 #. Author of an extension
 msgid "Rodrigo Polo"
@@ -384,22 +392,4 @@ msgstr "Rodrigo Polo"
 #. Author URI of an extension
 msgid "http://rodrigopolo.com"
 msgstr "http://rodrigopolo.com"
-
-#~ msgid "URL Base:"
-#~ msgstr "URL de base"
-#~ msgid "Video for iPhone (.mp4):"
-#~ msgstr "Video pour iPhone (.mp4) :"
-#~ msgid ""
-#~ "The best way to include Stream Video to your blog, iPhone and HD video "
-#~ "compatible. (SWFObject by Geoff Stearns)"
-#~ msgstr ""
-#~ "La meilleure façon d'inclure des flux vidéo à votre blog, iPhone et vidéo "
-#~ "HD compatible. (SWFObject par Geoff Stearns)"
-#~ msgid "Video for Player:"
-#~ msgstr "Vidéo pour Lecteur :"
-#~ msgid "The absolute path to your FLV video (injected .flv file)"
-#~ msgstr "Le chemin absolu vers votre vidéo FLV (fichier injectée.flv)"
-#~ msgid "The absolute path to your HD-FLV video (injected .flv file)"
-#~ msgstr ""
-#~ "Le chemin d'accès absolu à votre HD-vidéo FLV (fichier injectée.flv)"
 
