@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Stream Video Player
-Version: 1.1.0
+Version: 1.1.1
 Plugin URI: http://rodrigopolo.com/about/wp-stream-video
 Description: By far the best and most complete video-audio player plug-in for WordPress. iPhone, iPad and HD video compatible.
 Author: Rodrigo Polo
@@ -29,8 +29,44 @@ Copyright (C) 2009  Rodrigo J. Polo
 		
 */
 
-// Plug-in Functions
-require_once("functions.php");
+// Normalize WWW urls between two URLs
+class StreamVideo_nURI {
+	function norm($s,$v){
+		$s_hst = $this->getDomain($s);
+		$v_hst = $this->getDomain($v);
+		$s_isw = $this->isWww($s_hst);
+		$v_isw = $this->isWww($v_hst);
+		if($s_isw == $v_isw){
+			return $v;
+		}
+		$s_nw = $this->noWww($s_hst);
+		$v_nw = $this->noWww($v_hst);
+		if($s_nw != $s_nw){
+			return $v;
+		}
+		if($s_isw){
+			$sv = explode('://',$v);
+			return implode('://www.',$sv);
+		}else{
+			$sv = explode('://www.',$v);
+			return implode('://',$sv);
+		}
+	}
+	function noWww($h){
+		if($this->isWww($h)){
+			return substr($h, 4, strlen($h));
+		}else{
+			return '['.$h.']';
+		}
+	}
+	function getDomain($url){
+		$r = parse_url($url);
+		return $r['host'];
+	}
+	function isWww($h){
+		return (substr($h, 0, 4)=='www.');
+	}
+}
 
 // The class to generate players
 class rp_splayer {
@@ -89,13 +125,60 @@ class rp_splayer {
 		return preg_replace("/\t/", "", $str);
 	}
 	
+	// check if a URL is a YouTube URL
+	function isYouTubeURL($url){
+		if(empty($url)){
+			return false;
+		}
+		if(substr($url, 0, 18)=='http://youtube.com'){
+			return true;
+		}
+		if(substr($url, 0, 22)=='http://www.youtube.com'){
+			return true;
+		}
+		return false;
+	}
+	
+	// Return a YouTube ID
+	function getYouTubeID($var){
+		$var  = parse_url($var, PHP_URL_QUERY);
+		$var  = html_entity_decode($var);
+		$var  = explode('&', $var);
+		$arr  = array();
+		
+		foreach($var as $val){
+			$x = explode('=', $val);
+			$arr[$x[0]] = $x[1];
+		}
+		unset($val, $x, $var);
+		return $arr['v'];
+	}
+	
+	// generate a YouTube Embed Code
+	function genYouTubeEmbed($ytid){
+		return '<object width="560" height="340"><param name="movie" value="http://www.youtube.com/v/'.$ytid.'&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/'.$ytid.'&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="560" height="340"></embed></object>';
+	}
+
+	
+	// Check if it is a mobile device.
+	function is_mobile(){
+		$container = $_SERVER['HTTP_USER_AGENT'];
+		$useragents = array("iphone", "ipod", "aspen", "dream", "incognito", "webmate");
+		foreach ($useragents as $useragent) {
+			if (eregi($useragent, $container)) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 
 	// Return a string with all the text of the code
 	function getHTML($inc_js=true){
 		
 		// Mobile detector
 		if($this->fixmobilestyle){
-			$this->mobile = StreamVideo_is_mobile();
+			$this->mobile = $this->is_mobile();
 		}
 		
 		if(!empty($this->wrapper)){
@@ -107,8 +190,6 @@ class rp_splayer {
 			$wrp_a = '';
 			$wrp_b = '';
 		}
-		
-		
 		
 		// If a function is not empty returns it's html
 		$swf = (empty($this->swf))?'':' data="'.$this->swf.'"';
@@ -123,7 +204,13 @@ class rp_splayer {
 			if(!$this->mobile){
 				$last_object = $this->message;
 			}else{
-				$last_object = __('(Video: Available only on a desktop browser)', 'stream-video-player');
+				// designed to show YouTube Video on his embed code for iPhone devices
+				if(!empty($this->flv) && $this->isYouTubeURL(urldecode($this->flv))){
+					$ytid = $this->getYouTubeID(urldecode($this->flv));
+					return $this->genYouTubeEmbed($ytid);
+				}else{
+					$last_object = __('(Video: Available only on a desktop browser)', 'stream-video-player');
+				}
 			}
 		}else{
 			$image_obj = (empty($this->image))?'':' data="'.$this->image.'"';
@@ -192,7 +279,7 @@ class rp_splayer {
 		if($this->fixmobilestyle){
 			if($this->mobile){
 				$this->fixmobilestyle = false;
-				$html .= "<style>.post object,.post embed{width:100% !important;height:auto;position:relative;z-index:0;}</style>\n";
+				echo "<style>.post object,.post embed{width:100% !important;height:auto;position:relative;z-index:0;}</style>\n";
 			}
 		}
 
@@ -222,36 +309,11 @@ class rp_splayer {
 	
 }
 
-// Check if it is a mobile device.
-function StreamVideo_is_mobile(){
-	$container = $_SERVER['HTTP_USER_AGENT'];
-	$useragents = array("iphone", "ipod", "aspen", "dream", "incognito", "webmate");
-	foreach ($useragents as $useragent) {
-		if (eregi($useragent, $container)) {
-			return true;
-		}
-	}
-	return false;
-}
 
 // To clean up some texts
 function StreamVideo_trim($str){
 	return trim(preg_replace('/^(\xc2|\xa0|\x20|\x09|\x0a|\x0d|\x00|\x0B)|(\xc2|\xa0|\x20|\x09|\x0a|\x0d|\x00|\x0B)$/', '', $str)); 
 }
-// To handle version on JS files
-$StreamVideoVersion = '1.1.0';
-
-// To handle ids
-$videoid = 0;
-
-// To handle the site url
-$site_url = get_option('siteurl');
-
-// New player object
-$player = new rp_splayer();
-
-// Load the language packs
-load_plugin_textdomain( 'stream-video-player', FALSE, 'stream-video-player/langs/');
 
 // function to parse and edit the content
 function StreamVideo_ViewPost($content){
@@ -341,9 +403,18 @@ function StreamVideo_Parse($content){
 	return $content;
 }
 
+// Get self URI
+function StreamVideo_getSelfUri(){
+	$proto = ( isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on' ) ? 'https://' : 'http://';
+	return $proto.$_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
+}
+
 // Render each player instance
 function StreamVideo_Render($matches){
 	global $videoid, $site_url, $player, $StreamVideoVersion, $StreamVideoSingle, $post, $svp_is_content, $svp_is_excerpt, $svp_is_widget;
+	
+	// URL Normalizer
+	$nURI = new StreamVideo_nURI();
 	
 	if($svp_is_excerpt){
 		if(is_feed()){
@@ -377,10 +448,10 @@ function StreamVideo_Render($matches){
 	}
 	
 	// Normalize URLs	
-	$thisurl = getSelfUri();
+	$thisurl = StreamVideo_getSelfUri();
 	foreach($arguments as $kwww => $fxwww){
 		if(substr($fxwww,0,7)=='http://' || substr($fxwww,0,8)=='https://'){
-			$arguments[$kwww] = normURI($thisurl, $fxwww);
+			$arguments[$kwww] = $nURI->norm($thisurl, $fxwww);
 		}
 	}
 	// Display an error on the post if the FLV parameter is missing
@@ -1014,6 +1085,21 @@ function set_admin_js_vars(){
 </script>
 <?php
 }
+
+// To handle version on JS files
+$StreamVideoVersion = '1.1.1';
+
+// To handle ids
+$videoid = 0;
+
+// To handle the site url
+$site_url = get_option('siteurl');
+
+// New player object
+$player = new rp_splayer();
+
+// Load the language packs
+load_plugin_textdomain( 'stream-video-player', FALSE, 'stream-video-player/langs/');
 
 // Fix to the_excerpt 
 remove_filter('get_the_excerpt', 'wp_trim_excerpt');

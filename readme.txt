@@ -4,7 +4,7 @@ Donate link: http://rodrigopolo.com/about/wp-stream-video/donate
 Tags: stream, video, flv, mp4, flash, swf, iphone, player, wordpress, plugin, media
 Requires at least: 2.8.0
 Tested up to: 2.9.1
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 
 Stream Video Player for WordPress its one stop solution for high quality video publishing for web or iPhone.
 
@@ -22,23 +22,25 @@ Important Links:
 
 
 = Features =
-* iPad, iPhone, iPod Touch, WPTouch, MobilePress and feeds compatible.
+* iPad, iPhone, iPod Touch, WPTouch, MobilePress, YouTube and feeds compatible.
 * Embed code generator for any video.
 * Captions (subtitles) capable.
 * Social sharing and video URL sharing.
 * Random access to any position on the video thanks to the pseudo streaming technique
 * Skins capable thanks to JW Media Player it can load SWF and XML-PNG custom skins.
-* Multi-Language (Currently English, Spanish, French and Russian)
 * Based on a very fine tuned custom build of the JW Media Player Version 5 Build 764.
 * Only open source software needed for video encoding.
 * JW Media Player plug-ins supported
 * 100% Standard code
 
 = Translators =
-* French (fr_FR) - [Stéphane Benoit](http://caracteremultimedia.com)
+* French (fr_FR) - [Maître Mô](http://maitremo.fr), [Stéphane Benoit](http://caracteremultimedia.com)
 * Russian (ru_RU) - Roman Kireev
 * Spanish (es_ES) - [Rodrigo Polo](http://rodrigopolo.com)
-
+* Turkish (tr_TR) - [Emin Buğra SARAL](http://www.rahmetli.info)
+* Lithuanian (lt_LT) - [Ernestas Kardzys](http://ernestas.info)
+* Georgian (ka_GE) - [Nodar Rocko Davituri](http://omedia.ge)
+* Italian (it_IT) - [Bruno Salzano](http://brunosalzano.com) bruno@brunosalzano.com
 
 == Credits ==
 
@@ -73,18 +75,10 @@ information check https://www.longtailvideo.com/players/order/license/
 == Frequently Asked Questions ==
 
 = What's new in the latest version? =
-* NEW! Widget capable!
-* NEW! Media Library integration, browse for your file instead of copy-paste URLs.
-* NEW! YouTube videos get the image preview and provider automaticaly on the tag generator by just pasting the YouTube URL.
-* Upgrade: Watching the video on any mobile device works better, showing the right video dimensions, better compatibility with WPTouch or MobilePress plug-ins.
-* NEW! Detection of the crossdomain.xml on the tag generator.
-* NEW! Automatic URL change to prevent issues using OR NOT using WWW in the URLs.
-* Upgrade! A work around for "the_excerpt" to prevent bad markup issues.
-* Upgrade! Better internationalization (i18n), so you can translate the plug-in on any language.
-* Fix! FireFox dotted border around the video removed, [more about this issue.](http://code.google.com/p/swfobject/wiki/faq#15._Why_do_I_see_a_dotted_border_around_my_SWF_when_using_Firefo)
-* Upgrade! A complete overhaul to the way the Tag Generator and the Media Library load WordPress dependencies, so no more issues with other plug-ins.
-* Fix! Aspect Ratio work the way it is supposed to in the Player.swf for "video" or "stream" provider, another fix to the JW Player original code.
-* Small fix to the tag generator to give suppor to the "adscode" attribute.
+* Fix! A general bug on the plug-in fixed.
+* NEW! Turkish, Lithuanian, Georgian and Italian translations added.
+* NEW! Now YouTube videos can be seen on mobile devices if the device supports YouTube video.
+
 
 = Where I can get help and support? =
 * [You can contact me on my website](http://rodrigopolo.com/contact)
@@ -96,6 +90,14 @@ information check https://www.longtailvideo.com/players/order/license/
 
 
 == Changelog ==  
+
+= 1.1.1 =
+As a typical major release there is always a chance to mess up the code, and on version 1.1.0 was made a little mistake that it's fixed on this release, many thanks to Paul Landers and Rick Maisano for reporting the bug.
+
+* Fix! A general bug on the plug-in fixed.
+* NEW! Turkish, Lithuanian, Georgian and Italian translations added, many thanks to the wonderful people who contribute to the translations.
+* NEW! Now YouTube videos can be seen on mobile devices if the device supports YouTube video.
+
 
 = 1.1.0 =
 * NEW! Widget capable!
@@ -164,7 +166,7 @@ information check https://www.longtailvideo.com/players/order/license/
 * A huge fix to the way the language loads in the settings page
 
 == Upgrade Notice ==
-This update is very importat, fixes some issues with "the_excerpt", fixes the video aspect ratio to show the correct size, fixes some issues displaying the player on mobile devices and has a lot of new and cool futures to make it easier to use.
+This is a critical update to fix a general bug in version 1.1.0, it also fixes some issues with "the_excerpt", fixes the video aspect ratio to show the correct size, fixes some issues displaying the player on mobile devices and has a lot of new and cool futures to make it easier to use.
 
 == Screenshots ==
 
@@ -175,3 +177,5 @@ This update is very importat, fixes some issues with "the_excerpt", fixes the vi
 5. Stream Video Player Widget
 6. Plug-in Settings.
 7. Stream Video Player Custom Skin.
+8. Player on iPhone using WPtouch 
+9. Player on iPhone using MobilePress with YouTube Video

@@ -24,9 +24,7 @@ $tbsur = get_bloginfo('url');
 <script type="text/javascript" charset="utf-8" src="<?=plugins_url('/stream-video-player/button/jquery.js')?>?ver=<?=$StreamVideoVersion?>"></script>
 <script type="text/javascript" charset="utf-8" src="<?=plugins_url('/stream-video-player/button/svb.js')?>?ver=<?=$StreamVideoVersion?>"></script>
 <script type="text/javascript" charset="utf-8" src="<?=$tbsur?>/wp-includes/js/thickbox/thickbox.js?ver=<?= $StreamVideoVersion?>"></script>
-<link rel="stylesheet" type="text/css" media="screen" title="no title" charset="utf-8" href="<?=$tbsur?>/wp-admin/wp-admin.css?ver=<?= $StreamVideoVersion?>"/>
-<link rel="stylesheet" type="text/css" media="screen" title="no title" charset="utf-8" href="<?=$tbsur?>/wp-admin/css/global.css?ver=<?= $StreamVideoVersion?>"/>
-<link rel="stylesheet" type="text/css" media="screen" title="no title" charset="utf-8" href="<?=$tbsur?>/wp-admin/css/colors-fresh.css?ver=<?= $StreamVideoVersion?>"/>
+<link rel="stylesheet" type="text/css" media="screen" title="no title" charset="utf-8" href="<?=plugins_url('/stream-video-player/button/config.css')?>?ver=<?= $StreamVideoVersion?>"/>
 <link rel="stylesheet" type="text/css" media="screen" title="no title" charset="utf-8" href="<?=plugins_url('/stream-video-player/button/generator.css')?>?ver=<?= $StreamVideoVersion?>"/>
 <link rel="stylesheet" type="text/css" media="screen" title="no title" charset="utf-8" href="<?=$tbsur?>/wp-includes/js/thickbox/thickbox.css?ver=<?= $StreamVideoVersion?>"/>
 <!--[if lte IE 7]>

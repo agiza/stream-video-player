@@ -1,5 +1,4 @@
 <?
-
 // URI Functions
 function selfHost(){
 	$s = empty($_SERVER["HTTPS"]) ? '' : ($_SERVER["HTTPS"] == "on") ? "s" : "";
@@ -8,10 +7,12 @@ function selfHost(){
 	return $protocol."://".$_SERVER['SERVER_NAME'];
 }
 
+// (config y stream)
 function getSelfUri(){
 	$proto = ( isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on' ) ? 'https://' : 'http://';
 	return $proto.$_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
 }
+
 
 // To match a relative path
 function getRelPa($scr,$fil){
@@ -41,13 +42,12 @@ function getRelPa($scr,$fil){
 
 
 // FileTree Functions
-
-// get file extension
+// get file extension (funct)
 function getExt($file){
 	return strtolower(substr($file, strrpos($file, '.') + 1));
 }
 
-// Check if it is a valid file for Flash Player
+// Check if it is a valid file for Flash Player (func)
 function isValidFile($file){
 	$extensions = explode(',','flv,f4v,f4p,f4a,f4b,xml,jpg,jpeg,mp4,m4a,m4v,png,mp3');
 	$ext = getExt($file);
@@ -58,30 +58,33 @@ function isValidFile($file){
 	}
 }
 
-// Read the directory
+// Read the directory (func, media lib)
 function readDirR($dir = "./") {
-	$listing = opendir($dir);
-	$return = array ();
-	while(($entry = readdir($listing)) !== false) {
-		if ($entry != "." && $entry != ".." && substr($entry,0,1) != '.') {
-			$dir = preg_replace("/^(.*)(\/)+$/", "$1", $dir);
-			$item = $dir . "/" . $entry;
-			$isfile = is_file($item);
-			$dirend = ($isfile)?'':'/';
-			$link = '<a rel="'.getExt($entry).'" href="' . $dir . "/" . $entry . $dirend . '">' . $entry . '</a>';
-			if ($isfile && isValidFile($entry)) {
-				$return[] = $link;
-			}
-			elseif (is_dir($item)) {
-				$return[$link] = readDirR($item);
+	if($listing = opendir($dir)){
+		$return = array ();
+		while(($entry = readdir($listing)) !== false) {
+			if ($entry != "." && $entry != ".." && substr($entry,0,1) != '.') {
+				$dir = preg_replace("/^(.*)(\/)+$/", "$1", $dir);
+				$item = $dir . "/" . $entry;
+				$isfile = is_file($item);
+				$dirend = ($isfile)?'':'/';
+				$link = '<a rel="'.getExt($entry).'" href="' . $dir . "/" . $entry . $dirend . '">' . $entry . '</a>';
+				if ($isfile && isValidFile($entry)) {
+					$return[] = $link;
+				}
+				elseif (is_dir($item)) {
+					$return[$link] = readDirR($item);
+				} else {}
 			} else {}
-		} else {}
+		}
+	
+		return $return;
+	}else{
+		die('Can\'t read directory.');
 	}
-
-	return $return;
 }
 
-// Convert the array to UL-LI
+// Convert the array to UL-LI (func, media lib)
 function makeULLI($array) {
 	$return = "<ul>";
 	if (is_array($array) && count($array) > 0) {
@@ -95,58 +98,6 @@ function makeULLI($array) {
 	} else {}
 	$return .= "</ul>";
 	return $return;
-}
-
-// Normalize WWW urls between two URLs
-function normURI($s,$v){
-	$s_hst = getDomain($s);
-	$v_hst = getDomain($v);
-	
-	$s_isw = isWww($s_hst);
-	$v_isw = isWww($v_hst);
-	
-	// If they are the same, return
-	if($s_isw == $v_isw){
-		return $v;
-	}
-	
-	$s_nw = noWww($s_hst);
-	$v_nw = noWww($v_hst);
-	
-	// Only is they are from the same domain
-	if($s_nw != $s_nw){
-		return $v;
-	}
-
-	if($s_isw){
-		// add www
-		$sv = explode('://',$v);
-		return implode('://www.',$sv);
-	}else{
-		// remove www
-		$sv = explode('://www.',$v);
-		return implode('://',$sv);
-	}
-}
-
-// removes the www from the host
-function noWww($h){
-	if(isWww($h)){
-		return substr($h, 4, strlen($h));
-	}else{
-		return '['.$h.']';
-	}
-}
-
-// get the domain with www
-function getDomain($url){
-	$r = parse_url($url);
-	return $r['host'];
-}
-
-// check if it exists www.
-function isWww($h){
-	return (substr($h, 0, 4)=='www.');
 }
 
 ?>
