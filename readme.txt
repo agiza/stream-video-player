@@ -40,7 +40,7 @@ Important Links:
 * Turkish (tr_TR) - [Emin Buğra SARAL](http://www.rahmetli.info)
 * Lithuanian (lt_LT) - [Ernestas Kardzys](http://ernestas.info)
 * Georgian (ka_GE) - [Nodar Rocko Davituri](http://omedia.ge)
-* Italian (it_IT) - [Bruno Salzano](http://brunosalzano.com) bruno@brunosalzano.com
+* Italian (it_IT) - [Bruno Salzano](http://brunosalzano.com)
 
 == Credits ==
 
