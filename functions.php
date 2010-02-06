@@ -1,4 +1,4 @@
-<?
+<?php
 // URI Functions
 function selfHost(){
 	$s = empty($_SERVER["HTTPS"]) ? '' : ($_SERVER["HTTPS"] == "on") ? "s" : "";

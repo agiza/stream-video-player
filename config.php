@@ -44,7 +44,7 @@ $tbsur = get_bloginfo('url');
 		$file = getRelPa($thisfile,$crossdomain);
 		if(!file_exists($file)){
 			?><div class="error below-h2" id="notice"><p><strong>WARNING:</strong> You don't have your <a href="<?=$crossdomain?>" target="_blank">crossdomain.xml</a> file in the root folder of your web server, this file is required if you want to enable the &quot;embed&quot; option and to prevents issues loading content, However you can copy the <a href="<?=plugins_url('/stream-video-player/crossdomain.xml')?>" target="_blank">crossdomain.xml</a> included in this plug-in in your <a href="<?=$selfhost?>" target="_blank">web server root folder</a>, read more information about this issue <a href="http://rodrigopolo.com/about/wp-stream-video/faq#flash-cross-domain-policy" target="_blank">clicking here</a>.</p></div>
-<? } ?>
+<?php } ?>
     <div class="note">(<span class="req">*</span>) <?php _e('indicates required field', 'stream-video-player'); ?></div>
 		<fieldset>
 			<legend><?php _e('Stream Player Tag Atributes', 'stream-video-player'); ?></legend>

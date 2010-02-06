@@ -4,7 +4,7 @@ Donate link: http://rodrigopolo.com/about/wp-stream-video/donate
 Tags: stream, video, flv, mp4, flash, swf, iphone, player, wordpress, plugin, media
 Requires at least: 2.8.0
 Tested up to: 2.9.1
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 
 Stream Video Player for WordPress its one stop solution for high quality video publishing for web or iPhone.
 
@@ -41,6 +41,9 @@ Important Links:
 * Lithuanian (lt_LT) - [Ernestas Kardzys](http://ernestas.info)
 * Georgian (ka_GE) - [Nodar Rocko Davituri](http://omedia.ge)
 * Italian (it_IT) - [Bruno Salzano](http://brunosalzano.com)
+* Afrikaans (af_AF) - [Schalk Burger](http://schalkburger.za.net)
+
+
 
 == Credits ==
 
@@ -76,7 +79,8 @@ information check https://www.longtailvideo.com/players/order/license/
 
 = What's new in the latest version? =
 * Fix! A general bug on the plug-in fixed.
-* NEW! Turkish, Lithuanian, Georgian and Italian translations added.
+* Fix! A fix to the QuickTag generator.
+* NEW! Afrikaans, Turkish, Lithuanian, Georgian and Italian translations added.
 * NEW! Now YouTube videos can be seen on mobile devices if the device supports YouTube video.
 
 
@@ -90,6 +94,9 @@ information check https://www.longtailvideo.com/players/order/license/
 
 
 == Changelog ==  
+
+= 1.1.2 =
+A fix to the QuickTag Generator, it's working great now, thanks again to Paul Landers.
 
 = 1.1.1 =
 As a typical major release there is always a chance to mess up the code, and on version 1.1.0 was made a little mistake that it's fixed on this release, many thanks to Paul Landers and Rick Maisano for reporting the bug.
@@ -167,6 +174,7 @@ As a typical major release there is always a chance to mess up the code, and on 
 
 == Upgrade Notice ==
 This is a critical update to fix a general bug in version 1.1.0, it also fixes some issues with "the_excerpt", fixes the video aspect ratio to show the correct size, fixes some issues displaying the player on mobile devices and has a lot of new and cool futures to make it easier to use.
+If you already have version 1.1.1 this version fixes some issues with the QuickTag generator for PHP servers that don't accept "<?" to start a PHP Script
 
 == Screenshots ==
 
