@@ -42,7 +42,8 @@ Important Links:
 * Georgian (ka_GE) - [Nodar Rocko Davituri](http://omedia.ge)
 * Italian (it_IT) - [Bruno Salzano](http://brunosalzano.com)
 * Afrikaans (af_AF) - [Schalk Burger](http://schalkburger.za.net)
-
+* Chinese, Traditional (zh_TW) - [James Wu](http://jameswublog.com)
+* Polish (pl_PL) - [Zbigniew Czernik](http://zibik.jogger.pl)
 
 
 == Credits ==
