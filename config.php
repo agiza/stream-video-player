@@ -37,7 +37,7 @@ $tbsur = get_bloginfo('url');
 		<div class="note"><?php _e('Learn how to encode &quot;stream-ready&quot; videos with multi-platform free-tools and<br />how to use this plug-in by ', 'stream-video-player'); ?>
 			<a href="http://www.rodrigopolo.com/about/wp-stream-video/how-to" target="_blank"><?php _e('clicking here', 'stream-video-player'); ?></a>.
 		</div> 
-        <?
+        <?php
 		$selfhost = selfHost();
 		$crossdomain = $selfhost.'/crossdomain.xml';
 		$thisfile = getSelfUri();
@@ -49,7 +49,9 @@ $tbsur = get_bloginfo('url');
 			<?php _e('To:', 'stream-video-player');?><br />
 			<a href="<?php echo $crossdomain; ?>" target="_blank"><?php echo $crossdomain; ?></a><br /><br />
             <?php _e('After copyng this file whis &quot;warning&quot; message will not appear, read more information about the crossdomain.xml', 'stream-video-player');?> <a href="http://rodrigopolo.com/about/wp-stream-video/faq#flash-cross-domain-policy" target="_blank"><?php _e('clicking here', 'stream-video-player');?></a>.</p></div>
-<?php } ?>
+<?php 
+}
+?>
     <div class="note">(<span class="req">*</span>) <?php _e('indicates required field', 'stream-video-player'); ?></div>
 		<fieldset>
 			<legend><?php _e('Stream Player Tag Atributes', 'stream-video-player'); ?></legend>
