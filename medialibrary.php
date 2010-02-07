@@ -17,13 +17,13 @@ $uploads_folder = "../../uploads/";
 <body>
 
 
-<div id="wbtitle"><?=$_GET['wtitle']?></div>
+<div id="wbtitle"><?php echo $_GET['wtitle']; ?></div>
 
 
 <div id="flbrow">
 <ul id="browser" class="filetree">
-  <li><span class="folder" id="uplds"><a href="<?=$uploads_folder?>">Uploads</a></span>
-    <?=makeULLI(readDirR($uploads_folder))?>
+  <li><span class="folder" id="uplds"><a href="<?php echo $uploads_folder; ?>">Uploads</a></span>
+    <?php echo makeULLI(readDirR($uploads_folder)); ?>
 </ul>
 </div>
 <div id="ftr">

@@ -15,25 +15,25 @@ $tbsur = get_bloginfo('url');
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" <?php do_action('admin_xml_ns'); ?> <?php language_attributes(); ?>>
 <head>
-<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?=get_option('blog_charset')?>" />
-<title><?php bloginfo('name') ?> &rsaquo; <?=wp_specialchars( $title )?> &#8212; WordPress</title>
+<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php echo get_option('blog_charset'); ?>" />
+<title><?php bloginfo('name') ?> &rsaquo; <?php echo wp_specialchars( $title ); ?> &#8212; WordPress</title>
 <script type="text/javascript">
-	var tb_pathToImage = "<?=$tbsur?>/wp-includes/js/thickbox/loadingAnimation.gif";
-	var tb_closeImage = "<?=$tbsur?>/wp-includes/js/thickbox/tb-close.png";
+	var tb_pathToImage = "<?php echo $tbsur; ?>/wp-includes/js/thickbox/loadingAnimation.gif";
+	var tb_closeImage = "<?php echo $tbsur; ?>/wp-includes/js/thickbox/tb-close.png";
 </script>
-<script type="text/javascript" charset="utf-8" src="<?=plugins_url('/stream-video-player/button/jquery.js')?>?ver=<?=$StreamVideoVersion?>"></script>
-<script type="text/javascript" charset="utf-8" src="<?=plugins_url('/stream-video-player/button/svb.js')?>?ver=<?=$StreamVideoVersion?>"></script>
-<script type="text/javascript" charset="utf-8" src="<?=$tbsur?>/wp-includes/js/thickbox/thickbox.js?ver=<?= $StreamVideoVersion?>"></script>
-<link rel="stylesheet" type="text/css" media="screen" title="no title" charset="utf-8" href="<?=plugins_url('/stream-video-player/button/config.css')?>?ver=<?= $StreamVideoVersion?>"/>
-<link rel="stylesheet" type="text/css" media="screen" title="no title" charset="utf-8" href="<?=plugins_url('/stream-video-player/button/generator.css')?>?ver=<?= $StreamVideoVersion?>"/>
-<link rel="stylesheet" type="text/css" media="screen" title="no title" charset="utf-8" href="<?=$tbsur?>/wp-includes/js/thickbox/thickbox.css?ver=<?= $StreamVideoVersion?>"/>
+<script type="text/javascript" charset="utf-8" src="<?php echo plugins_url('/stream-video-player/button/jquery.js'); ?>?ver=<?php echo $StreamVideoVersion; ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo plugins_url('/stream-video-player/button/svb.js'); ?>?ver=<?php echo $StreamVideoVersion; ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo $tbsur; ?>/wp-includes/js/thickbox/thickbox.js?ver=<?php echo $StreamVideoVersion;?>"></script>
+<link rel="stylesheet" type="text/css" media="screen" title="no title" charset="utf-8" href="<?php echo plugins_url('/stream-video-player/button/config.css'); ?>?ver=<?php echo $StreamVideoVersion; ?>"/>
+<link rel="stylesheet" type="text/css" media="screen" title="no title" charset="utf-8" href="<?php echo plugins_url('/stream-video-player/button/generator.css'); ?>?ver=<?php echo $StreamVideoVersion; ?>"/>
+<link rel="stylesheet" type="text/css" media="screen" title="no title" charset="utf-8" href="<?php echo $tbsur ?>/wp-includes/js/thickbox/thickbox.css?ver=<?php echo $StreamVideoVersion; ?>"/>
 <!--[if lte IE 7]>
-<link rel="stylesheet" id="ie-css" type="text/css" media="all" href="<?=$tbsur?>/wp-admin/css/ie.css?ver=<?= $StreamVideoVersion?>" />
+<link rel="stylesheet" id="ie-css" type="text/css" media="all" href="<?php echo $tbsur; ?>/wp-admin/css/ie.css?ver=<?php echo $StreamVideoVersion; ?>" />
 <![endif]-->
 </head>
 <body>
 	<div class="wrap">
-		<h2><?=$title?></h2> 
+		<h2><?php echo $title; ?></h2> 
 		<div class="note"><?php _e('Learn how to encode &quot;stream-ready&quot; videos with multi-platform free-tools and<br />how to use this plug-in by ', 'stream-video-player'); ?>
 			<a href="http://www.rodrigopolo.com/about/wp-stream-video/how-to" target="_blank"><?php _e('clicking here', 'stream-video-player'); ?></a>.
 		</div> 
@@ -43,7 +43,12 @@ $tbsur = get_bloginfo('url');
 		$thisfile = getSelfUri();
 		$file = getRelPa($thisfile,$crossdomain);
 		if(!file_exists($file)){
-			?><div class="error below-h2" id="notice"><p><strong>WARNING:</strong> You don't have your <a href="<?=$crossdomain?>" target="_blank">crossdomain.xml</a> file in the root folder of your web server, this file is required if you want to enable the &quot;embed&quot; option and to prevents issues loading content, However you can copy the <a href="<?=plugins_url('/stream-video-player/crossdomain.xml')?>" target="_blank">crossdomain.xml</a> included in this plug-in in your <a href="<?=$selfhost?>" target="_blank">web server root folder</a>, read more information about this issue <a href="http://rodrigopolo.com/about/wp-stream-video/faq#flash-cross-domain-policy" target="_blank">clicking here</a>.</p></div>
+			?><div class="error below-h2" id="notice"><p><strong><?php _e('WARNING:', 'stream-video-player');?></strong> <?php _e('You don\'t have your crossdomain.xml file in the root folder of your web server, this file is required if you want to enable the &quot;embed&quot; option and to prevents issues loading content, however you can copy the crossdomain.xml included in this plug-in', 'stream-video-player');?><br /><br />
+			<?php _e('From:', 'stream-video-player');?><br />
+            <a href="<?php echo plugins_url('/stream-video-player/crossdomain.xml'); ?>" target="_blank"><?php echo plugins_url('/stream-video-player/crossdomain.xml'); ?></a><br /><br />
+			<?php _e('To:', 'stream-video-player');?><br />
+			<a href="<?php echo $crossdomain; ?>" target="_blank"><?php echo $crossdomain; ?></a><br /><br />
+            <?php _e('After copyng this file whis &quot;warning&quot; message will not appear, read more information about the crossdomain.xml', 'stream-video-player');?> <a href="http://rodrigopolo.com/about/wp-stream-video/faq#flash-cross-domain-policy" target="_blank"><?php _e('clicking here', 'stream-video-player');?></a>.</p></div>
 <?php } ?>
     <div class="note">(<span class="req">*</span>) <?php _e('indicates required field', 'stream-video-player'); ?></div>
 		<fieldset>
@@ -132,7 +137,7 @@ $tbsur = get_bloginfo('url');
 				<label class="info" title="<?php _e('Width &times; height in pixels', 'stream-video-player'); ?>"><?php _e('Dimensions:', 'stream-video-player'); ?></label> <span class="req">*</span> 
 			</div>
 			<div class="col2">
-				<input type="text" maxlength="5" size="5" value="<?=$def_options[1][0]['v']?>" name="width" id="width"/> &times; <input type="text" maxlength="5" size="5" value="<?=$def_options[1][1]['v']?>" name="height" id="height"/>
+				<input type="text" maxlength="5" size="5" value="<?php echo $def_options[1][0]['v']; ?>" name="width" id="width"/> &times; <input type="text" maxlength="5" size="5" value="<?php echo $def_options[1][1]['v']; ?>" name="height" id="height"/>
 			</div>
 			<div class="clear">&nbsp;</div>
 			
@@ -142,7 +147,7 @@ $tbsur = get_bloginfo('url');
 			<div class="col4">
 				<select name="embed" id="embed"> 
 					<option value="true">True</option>
-					<option value="false"<?=($def_options[2][3]['v']=='false')?' selected="selected"':''?>>False</option> 
+					<option value="false"<?php echo ($def_options[2][3]['v']=='false')?' selected="selected"':''; ?>>False</option> 
 				</select> 
 			</div>
 			<div class="clear">&nbsp;</div>
@@ -153,7 +158,7 @@ $tbsur = get_bloginfo('url');
 			<div class="col4"> 
 				<select name="share" id="share">
 					<option value="true">True</option>
-					<option value="false"<?=($def_options[2][2]['v']=='false')?' selected="selected"':''?>>False</option> 
+					<option value="false"<?php echo ($def_options[2][2]['v']=='false')?' selected="selected"':''; ?>>False</option> 
 				</select>
 			</div>
 			<div class="clear">&nbsp;</div>
@@ -261,7 +266,7 @@ $tbsur = get_bloginfo('url');
 			<div class="col4">
 				<select name="autostart" id="autostart"> 
 					<option value="false">False</option> 
-					<option value="true"<?=($def_options[2][0]['v']=='true')?' selected="selected"':''?>>True</option> 
+					<option value="true"<?php echo ($def_options[2][0]['v']=='true')?' selected="selected"':''; ?>>True</option> 
 				</select> 
 			</div>
 			<div class="clear">&nbsp;</div>
@@ -300,7 +305,7 @@ $tbsur = get_bloginfo('url');
 				var fid = $(this).attr("id");
 				curwbf = fid.substring(1);
 				var wtitle = $("label[for='"+curwbf+"']").html();
-				tb_show('mlibrary', '<?=plugins_url('/stream-video-player/medialibrary.php')?>?&wtitle='+wtitle+'&KeepThis=true&TB_iframe=true&height=320&width=240&modal=true', false);
+				tb_show('mlibrary', '<?php echo plugins_url('/stream-video-player/medialibrary.php'); ?>?&wtitle='+wtitle+'&KeepThis=true&TB_iframe=true&height=320&width=240&modal=true', false);
 			});
 		});
 		var curwbf;

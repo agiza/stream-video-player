@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: StreamVideoPlayer\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/stream-video-player\n"
-"POT-Creation-Date: 2010-02-04 01:57-0800\n"
+"POT-Creation-Date: 2010-02-07 01:31-0800\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Nodar Davituri <ndavituri@gmail.com>\n"
+"Last-Translator: Rodrigo Polo <rodrigo.polo@gmail.com>\n"
 "Language-Team: Nodar Davituri <ndavituri@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,197 +17,218 @@ msgstr ""
 msgid "You are not allowed to be here"
 msgstr "თქვენი აქ ყოფნა დაუშვებელია"
 
-#: config.php:39
+#: config.php:37
 msgid "Learn how to encode &quot;stream-ready&quot; videos with multi-platform free-tools and<br />how to use this plug-in by "
 msgstr "გაიგეთ, როგორ მოახდინოთ „stream-ready“ ვიდეოების ენკოდირება მულტიპლატფორმული ინსტრუმენტებით<br />და როგორ გამოიყენოთ ეს პლაგ-ინი"
 
-#: config.php:40
-#: stream-video-player.php:54
+#: config.php:38
+#: config.php:51
+#: stream-video-player.php:90
 msgid "clicking here"
 msgstr "აქ დაწკაპუნებით"
 
-#: config.php:50
+#: config.php:46
+msgid "WARNING:"
+msgstr ""
+
+#: config.php:46
+msgid "You don't have your crossdomain.xml file in the root folder of your web server, this file is required if you want to enable the &quot;embed&quot; option and to prevents issues loading content, however you can copy the crossdomain.xml included in this plug-in"
+msgstr ""
+
+#: config.php:47
+msgid "From:"
+msgstr ""
+
+#: config.php:49
+msgid "To:"
+msgstr ""
+
+#: config.php:51
+msgid "After copyng this file whis &quot;warning&quot; message will not appear, read more information about the crossdomain.xml"
+msgstr ""
+
+#: config.php:53
 msgid "indicates required field"
 msgstr "ნიშნავს სავალდებულო ველებს"
 
-#: config.php:52
+#: config.php:55
 msgid "Stream Player Tag Atributes"
 msgstr "Stream Player-ის ტეგ-ატრიბუტები"
 
-#: config.php:55
+#: config.php:58
 msgid "Base URL to save writing over and over again the full URL for the flv, img, mp4, hd and captions tags"
 msgstr "ძირეული URL, რათა ყოველი flv, img, mp4 და სუბტიტრების ტეგისთვის სრული URL-ის ჩაწერა თავიდან არ ხდებოდეს"
 
-#: config.php:55
+#: config.php:58
 msgid "Base URL:"
 msgstr "ძირეული URL:"
 
-#: config.php:65
+#: config.php:68
 msgid "Set the media provider, &quot;http&quot; is for pseudo-streming and is enable by default, choose &quot;video&quot; for progressively downloaded FLV, MP4, and AAC audio, choose &quot;sound&quot; for progressively downloaded MP3 files, choose &quot;image&quot; for JPG/GIF/PNG images, choose &quot;youtube&quot; for videos from Youtube and &quot;rtmp&quot; for FLV/MP4/MP3 files played from an RTMP server."
 msgstr "მედია-პროვაიდერის დაყენება. „http“ ნაგულისხმევადაა დაყენებული და ნიშნავს ფსევდო-სტრიმინგს, აირჩიეთ „video“ პროგრესულად ჩამოტვირთვადი FLV, MP4 და AAC აუდიოსთვის, აირჩიეთ „sound“ პროგრესულად ჩამოტვირთვადი MP3 ფაილებისთვის, აირჩიეთ „image“ JPG, GIF ან PNG სურათებისთვის, აირჩიეთ „youtube“ ვიდეოებისთვის იუთუბიდან ან აირჩიეთ „rtmp“ RTMP-სერვერიდან დაკრული FLV, MP4 ან MP3 ფაილებისთვის."
 
-#: config.php:65
+#: config.php:68
 msgid "Media provider:"
 msgstr "მედია-პროვაიდერი:"
 
-#: config.php:82
+#: config.php:85
 msgid "The absolute path to your file OR YouTube address"
 msgstr "თქვენი ფაილის აბსოლუტური მისამართი ან ბმული YouTube-ზე"
 
-#: config.php:82
+#: config.php:85
 msgid "Video:"
 msgstr "ვიდეო:"
 
-#: config.php:93
+#: config.php:96
 msgid "The absolute path to your image preview"
 msgstr "გადახედვის სურათის აბსოლუტური მისამართი"
 
-#: config.php:93
+#: config.php:96
 msgid "Image Preview (jpg or png):"
 msgstr "გადახედვის სურათი (jpg ან png):"
 
-#: config.php:104
+#: config.php:107
 msgid "The absolute path to your HD video"
 msgstr "თქვენი HD-ვიდეოს აბსოლუტური მისამართი"
 
-#: config.php:104
+#: config.php:107
 msgid "HD Video for Player:"
 msgstr "დამკვრელის HD-ვიდეო:"
 
-#: config.php:114
+#: config.php:117
 msgid "The absolute path to your MP4 video for iPad, iPhone or iPod Touch"
 msgstr "iPad-ის, iPhone-ის ან iPod Touch-სთვის გამიზნული MP4 ვიდეო ფაილის აბსოლუტური მისამართი"
 
-#: config.php:114
+#: config.php:117
 msgid "iPhone-iPad Video (.mp4):"
 msgstr "ვიდეო iPhone-iPad-სთვის (.mp4):"
 
-#: config.php:124
+#: config.php:127
 msgid "The absolute path to your XML captions file"
 msgstr "სუბტიტრების XML-ფაილის აბსოლუტური მისამართი"
 
-#: config.php:124
+#: config.php:127
 msgid "Captions (.xml):"
 msgstr "სუბტიტრები (.xml):"
 
-#: config.php:134
+#: config.php:137
 msgid "Width &times; height in pixels"
 msgstr "სიგანე და სიმაღლე პიქსელებში"
 
-#: config.php:134
+#: config.php:137
 msgid "Dimensions:"
 msgstr "ზომები:"
 
-#: config.php:142
+#: config.php:145
 msgid "Enable embed the player in other sites"
 msgstr "დამკვრელის ჩასმის დაშვება სხვა საიტებზე"
 
-#: config.php:142
+#: config.php:145
 msgid "Enable Embed:"
 msgstr "ჩასმის დაშვება:"
 
-#: config.php:153
+#: config.php:156
 msgid "Enable the sharing of the URL of the post where the video is inserted"
 msgstr "ვიდეოს შემცველი პოსტის მისამართის გაზიარების დაშვება"
 
-#: config.php:153
+#: config.php:156
 msgid "Enable URL Share:"
 msgstr "მისამართის გაზიარების დაშვება:"
 
-#: config.php:164
+#: config.php:167
 msgid "Show the Dock for this player"
 msgstr "დამკვრელის დოკის ჩვენება"
 
-#: config.php:164
+#: config.php:167
 msgid "Dock:"
 msgstr "დოკი:"
 
-#: config.php:180
+#: config.php:183
 msgid "Set the Control Bar position and visibility"
 msgstr "სამართავი ზოლის მდებარეობა და ხილვადობა"
 
-#: config.php:180
+#: config.php:183
 msgid "Control Bar:"
 msgstr "სამართავი ზოლი:"
 
-#: config.php:196
+#: config.php:199
 msgid "Skin for this player"
 msgstr "დამკვრელის სკინი"
 
-#: config.php:196
+#: config.php:199
 msgid "Skin:"
 msgstr "სკინი:"
 
-#: config.php:212
+#: config.php:215
 msgid "LongTail Ads Code"
 msgstr "LongTail-ის სარეკლამო კოდი"
 
-#: config.php:212
+#: config.php:215
 msgid "Ads Code:"
 msgstr "სარეკლამო კოდი:"
 
-#: config.php:220
+#: config.php:223
 msgid "The absolute path to your video player logo, if empty takes the default value on the plug-in settings"
 msgstr "ვიდეო-დამკვრელის ლოგოტიპის აბსოლუტური მისამართი. თუ ცარიელია, იღებს ნაგულისხმევ მნიშვნელობას პლაგ-ინის პარამეტრებიდან"
 
-#: config.php:220
+#: config.php:223
 msgid "Logo (jpg or png):"
 msgstr "ლოგოტიპი (JPG ან PNG):"
 
-#: config.php:230
+#: config.php:233
 msgid "Set the desired bandwidth for cache and site bandwidth control"
 msgstr "კეშის სასურველი ზომა და საიტის ტრაფიკის კონტროლი"
 
-#: config.php:230
+#: config.php:233
 msgid "Bandwidth:"
 msgstr "ტრაფიკი:"
 
-#: config.php:247
+#: config.php:250
 msgid "Your video title"
 msgstr "ვიდეოს სათაური"
 
-#: config.php:247
-#: stream-video-player.php:1113
+#: config.php:250
+#: stream-video-player.php:1201
 msgid "Title:"
 msgstr "სათაური:"
 
-#: config.php:254
+#: config.php:257
 msgid "Your video volume, from 0 to 100, if empty takes the default value on the plug-in settings"
 msgstr "ვიდეოს ხმის სიმაღლე, 0-დან 10-მდე. თუ ცარიელია, იღებს ნაგულისხმევ მნიშვნელობას პლაგ-ინის პარამეტრებიდან"
 
-#: config.php:254
+#: config.php:257
 msgid "Volume:"
 msgstr "ხმა:"
 
-#: config.php:261
+#: config.php:264
 msgid "Auto Start the video with the Stream Player"
 msgstr "ვიდეოს დაკვრის ავტომატური დაწყება Stream Player-თან ერთად"
 
-#: config.php:261
+#: config.php:264
 msgid "Auto Start:"
 msgstr "ავტომატური დაწყება:"
 
-#: config.php:272
+#: config.php:275
 msgid "To use another pseudo streaming script on other server, if is empty it takes the default value on the plug-in settings."
 msgstr "ფსევდო-სტრიმინგის სხვა სკრიპტის გამოყენება სერვერზე. თუ ცარიელია, იღებს ნაგულისხმევ მნიშვნელობას პლაგ-ინის პარამეტრებიდან"
 
-#: config.php:272
+#: config.php:275
 msgid "Streamer:"
 msgstr "სტრიმი:"
 
-#: config.php:279
+#: config.php:282
 msgid "Fixes the HTML overlapping of the Flash Video by adding the parameter [wmode=opaque]."
 msgstr "ფლეშ-ვიდეოზე გარეშე HTML-ის გადაფარვის გასწორება [wmode=opaque] პარამეტრის დამატებით."
 
-#: config.php:279
+#: config.php:282
 msgid "Fix HTML overlapping:"
 msgstr "HTML-ის გადაფარვის გასწორება:"
 
-#: config.php:290
+#: config.php:293
 msgid "Generate"
 msgstr "დაგენერირება"
 
-#: config.php:299
+#: config.php:302
 msgid "Stream Video: This tag generator isn't going to put the stream video tag in your code."
 msgstr "Stream Video: ეს ტეგების გენერატორი არ ჩასვამს stream video ტეგს თქვენს კოდში."
 
@@ -215,151 +236,151 @@ msgstr "Stream Video: ეს ტეგების გენერატორ�
 msgid "Select a file"
 msgstr "ფაილის არჩევა"
 
-#: stream-video-player.php:52
+#: stream-video-player.php:88
 msgid "You need to install or upgrade Flash Player to view this content, install or upgrade by "
 msgstr "ამ კონტენტის სანახავად თქვენ უნდა დააყენოთ ან განაახლოთ Flash Player "
 
-#: stream-video-player.php:126
+#: stream-video-player.php:214
 msgid "(Video: Available only on a desktop browser)"
 msgstr "(ვიდეო: ხელმისაწვდომია მხოლოდ დესკტოპ-ბრაუზერებში)"
 
-#: stream-video-player.php:140
-#: stream-video-player.php:352
-#: stream-video-player.php:660
+#: stream-video-player.php:229
+#: stream-video-player.php:425
+#: stream-video-player.php:733
 msgid "(video)"
 msgstr "(ვიდეო)"
 
-#: stream-video-player.php:350
-#: stream-video-player.php:456
+#: stream-video-player.php:423
+#: stream-video-player.php:529
 msgid "(Video: Watch this video on the post page)"
 msgstr "(ვიდეო: ვიდეოს ნახვა პოსტის გვერდზე)"
 
-#: stream-video-player.php:709
+#: stream-video-player.php:782
 msgid "Video Properties"
 msgstr "ვიდეოს პარამეტრები"
 
-#: stream-video-player.php:709
+#: stream-video-player.php:782
 msgid "Layout"
 msgstr "განლაგება"
 
-#: stream-video-player.php:709
+#: stream-video-player.php:782
 msgid "Behavior"
 msgstr "ქცევა"
 
-#: stream-video-player.php:709
+#: stream-video-player.php:782
 msgid "System"
 msgstr "სისტემა"
 
-#: stream-video-player.php:738
+#: stream-video-player.php:811
 msgid "Options saved."
 msgstr "პარამეტრები შენახულია."
 
-#: stream-video-player.php:742
+#: stream-video-player.php:815
 msgid "Stream Video Options"
 msgstr "Stream Video-ს პარამეტრები"
 
-#: stream-video-player.php:745
+#: stream-video-player.php:818
 msgid "Here you can set some default global options for all your videos, if you need help or more information on how to encode and prepare your video to be a pseudo stream compliant check out the"
 msgstr "აქ შეგიძლიათ მიუთითოთ ნაგულისხმევი პარამეტრები ყველა თქვენი ვიდეოსთვის. თუ გჭირდებათ დახმარება ან დამატებითი ინფორმაცია ვიდეოს ენკოდირებისა და მომზადების თემაზე, გადახედეთ გვერდს"
 
-#: stream-video-player.php:745
+#: stream-video-player.php:818
 msgid "FAQs"
 msgstr "ხშირი კითხვები"
 
-#: stream-video-player.php:745
+#: stream-video-player.php:818
 msgid "where you can find a lot of free and open resources to encode your video."
 msgstr "სად შეიძლება ბევრი უფასო და ღია რესურსის პოვნა ვიდეოს ენკოდირებისთვის."
 
-#: stream-video-player.php:787
+#: stream-video-player.php:860
 msgid "Update Options"
 msgstr "პარამეტრების განახლება"
 
-#: stream-video-player.php:823
-#: stream-video-player.php:1110
+#: stream-video-player.php:896
+#: stream-video-player.php:1198
 msgid "Title"
 msgstr "სათაური"
 
-#: stream-video-player.php:828
+#: stream-video-player.php:901
 msgid "Preview Image"
 msgstr "გადახედვის სურათი"
 
-#: stream-video-player.php:835
+#: stream-video-player.php:908
 msgid "Player Width"
 msgstr "დამკვრელის სიგანე"
 
-#: stream-video-player.php:840
+#: stream-video-player.php:913
 msgid "Player Height"
 msgstr "დამკვრელის სიმაღლე"
 
-#: stream-video-player.php:845
+#: stream-video-player.php:918
 msgid "Skin"
 msgstr "სკინი"
 
-#: stream-video-player.php:851
+#: stream-video-player.php:924
 msgid "Logo"
 msgstr "ლოგოტიპი"
 
-#: stream-video-player.php:856
+#: stream-video-player.php:929
 msgid "Dock"
 msgstr "დოკი"
 
-#: stream-video-player.php:862
+#: stream-video-player.php:935
 msgid "Control Bar"
 msgstr "სამართავი ზოლი"
 
-#: stream-video-player.php:870
+#: stream-video-player.php:943
 msgid "Auto Start"
 msgstr "ავტომატური დაწყება"
 
-#: stream-video-player.php:875
+#: stream-video-player.php:948
 msgid "Startup Volume"
 msgstr "საწყისი ხმა"
 
-#: stream-video-player.php:881
+#: stream-video-player.php:954
 msgid "Show Share URL"
 msgstr "მისამართის გაზიარების ჩვენება"
 
-#: stream-video-player.php:886
+#: stream-video-player.php:959
 msgid "Show Embed HTML Code"
 msgstr "სხვაგან ჩასმის HTML-კოდის ჩვენება"
 
-#: stream-video-player.php:893
+#: stream-video-player.php:966
 msgid "Default media provider<br /><small>http = pseudo-streaming</small>"
 msgstr "ნაგულისხმევი მედია-პროვაიდერი<br /><small>http = ფსევდო-სტრიმინგს</small>"
 
-#: stream-video-player.php:899
+#: stream-video-player.php:972
 msgid "Pseudo-Streamer URL"
 msgstr "ფსევდო-სტრიმის URL"
 
-#: stream-video-player.php:905
+#: stream-video-player.php:978
 msgid "Bandwidth"
 msgstr "ტრაფიკი"
 
-#: stream-video-player.php:911
+#: stream-video-player.php:984
 msgid "HTML Wrapper"
 msgstr "HTML-ჩარჩო"
 
-#: stream-video-player.php:916
+#: stream-video-player.php:989
 msgid "Use own SWFObject.js"
 msgstr "საკუთარი SWFObject.js-ის გამოყენება"
 
-#: stream-video-player.php:921
+#: stream-video-player.php:994
 msgid "Show player only on single pages"
 msgstr "დამკვრელის ჩვენება მხოლოდ პოსტის სრულ გვერდებზე"
 
-#: stream-video-player.php:1064
+#: stream-video-player.php:1152
 msgid "Put your video tag short code here to include some widget videos."
 msgstr "ჩასვით თქვენი ვიდეოს ტეგის მოკლე კოდი აქ, ზოგიერთი ვიდჯეტის ჩასამატებლად."
 
-#: stream-video-player.php:1117
+#: stream-video-player.php:1205
 msgid "Video Tag:"
 msgstr "ვიდეოს ტეგი:"
 
-#: stream-video-player.php:1121
+#: stream-video-player.php:1209
 msgid "Type or paste here a video tag short code to display a video, you can add multiple tags on this widget and text if you want, if you need a help generating a video tag enter to the page or post editor and generate one with the video tag generator, take in count the widget width size to make your video fit it, if your video is very small consider not using the control bar."
 msgstr "აკრიფეთ ან ჩასვით თქვენი ვიდეოს ტეგის მოკლე კოდი. ამ ვიდჯეტში თქვენ შეგიძლიათ რამდენიმე ვიდეოს ტეგის ან ტექსტის დამატება. თუ ვიდეოს ტეგის გენერირებაში დახმარება გჭირდებათ, შედით გვერდის ან პოსტის რედაქტირების გვერდზე და დააგენერირეთ იგი ვიდეოს ტეგის გენერატორის გამოყენებით."
 
-#: stream-video-player.php:1124
+#: stream-video-player.php:1212
 msgid "Display Title"
 msgstr "სათაური"
 
@@ -385,22 +406,18 @@ msgstr "http://rodrigopolo.com"
 
 #~ msgid "URL Base:"
 #~ msgstr "URL Base:"
-
 #~ msgid "Video for iPhone (.mp4):"
 #~ msgstr "Видео для iPhone (.mp4):"
-
 #~ msgid ""
 #~ "The best way to include Stream Video to your blog, iPhone and HD video "
 #~ "compatible. (SWFObject by Geoff Stearns)"
 #~ msgstr ""
 #~ "Опрощение процесса добавления Stream Video в WordPress блог. (SWFObject "
 #~ "by Geoff Stearns)"
-
 #~ msgid "Video for Player:"
 #~ msgstr "Видео игрока:"
-
 #~ msgid "The absolute path to your FLV video (injected .flv file)"
 #~ msgstr "Абсолютный путь к FLV video (injected .flv файл)"
-
 #~ msgid "The absolute path to your HD-FLV video (injected .flv file)"
 #~ msgstr "Абсолютный путь к HD-FLV видео"
+
