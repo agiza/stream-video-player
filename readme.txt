@@ -12,6 +12,19 @@ Stream Video Player for WordPress its one stop solution for high quality video p
 
 Stream Video Player for WordPress is by far the best and most complete video-audio player plug-in for WordPress, Easy to use with a tag generator in the editor, support for viewing on the iPad, iPhone and iPod touch, support for YouTube and Pseudo-Streaming so you can randomly seek any place of your videos without having to load the entire video before.
 
+= Translators =
+* Afrikaans (af_AF) - [Schalk Burger](http://schalkburger.za.net)
+* Chinese, Traditional (zh_TW) - [James Wu](http://jameswublog.com)
+* Dutch (nl_NL) - [Martin Hein](http://split-a-pixel.nl)
+* French (fr_FR) - [Maître Mô](http://maitremo.fr), [Stéphane Benoit](http://caracteremultimedia.com)
+* Georgian (ka_GE) - [Nodar Rocko Davituri](http://omedia.ge)
+* Italian (it_IT) - [Bruno Salzano](http://brunosalzano.com)
+* Lithuanian (lt_LT) - [Ernestas Kardzys](http://ernestas.info)
+* Polish (pl_PL) - [Zbigniew Czernik](http://zibik.jogger.pl)
+* Russian (ru_RU) - Roman Kireev
+* Spanish (es_ES) - [Rodrigo Polo](http://rodrigopolo.com)
+* Turkish (tr_TR) - [Emin Buğra SARAL](http://www.rahmetli.info)
+
 Important Links:
 
 * <a href="http://rodrigopolo.com/about/wp-stream-video" title="Demonstration and Info">Demonstration and info.</a>
@@ -19,7 +32,6 @@ Important Links:
 * <a href="http://rodrigopolo.com/about/wp-stream-video/how-to" title="Full guide on how to use the plug-in and encode video">How to use the plug-in and encode video</a>
 * <a href="http://rodrigopolo.com/about/wp-stream-video/ffmpeg-binary-installers-for-win-mac-and-linux" title="Video Encoder Installer">Video Encoder for Mac, Win, Linux</a>
 * <a href="http://rodrigopolo.com/about/wp-stream-video/known-issues-and-to-do-list" title="Known issues and To-do list">Known issues and To-do list</a>
-
 
 = Features =
 * iPad, iPhone, iPod Touch, WPTouch, MobilePress, YouTube and feeds compatible.
@@ -32,18 +44,6 @@ Important Links:
 * Only open source software needed for video encoding.
 * JW Media Player plug-ins supported
 * 100% Standard code
-
-= Translators =
-* French (fr_FR) - [Maître Mô](http://maitremo.fr), [Stéphane Benoit](http://caracteremultimedia.com)
-* Russian (ru_RU) - Roman Kireev
-* Spanish (es_ES) - [Rodrigo Polo](http://rodrigopolo.com)
-* Turkish (tr_TR) - [Emin Buğra SARAL](http://www.rahmetli.info)
-* Lithuanian (lt_LT) - [Ernestas Kardzys](http://ernestas.info)
-* Georgian (ka_GE) - [Nodar Rocko Davituri](http://omedia.ge)
-* Italian (it_IT) - [Bruno Salzano](http://brunosalzano.com)
-* Afrikaans (af_AF) - [Schalk Burger](http://schalkburger.za.net)
-* Chinese, Traditional (zh_TW) - [James Wu](http://jameswublog.com)
-* Polish (pl_PL) - [Zbigniew Czernik](http://zibik.jogger.pl)
 
 
 == Credits ==
@@ -105,7 +105,6 @@ As a typical major release there is always a chance to mess up the code, and on 
 * Fix! A general bug on the plug-in fixed.
 * NEW! Turkish, Lithuanian, Georgian and Italian translations added, many thanks to the wonderful people who contribute to the translations.
 * NEW! Now YouTube videos can be seen on mobile devices if the device supports YouTube video.
-
 
 = 1.1.0 =
 * NEW! Widget capable!
@@ -174,8 +173,7 @@ As a typical major release there is always a chance to mess up the code, and on 
 * A huge fix to the way the language loads in the settings page
 
 == Upgrade Notice ==
-This is a critical update to fix a general bug in version 1.1.0, it also fixes some issues with "the_excerpt", fixes the video aspect ratio to show the correct size, fixes some issues displaying the player on mobile devices and has a lot of new and cool futures to make it easier to use.
-If you already have version 1.1.1 this version fixes some issues with the QuickTag generator for PHP servers that don't accept "<?" to start a PHP Script
+Complete fix to the video tag generator, all "PHP short tags" are gone so any server who doesn't have "PHP short tags" enable now will run ok.
 
 == Screenshots ==
 
