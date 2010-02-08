@@ -22,7 +22,8 @@ Stream Video Player for WordPress is by far the best and most complete video-aud
 * Lithuanian (lt_LT) - [Ernestas Kardzys](http://ernestas.info)
 * Polish (pl_PL) - [Zbigniew Czernik](http://zibik.jogger.pl)
 * Russian (ru_RU) - Roman Kireev
-* Spanish (es_ES) - [Rodrigo Polo](http://rodrigopolo.com)
+* Spanish (es_ES) - [Jordi Sancho](http://qasolutions.net)
+* Spanish (es_MX) - [Rodrigo Polo](http://rodrigopolo.com)
 * Turkish (tr_TR) - [Emin Buğra SARAL](http://www.rahmetli.info)
 
 Important Links:
