@@ -208,7 +208,7 @@ class rp_splayer {
 				if(!empty($this->flv) && $this->isYouTubeURL(urldecode($this->flv))){
 					$ytid = $this->getYouTubeID(urldecode($this->flv));
 					$this->fixmobilestyle = false;
-					echo "<style>.post object,.post embed{width:100% !important;height:auto;position:relative;z-index:0;}</style>\n";
+					echo "<style type=\"text/css\">.post object,.post embed{width:100% !important;height:auto;position:relative;z-index:0;}</style>\n";
 					return $this->genYouTubeEmbed($ytid);
 				}else{
 					$last_object = __('(Video: Available only on a desktop browser)', 'stream-video-player');
