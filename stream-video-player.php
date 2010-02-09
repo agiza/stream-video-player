@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Stream Video Player
-Version: 1.1.2
+Version: 1.1.3
 Plugin URI: http://rodrigopolo.com/about/wp-stream-video
 Description: By far the best and most complete video-audio player plug-in for WordPress. iPhone, iPad and HD video compatible.
 Author: Rodrigo Polo
@@ -208,7 +208,7 @@ class rp_splayer {
 				if(!empty($this->flv) && $this->isYouTubeURL(urldecode($this->flv))){
 					$ytid = $this->getYouTubeID(urldecode($this->flv));
 					$this->fixmobilestyle = false;
-					echo "<style type=\"text/css\">.post object,.post embed{width:100% !important;height:auto;position:relative;z-index:0;}</style>\n";
+					echo "\n<style type=\"text/css\">\n.post object,.post embed{width:100% !important;height:auto;position:relative;z-index:0;}\n</style>\n";
 					return $this->genYouTubeEmbed($ytid);
 				}else{
 					$last_object = __('(Video: Available only on a desktop browser)', 'stream-video-player');
@@ -281,7 +281,7 @@ class rp_splayer {
 		if($this->fixmobilestyle){
 			if($this->mobile){
 				$this->fixmobilestyle = false;
-				echo "<style>.post object,.post embed{width:100% !important;height:auto;position:relative;z-index:0;}</style>\n";
+				echo "\n<style type=\"text/css\">\n.post object,.post embed{width:100% !important;height:auto;position:relative;z-index:0;}\n</style>\n";
 			}
 		}
 
@@ -863,7 +863,7 @@ function StreamVideoOptions(){
 }
 
 function StreamVideoFixStyle(){
-	echo "<style>object {outline:none;}</style>\n";
+	echo "\n<style type=\"text/css\">\nobject {outline:none;}\n</style>\n";
 }
 
 // Function to include the SWF Object
@@ -1089,7 +1089,7 @@ function set_admin_js_vars(){
 }
 
 // To handle version on JS files
-$StreamVideoVersion = '1.1.2';
+$StreamVideoVersion = '1.1.3';
 
 // To handle ids
 $videoid = 0;

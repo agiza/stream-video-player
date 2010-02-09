@@ -4,7 +4,7 @@ Donate link: http://rodrigopolo.com/about/wp-stream-video/donate
 Tags: stream, video, flv, mp4, flash, swf, iphone, player, wordpress, plugin, media
 Requires at least: 2.8.0
 Tested up to: 2.9.1
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 
 Stream Video Player for WordPress its one stop solution for high quality video publishing for web or iPhone.
 
@@ -75,12 +75,11 @@ information check https://www.longtailvideo.com/players/order/license/
 1. Download and unzip the current version of the Stream Video Player plugin.
 2. Transfer the entire 'stream-video-player' directory to your '/wp-content/plugins/' directory
 3. Activate the plugin through the 'Plugins' menu in WordPress
-4. That's it! You're done. You can now generate the "stream video tag" by using the tag generator from the post editor.
+4. That's it! You're done. You can now generate the "stream video tag" by using the quick tag generator from the post editor.
 
 == Frequently Asked Questions ==
 
 = What's new in the latest version? =
-* Fix! A general bug on the plug-in fixed.
 * Fix! A fix to the QuickTag generator.
 * NEW! Afrikaans, Turkish, Lithuanian, Georgian and Italian translations added.
 * NEW! Now YouTube videos can be seen on mobile devices if the device supports YouTube video.
@@ -96,6 +95,10 @@ information check https://www.longtailvideo.com/players/order/license/
 
 
 == Changelog ==  
+
+= 1.1.3 =
+* Fix! A copuple of fixes for users who are having issues with PHP Short Tags.
+* More translations added
 
 = 1.1.2 =
 A fix to the QuickTag Generator, it's working great now, thanks again to Paul Landers.
@@ -120,7 +123,6 @@ As a typical major release there is always a chance to mess up the code, and on 
 * Upgrade! A complete overhaul to the way the Tag Generator and the Media Library load WordPress dependencies, so no more issues with other plug-ins.
 * Fix! Aspect Ratio work the way it is supposed to in the Player.swf for "video" or "stream" provider, another fix to the JW Player original code.
 * Small fix to the tag generator to give suppor to the "adscode" attribute.
-
 
 = 1.0.6 =
 * Added support for iPad
