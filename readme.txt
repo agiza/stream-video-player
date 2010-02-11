@@ -25,6 +25,7 @@ Stream Video Player for WordPress is by far the best and most complete video-aud
 * Spanish (es_ES) - [Jordi Sancho](http://qasolutions.net)
 * Spanish (es_MX) - [Rodrigo Polo](http://rodrigopolo.com)
 * Turkish (tr_TR) - [Emin Buğra SARAL](http://www.rahmetli.info)
+* Hebrew (he_IL) - [Yaron Ofer - GadgetGuru.co.il](http://gadgetguru.co.il)
 
 Important Links:
 
