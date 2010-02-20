@@ -14,19 +14,21 @@ Stream Video Player for WordPress is by far the best and most complete video-aud
 
 = Translators =
 * Afrikaans (af_AF) - [Schalk Burger](http://schalkburger.za.net)
+* Brazilian Portuguese (pt_BR) - [Caciano Gabriel](http://gn10.com.br)
 * Chinese, Traditional (zh_TW) - [James Wu](http://jameswublog.com)
 * Dutch (nl_NL) - [Martin Hein](http://split-a-pixel.nl)
 * French (fr_FR) - [Maître Mô](http://maitremo.fr), [Stéphane Benoit](http://caracteremultimedia.com)
 * Georgian (ka_GE) - [Nodar Rocko Davituri](http://omedia.ge)
+* Hebrew (he_IL) - [Yaron Ofer - GadgetGuru.co.il](http://gadgetguru.co.il)
 * Italian (it_IT) - [Bruno Salzano](http://brunosalzano.com)
 * Lithuanian (lt_LT) - [Ernestas Kardzys](http://ernestas.info)
 * Polish (pl_PL) - [Zbigniew Czernik](http://zibik.jogger.pl)
-* Russian (ru_RU) - Roman Kireev
+* Russian (ru_RU) - [Andrey K.](http://andrey.eto-ya.com), Roman Kireev
 * Spanish (es_ES) - [Jordi Sancho](http://qasolutions.net)
 * Spanish (es_MX) - [Rodrigo Polo](http://rodrigopolo.com)
 * Turkish (tr_TR) - [Emin Buğra SARAL](http://www.rahmetli.info)
-* Hebrew (he_IL) - [Yaron Ofer - GadgetGuru.co.il](http://gadgetguru.co.il)
-* Brazilian Portuguese (pt_BR) - [Caciano Gabriel](http://gn10.com.br)
+* Ukrainian (uk_UA) - [Andrey K.](http://andrey.eto-ya.com)
+
 
 
 Important Links:
