@@ -19,6 +19,7 @@ Stream Video Player for WordPress is by far the best and most complete video-aud
 * Dutch (nl_NL) - [Martin Hein](http://split-a-pixel.nl)
 * French (fr_FR) - [Maître Mô](http://maitremo.fr), [Stéphane Benoit](http://caracteremultimedia.com)
 * Georgian (ka_GE) - [Nodar Rocko Davituri](http://omedia.ge)
+* German (de_DE) - Michael Helfberend
 * Hebrew (he_IL) - [Yaron Ofer - GadgetGuru.co.il](http://gadgetguru.co.il)
 * Italian (it_IT) - [Bruno Salzano](http://brunosalzano.com)
 * Lithuanian (lt_LT) - [Ernestas Kardzys](http://ernestas.info)
