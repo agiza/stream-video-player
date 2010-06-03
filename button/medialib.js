@@ -1,4 +1,4 @@
-$(document).ready(function(){
+jQuery(document).ready(function($){
 	// Enable the file tree jq plug-in
 	$("#browser").treeview({
 		collapsed: true,

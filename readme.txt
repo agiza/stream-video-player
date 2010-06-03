@@ -3,8 +3,8 @@ Contributors: Rodrigo Polo
 Donate link: http://rodrigopolo.com/about/wp-stream-video/donate
 Tags: stream, video, flv, mp4, flash, swf, iphone, player, wordpress, plugin, media
 Requires at least: 2.8.0
-Tested up to: 2.9.1
-Stable tag: 1.1.3
+Tested up to: 3.0.0
+Stable tag: 1.1.4
 
 Stream Video Player for WordPress its one stop solution for high quality video publishing for web or iPhone.
 
@@ -86,21 +86,23 @@ information check https://www.longtailvideo.com/players/order/license/
 == Frequently Asked Questions ==
 
 = What's new in the latest version? =
-* Fix! A fix to the QuickTag generator.
-* NEW! Afrikaans, Turkish, Lithuanian, Georgian and Italian translations added.
-* NEW! Now YouTube videos can be seen on mobile devices if the device supports YouTube video.
+* Fix! The Media Library button was not working in some installations because different versions of ThickBox
+* NEW! Google Analytics Pro added, Free for personal use, Need licence for commercial use.
+* TESTED and working on WordPress 3.0-RC1-15112
 
 
 = Where I can get help and support? =
-* [You can contact me on my website](http://rodrigopolo.com/contact)
-* [Or you can follow me on Twitter](http://twitter.com/rodrigopolo)
-* [How to use the plug-in and encode video](http://rodrigopolo.com/about/wp-stream-video/how-to)
-* [Stream Video Player Frequently Asked Questions (F.A.Q.)](http://rodrigopolo.com/about/wp-stream-video/faq)
-* [Stream Video Player information](http://rodrigopolo.com/about/wp-stream-video)
-* [FFmpeg Video Encoder Installs](http://rodrigopolo.com/about/wp-stream-video/ffmpeg-binary-installers-for-win-mac-and-linux)
+* [READ How to use the plug-in and encode video](http://rodrigopolo.com/about/wp-stream-video/how-to)
+* [CHECK the Frequently Asked Questions (F.A.Q.)](http://rodrigopolo.com/about/wp-stream-video/faq)
+* [ASK in the Official Forum](http://rodrigopolo.com/support/forum/stream-video-player)
 
 
 == Changelog ==  
+
+= 1.1.4 =
+* Fix! The Media Library button was not working in some installations because different versions of ThickBox
+* NEW! Google Analytics Pro added, Free for personal use, Need licence for commercial use.
+* TESTED and working on WordPress 3.0-RC1-15112
 
 = 1.1.3 =
 * Fix! A copuple of fixes for users who are having issues with PHP Short Tags.
@@ -173,16 +175,9 @@ As a typical major release there is always a chance to mess up the code, and on 
 * COMING SOON: Server side encoding, Media Library Integration and a Multi-Platform Desktop Graphic Application to encode and upload your videos directly to your WordPress blog.
 * IMPORTANT NOTE: After several tests I have decided to use FLVMeta as the metadata injection utility for FLV Videos, is extremely faster, very very very low footprint on CPU and RAM and of course, can handle very large videos, can inject the "with" and "height" and is multi-platform, download at http://code.google.com/p/flvmeta/ (BinKit release coming soon: http://rodrigopolo.com/about/wp-stream-video/ffmpeg-binary-installers-for-win-mac-and-linux ).
 
-= 0.7.9 = 
-* Fix in the option "Show player only on single pages" to work on single posts AND pages
-
-= 0.7.8 = 
-* Added the option to choose to show the player only on single pages, this is because "the_excerpt" function strips the HTML from the player.
-* Added the "ru_Ru" translation file thanks to [Fat Cow](http://fatcow.com).
-* A huge fix to the way the language loads in the settings page
 
 == Upgrade Notice ==
-Complete fix to the video tag generator, all "PHP short tags" are gone so any server who doesn't have "PHP short tags" enable now will run ok.
+Google Analytics Pro added and a little bug with the Media Library buttons solved, also it is TESTED and working on WordPress 3.0-RC1-15112
 
 == Screenshots ==
 

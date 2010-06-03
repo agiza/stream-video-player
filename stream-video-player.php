@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Stream Video Player
-Version: 1.1.3
+Version: 1.1.4
 Plugin URI: http://rodrigopolo.com/about/wp-stream-video
-Description: By far the best and most complete video-audio player plug-in for WordPress. iPhone, iPad and HD video compatible.
+Description: By far the best and most complete video-audio player plug-in for WordPress. iPhone, iPad and HD video compatible. For support <a href="http://rodrigopolo.com/about/wp-stream-video/faq" target="_blank">READ the FAQ</a> and then visit the <a href="http://rodrigopolo.com/support/forum/stream-video-player" target="_blank">Official Forum</a>.
 Author: Rodrigo Polo
 Author URI: http://rodrigopolo.com
 
@@ -426,7 +426,7 @@ function StreamVideo_Render($matches){
 	}
 	
 	// Not necesary flashvars >>
-	$noflashvar = explode(',','share,embed,logo,onlyonsingle,img,width,height,useobjswf,wrapper,bandwidth');
+	$noflashvar = explode(',','share,embed,logo,onlyonsingle,img,width,height,useobjswf,wrapper,bandwidth,gapro');
 	
 	$cmd = $matches[1];
 	
@@ -472,7 +472,7 @@ function StreamVideo_Render($matches){
 	// Check if there is a base url declared
 	if(!empty($arguments['base'])){
 		// arguments to add base url
-		$ar2up = explode(',','flv,img,mp4,hd,captions');
+		$ar2up = explode(',','flv,img,mp4,hd,captions,gapro');
 		
 		// base url
 		$baseurl = StreamVideo_trim($arguments['base']);
@@ -509,6 +509,12 @@ function StreamVideo_Render($matches){
 	if (array_key_exists('height', $arguments)){
 		$options[1][1]['v'] = $arguments['height'];
 	}
+	// Google Analytics
+	if (array_key_exists('gapro', $arguments)){
+		$options[3][6]['v'] = $arguments['gapro'];
+	}
+	
+	
 	// Image, check if has ben defined
 	if (array_key_exists('img', $arguments)){
 		$img_fqt = $arguments['img'];
@@ -596,6 +602,14 @@ function StreamVideo_Render($matches){
 		$player->setFv('ltas.cc', StreamVideo_trim($arguments['adscode']));
 		// Add the HD plugin to JW Player
 		$StreamVideo_jwp[]='ltas';
+	}
+	
+	// Set the Google Analytics Pro
+	$svp_gapro = $options[3][6]['v'];
+	if(!empty($svp_gapro)){
+		$player->setFv('gapro.accountid',StreamVideo_trim($svp_gapro));
+		// Add the HD plugin to JW Player
+		$StreamVideo_jwp[]='gapro';
 	}
 	
 	// Set the Captions >>
@@ -994,6 +1008,11 @@ function StreamVideoLoadDefaults(){
 	$f[3][3]['dn'] = __('Show player only on single pages', 'stream-video-player');
 	$f[3][3]['t'] = 'cb';
 	$f[3][3]['v'] = 'false';
+	
+	$f[3][6]['on'] = 'gapro';
+	$f[3][6]['dn'] = __('Google Analytics Account ID like \'UA-123456-1\'', 'stream-video-player');
+	$f[3][6]['t'] = 'tx';
+	$f[3][6]['v'] = '';
 
 	return $f;
 }
@@ -1089,7 +1108,7 @@ function set_admin_js_vars(){
 }
 
 // To handle version on JS files
-$StreamVideoVersion = '1.1.3';
+$StreamVideoVersion = '1.1.4';
 
 // To handle ids
 $videoid = 0;

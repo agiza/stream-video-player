@@ -26,10 +26,10 @@ var RodrigoPolo = window.RodrigoPolo || {};
 */
 (RodrigoPolo.Tag.Generator = function(){
 	// tags to find
-	var tags = 'provider,base,flv,img,hd,mp4,captions,embed,share,width,height,dock,controlbar,skin,adscode,logo,bandwidth,title,volume,autostart,streamer,opfix'.split(',');				  
+	var tags = 'provider,base,flv,img,hd,mp4,captions,embed,share,width,height,dock,controlbar,skin,adscode,logo,bandwidth,title,volume,autostart,streamer,opfix,gapro'.split(',');				  
 	// to validate and generate the tag
 	var vt = function(id){
-		var form = jQuery('#'+id).val();
+		var form =  jQuery.trim(jQuery('#'+id).val());
 		if(form==''){
 			return '';
 		}else if(isyoutube(form)){
@@ -40,6 +40,14 @@ var RodrigoPolo = window.RodrigoPolo || {};
 			return '';
 		}else if(id=='opfix' && form=='false'){
 			return '';
+		}else if(id=='gapro'){
+			
+			if(jQuery('#'+id).attr('alt') != form && form!=''){
+				return ' '+id+'='+form;
+			}else{
+				return '';
+			}
+			
 		}else{
 			return ' '+id+'='+form;
 		}

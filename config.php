@@ -17,13 +17,6 @@ $tbsur = get_bloginfo('url');
 <head>
 <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php echo get_option('blog_charset'); ?>" />
 <title><?php bloginfo('name') ?> &rsaquo; <?php echo wp_specialchars( $title ); ?> &#8212; WordPress</title>
-<script type="text/javascript">
-	var tb_pathToImage = "<?php echo $tbsur; ?>/wp-includes/js/thickbox/loadingAnimation.gif";
-	var tb_closeImage = "<?php echo $tbsur; ?>/wp-includes/js/thickbox/tb-close.png";
-</script>
-<script type="text/javascript" charset="utf-8" src="<?php echo plugins_url('/stream-video-player/button/jquery.js'); ?>?ver=<?php echo $StreamVideoVersion; ?>"></script>
-<script type="text/javascript" charset="utf-8" src="<?php echo plugins_url('/stream-video-player/button/svb.js'); ?>?ver=<?php echo $StreamVideoVersion; ?>"></script>
-<script type="text/javascript" charset="utf-8" src="<?php echo $tbsur; ?>/wp-includes/js/thickbox/thickbox.js?ver=<?php echo $StreamVideoVersion;?>"></script>
 <link rel="stylesheet" type="text/css" media="screen" title="no title" charset="utf-8" href="<?php echo plugins_url('/stream-video-player/button/config.css'); ?>?ver=<?php echo $StreamVideoVersion; ?>"/>
 <link rel="stylesheet" type="text/css" media="screen" title="no title" charset="utf-8" href="<?php echo plugins_url('/stream-video-player/button/generator.css'); ?>?ver=<?php echo $StreamVideoVersion; ?>"/>
 <link rel="stylesheet" type="text/css" media="screen" title="no title" charset="utf-8" href="<?php echo $tbsur ?>/wp-includes/js/thickbox/thickbox.css?ver=<?php echo $StreamVideoVersion; ?>"/>
@@ -212,12 +205,20 @@ $tbsur = get_bloginfo('url');
 				</select> 
 			</div>
 			<div class="clear">&nbsp;</div>
-			
+
 			<div class="col1"> 
 				<label class="info" title="<?php _e('LongTail Ads Code', 'stream-video-player'); ?>" for="adscode"><?php _e('Ads Code:', 'stream-video-player'); ?></label>
 			</div>
 			<div class="col2"> 
 				<input type="text" size="18" name="adscode" id="adscode"/> 
+			</div>
+			<div class="clear">&nbsp;</div>
+            
+			<div class="col1"> 
+				<label class="info" title="<?php _e('Google Analytics Account ID like \'UA-123456-1\'', 'stream-video-player'); ?>" for="gapro"><?php _e('Google Analytics:', 'stream-video-player'); ?></label>
+			</div>
+			<div class="col2"> 
+				<input type="text" size="18" name="gapro" id="gapro" value="<?php echo $def_options[3][6]['v']; ?>" alt="<?php echo $def_options[3][6]['v']; ?>"/> 
 			</div>
 			<div class="clear">&nbsp;</div>
             
@@ -295,19 +296,22 @@ $tbsur = get_bloginfo('url');
 			<input type="button" class="button" id="generate" name="generate" value="<?php _e('Generate', 'stream-video-player'); ?>" />
 		</div> 
 	</div>
+<script type="text/javascript" charset="utf-8" src="<?php echo plugins_url('/stream-video-player/button/jquery.js'); ?>?ver=<?php echo $StreamVideoVersion; ?>"></script>
 	<script>
 		// <![CDATA[
 		jQuery(document).ready(function($){
 			try {
 				RodrigoPolo.Tag.Generator.initialize();
 			} catch (e) {
-				throw "<?php _e("Stream Video: This tag generator isn't going to put the stream video tag in your code.", 'stream-video-player'); ?>";
+				//throw "<?php _e("Stream Video: This tag generator isn't going to put the stream video tag in your code.", 'stream-video-player'); ?>";
 			}
 			$(".button.wb").click(function(e) {
+				e.preventDefault();
 				var fid = $(this).attr("id");
 				curwbf = fid.substring(1);
 				var wtitle = $("label[for='"+curwbf+"']").html();
-				tb_show('mlibrary', '<?php echo plugins_url('/stream-video-player/medialibrary.php'); ?>?&wtitle='+wtitle+'&KeepThis=true&TB_iframe=true&height=320&width=240&modal=true', false);
+				var url_ml = '<?php echo plugins_url('/stream-video-player/medialibrary.php'); ?>?&wtitle='+encodeURIComponent(wtitle)+'&KeepThis=true&TB_iframe=true&height=320&width=240&modal=true&';
+				tb_show('Un Titulo', url_ml, false);
 			});
 		});
 		var curwbf;
@@ -329,7 +333,14 @@ $tbsur = get_bloginfo('url');
 			}
 			jQuery("#"+curwbf).val(v);
 		}
+		
+var tb_pathToImage = "<?php echo $tbsur; ?>/wp-includes/js/thickbox/loadingAnimation.gif";
+var tb_closeImage = "<?php echo $tbsur; ?>/wp-includes/js/thickbox/tb-close.png";
+var thickboxL10n = {};
+		
 		// ]]>
 	</script>
+<script type="text/javascript" charset="utf-8" src="<?php echo plugins_url('/stream-video-player/button/svb.js'); ?>?ver=<?php echo $StreamVideoVersion; ?>"></script>
+<script type="text/javascript" charset="utf-8" src="<?php echo $tbsur; ?>/wp-includes/js/thickbox/thickbox.js?ver=<?php echo $StreamVideoVersion;?>"></script>
 </body>
 </html>
