@@ -39,6 +39,11 @@ jQuery(document).ready(function($){
 	});
 	// The Absolute Path Fixer
 	function absPath(url){
+		
+		if(url.substring(0,7)=='http://' || url.substring(0,8)=='https://'){
+			return url;
+		}
+		
 		var Loc = location.href;	
 		Loc = Loc.substring(0, Loc.lastIndexOf('/'));
 		while (/^\.\./.test(url)){		 

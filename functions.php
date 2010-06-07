@@ -59,7 +59,9 @@ function isValidFile($file){
 }
 
 // Read the directory (func, media lib)
-function readDirR($dir = "./") {
+function readDirR($dir = "./",$base_path='./',$mp='') {
+	
+
 	if($listing = opendir($dir)){
 		$return = array ();
 		while(($entry = readdir($listing)) !== false) {
@@ -68,12 +70,16 @@ function readDirR($dir = "./") {
 				$item = $dir . "/" . $entry;
 				$isfile = is_file($item);
 				$dirend = ($isfile)?'':'/';
-				$link = '<a rel="'.getExt($entry).'" href="' . $dir . "/" . $entry . $dirend . '">' . $entry . '</a>';
+				
+				$path_to_file = $dir . "/" . $entry . $dirend;
+				$path_to_file = str_replace($mp, $base_path, $path_to_file);
+				
+				$link = '<a rel="'.getExt($entry).'" href="'.$path_to_file.'">' . $entry . '</a>';
 				if ($isfile && isValidFile($entry)) {
 					$return[] = $link;
 				}
 				elseif (is_dir($item)) {
-					$return[$link] = readDirR($item);
+					$return[$link] = readDirR($item,$base_path,$mp);
 				} else {}
 			} else {}
 		}

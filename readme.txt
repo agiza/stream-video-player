@@ -4,7 +4,7 @@ Donate link: http://rodrigopolo.com/about/wp-stream-video/donate
 Tags: stream, video, flv, mp4, flash, swf, iphone, player, wordpress, plugin, media
 Requires at least: 2.8.0
 Tested up to: 3.0.0
-Stable tag: 1.1.4
+Stable tag: 1.2.0
 
 Stream Video Player for WordPress its one stop solution for high quality video publishing for web or iPhone.
 
@@ -99,6 +99,13 @@ information check https://www.longtailvideo.com/players/order/license/
 
 == Changelog ==  
 
+= 1.2.0 =
+* NEW! Compatibility with WordPress MU.
+* NEW! The "ad code" is by default on the settings page.
+* FIX! An issue with WWW and no WWW.
+* FIX! An issue with YouTube image previews.
+* SOON: I'm making some tools to encode video and translate SRT subtitles to XML subtitles, stay tuned to http://tools.rodrigopolo.com/
+
 = 1.1.4 =
 * Fix! The Media Library button was not working in some installations because different versions of ThickBox
 * NEW! Google Analytics Pro added, Free for personal use, Need licence for commercial use.
@@ -177,7 +184,9 @@ As a typical major release there is always a chance to mess up the code, and on 
 
 
 == Upgrade Notice ==
-Google Analytics Pro added and a little bug with the Media Library buttons solved, also it is TESTED and working on WordPress 3.0-RC1-15112
+Compatibility with WordPress MU, "ad code" is by default on the settings page, An issue with WWW and no WWW in URLs, Fix An issue with YouTube image previews, also it is TESTED and working on WordPress 3.0-RC1-15112.
+
+I'm making some tools to encode video and translate SRT subtitles to XML subtitles, stay tuned to http://tools.rodrigopolo.com/
 
 == Screenshots ==
 

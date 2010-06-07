@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Stream Video Player
-Version: 1.1.4
+Version: 1.2.0
 Plugin URI: http://rodrigopolo.com/about/wp-stream-video
 Description: By far the best and most complete video-audio player plug-in for WordPress. iPhone, iPad and HD video compatible. For support <a href="http://rodrigopolo.com/about/wp-stream-video/faq" target="_blank">READ the FAQ</a> and then visit the <a href="http://rodrigopolo.com/support/forum/stream-video-player" target="_blank">Official Forum</a>.
 Author: Rodrigo Polo
@@ -368,7 +368,7 @@ function StreamVideo_Parse_widget($c){
 }
 
 // Replace the common excerpt function with this one in order to know when is running
-function improved_trim_excerpt($text) {
+function svp_improved_trim_excerpt($text) {
 	global $svp_is_excerpt;
 	$svp_is_excerpt = true;
 	
@@ -426,7 +426,7 @@ function StreamVideo_Render($matches){
 	}
 	
 	// Not necesary flashvars >>
-	$noflashvar = explode(',','share,embed,logo,onlyonsingle,img,width,height,useobjswf,wrapper,bandwidth,gapro');
+	$noflashvar = explode(',','share,embed,logo,onlyonsingle,img,width,height,useobjswf,wrapper,bandwidth,gapro,adscode');
 	
 	$cmd = $matches[1];
 	
@@ -449,10 +449,13 @@ function StreamVideo_Render($matches){
 		}
 	}
 	
-	// Normalize URLs	
+	// Normalize URLs
 	$thisurl = StreamVideo_getSelfUri();
 	foreach($arguments as $kwww => $fxwww){
-		if(substr($fxwww,0,7)=='http://' || substr($fxwww,0,8)=='https://'){
+		if(
+			(substr($fxwww,0,7)=='http://' || substr($fxwww,0,8)=='https://') // is an URL
+			&& substr($fxwww,0,22) != 'http://img.youtube.com' // is NOT youtube
+		){
 			$arguments[$kwww] = $nURI->norm($thisurl, $fxwww);
 		}
 	}
@@ -512,6 +515,11 @@ function StreamVideo_Render($matches){
 	// Google Analytics
 	if (array_key_exists('gapro', $arguments)){
 		$options[3][6]['v'] = $arguments['gapro'];
+	}
+	
+	// Google Analytics
+	if (array_key_exists('adscode', $arguments)){
+		$options[3][7]['v'] = $arguments['adscode'];
 	}
 	
 	
@@ -598,7 +606,7 @@ function StreamVideo_Render($matches){
 	}
 	
 	// Set the LongTail Ads
-	if(!empty($arguments['adscode'])){
+	if(!empty($options[3][7]['v']) && $options[3][7]['v']!='false'){
 		$player->setFv('ltas.cc', StreamVideo_trim($arguments['adscode']));
 		// Add the HD plugin to JW Player
 		$StreamVideo_jwp[]='ltas';
@@ -606,7 +614,7 @@ function StreamVideo_Render($matches){
 	
 	// Set the Google Analytics Pro
 	$svp_gapro = $options[3][6]['v'];
-	if(!empty($svp_gapro)){
+	if(!empty($svp_gapro) && $svp_gapro!='false'){
 		$player->setFv('gapro.accountid',StreamVideo_trim($svp_gapro));
 		// Add the HD plugin to JW Player
 		$StreamVideo_jwp[]='gapro';
@@ -737,9 +745,8 @@ function StreamVideo_Render($matches){
 	foreach($noflashvar as $rfv){
 		unset($player->flashvars[$rfv]);
 	}
-
-	// Generate and return the HTML
 	
+	// Generate and return the HTML
 	if($StreamVideoSingle && !$svp_is_widget){
 		if(is_single() || is_page()){
 			return $player->getHTML();
@@ -1013,6 +1020,12 @@ function StreamVideoLoadDefaults(){
 	$f[3][6]['dn'] = __('Google Analytics Account ID like \'UA-123456-1\'', 'stream-video-player');
 	$f[3][6]['t'] = 'tx';
 	$f[3][6]['v'] = '';
+	
+	$f[3][7]['on'] = 'adscode';
+	$f[3][7]['dn'] = __('LongTail Ads Code', 'stream-video-player');
+	$f[3][7]['t'] = 'tx';
+	$f[3][7]['v'] = '';
+	
 
 	return $f;
 }
@@ -1108,7 +1121,7 @@ function set_admin_js_vars(){
 }
 
 // To handle version on JS files
-$StreamVideoVersion = '1.1.4';
+$StreamVideoVersion = '1.2.0';
 
 // To handle ids
 $videoid = 0;
@@ -1124,7 +1137,7 @@ load_plugin_textdomain( 'stream-video-player', FALSE, 'stream-video-player/langs
 
 // Fix to the_excerpt 
 remove_filter('get_the_excerpt', 'wp_trim_excerpt');
-add_filter('get_the_excerpt', 'improved_trim_excerpt');
+add_filter('get_the_excerpt', 'svp_improved_trim_excerpt');
 
 // Set the activation
 register_activation_hook(__FILE__,'StreamVideo_activate');

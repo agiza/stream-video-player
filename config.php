@@ -210,7 +210,7 @@ $tbsur = get_bloginfo('url');
 				<label class="info" title="<?php _e('LongTail Ads Code', 'stream-video-player'); ?>" for="adscode"><?php _e('Ads Code:', 'stream-video-player'); ?></label>
 			</div>
 			<div class="col2"> 
-				<input type="text" size="18" name="adscode" id="adscode"/> 
+				<input type="text" size="18" name="adscode" id="adscode" value="<?php echo $def_options[3][7]['v']; ?>" alt="<?php echo $def_options[3][7]['v']; ?>"/> 
 			</div>
 			<div class="clear">&nbsp;</div>
             

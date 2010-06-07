@@ -40,14 +40,13 @@ var RodrigoPolo = window.RodrigoPolo || {};
 			return '';
 		}else if(id=='opfix' && form=='false'){
 			return '';
-		}else if(id=='gapro'){
+		}else if(id=='gapro' || id=='adscode'){
 			
 			if(jQuery('#'+id).attr('alt') != form && form!=''){
 				return ' '+id+'='+form;
 			}else{
 				return '';
 			}
-			
 		}else{
 			return ' '+id+'='+form;
 		}
