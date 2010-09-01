@@ -3,8 +3,8 @@ Contributors: Rodrigo Polo
 Donate link: http://rodrigopolo.com/about/wp-stream-video/donate
 Tags: stream, video, flv, mp4, flash, swf, iphone, player, wordpress, plugin, media
 Requires at least: 2.8.0
-Tested up to: 3.0.0
-Stable tag: 1.2.0
+Tested up to: 3.0.1
+Stable tag: 1.2.1
 
 Stream Video Player for WordPress its one stop solution for high quality video publishing for web or iPhone.
 
@@ -16,6 +16,7 @@ Stream Video Player for WordPress is by far the best and most complete video-aud
 * Afrikaans (af_AF) - [Schalk Burger](http://schalkburger.za.net)
 * Brazilian Portuguese (pt_BR) - [Caciano Gabriel](http://gn10.com.br)
 * Chinese, Traditional (zh_TW) - [James Wu](http://jameswublog.com)
+* Danish (da_DK) - [GeorgWP](http://wordpress.blogos.dk)
 * Dutch (nl_NL) - [Martin Hein](http://split-a-pixel.nl)
 * French (fr_FR) - [Maître Mô](http://maitremo.fr), [Stéphane Benoit](http://caracteremultimedia.com)
 * Georgian (ka_GE) - [Nodar Rocko Davituri](http://omedia.ge)
@@ -29,7 +30,7 @@ Stream Video Player for WordPress is by far the best and most complete video-aud
 * Spanish (es_MX) - [Rodrigo Polo](http://rodrigopolo.com)
 * Turkish (tr_TR) - [Emin Buğra SARAL](http://www.rahmetli.info)
 * Ukrainian (uk_UA) - [Andrey K.](http://andrey.eto-ya.com)
-
+* Portuguese (pt_PT) - [Pedro Daniel Martinho](http://mowster.net)
 
 
 Important Links:
@@ -86,9 +87,11 @@ information check https://www.longtailvideo.com/players/order/license/
 == Frequently Asked Questions ==
 
 = What's new in the latest version? =
-* Fix! The Media Library button was not working in some installations because different versions of ThickBox
-* NEW! Google Analytics Pro added, Free for personal use, Need licence for commercial use.
-* TESTED and working on WordPress 3.0-RC1-15112
+* FIX! A WWW issue fixed Thanks to Stephen Marcus - marcus AT onearth DOT net
+* FIX! Duplicated text removed, thanks to Pedro Daniel Martinho
+* NEW! Portuguese (pt_PT) and Danish (da_DK) added
+* FIX! A "Security" fix thanks to [Julio from Boiteaweb.fr](http://www.boiteaweb.fr/)
+* TESTED and working on WordPress 3.0.1
 
 
 = Where I can get help and support? =
@@ -98,6 +101,12 @@ information check https://www.longtailvideo.com/players/order/license/
 
 
 == Changelog ==  
+
+= 1.2.1 =
+* FIX! A WWW issue fixed Thanks to Stephen Marcus - marcus AT onearth DOT net
+* FIX! Duplicated text removed, thanks to Pedro Daniel Martinho
+* NEW! Portuguese (pt_PT) and Danish (da_DK) added
+* FIX! A "Security" fix thanks to [Julio from Boiteaweb.fr](http://www.boiteaweb.fr/)
 
 = 1.2.0 =
 * NEW! Compatibility with WordPress MU.
