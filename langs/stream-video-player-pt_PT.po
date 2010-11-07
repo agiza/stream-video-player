@@ -22,13 +22,13 @@ msgstr "Acceso negado"
 
 #: config.php:37
 msgid "Learn how to encode &quot;stream-ready&quot; videos with multi-platform free-tools and<br />how to use this plug-in by "
-msgstr " "
+msgstr "Aprenda como codificar vídeos &quot;stream-ready&quot; com ferramentas gratuitas de multi-plataforma e também como utilizar este plug-in"
 
 #: config.php:38
 #: config.php:51
 #: stream-video-player.php:90
 msgid "clicking here"
-msgstr " "
+msgstr "clicando aqui"
 
 #: config.php:46
 msgid "WARNING:"
