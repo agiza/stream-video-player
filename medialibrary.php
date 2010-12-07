@@ -24,7 +24,7 @@ $upload_dir = realpath(ABSPATH.$opt_upload_path);
 <script type="text/javascript" src="<?php echo plugins_url('/stream-video-player/button/medialib.js'); ?>"></script>
 </head>
 <body>
-<div id="wbtitle"><?php echo htmlentities($_GET['wtitle'], ENT_QUOTES); ?></div>
+<div id="wbtitle"><?php echo htmlentities(utf8_decode($_GET['wtitle']), ENT_QUOTES); ?></div>
 <div id="flbrow"><?php
 if(!file_exists($upload_dir)){
 	_e('You need to upload something in to your media library.', 'stream-video-player');

@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Stream Video Player
-Version: 1.2.1
+Version: 1.3.0
 Plugin URI: http://rodrigopolo.com/about/wp-stream-video
 Description: By far the best and most complete video-audio player plug-in for WordPress. iPhone, iPad and HD video compatible. For support <a href="http://rodrigopolo.com/about/wp-stream-video/faq" target="_blank">READ the FAQ</a> and then visit the <a href="http://rodrigopolo.com/support/forum/stream-video-player" target="_blank">Official Forum</a>.
 Author: Rodrigo Polo
@@ -73,7 +73,7 @@ class StreamVideo_nURI {
 class rp_splayer {
 	
 	// Public vars
-	var $swf, $flv, $mp4, $id, $name, $width, $height, $image, $opfix, $wrapper, $message;
+	var $swf, $flv, $mp4, $id, $name, $width, $height, $image, $opfix, $wrapper, $message, $playlistfile, $config;
 	
 
 	
@@ -252,6 +252,16 @@ class rp_splayer {
 		// Set the FLV parm for the player
 		if(!empty($this->flv)){
 			$this->setFv('file',$this->flv);
+		}
+		
+		// Set the Playlist parm for the player
+		if(!empty($this->playlistfile)){
+			$this->setFv('playlistfile',$this->playlistfile);
+		}
+		
+		// Set the Config parm for the player
+		if(!empty($this->config)){
+			$this->setFv('config',$this->config);
 		}
 		
 		// Set the image
@@ -461,7 +471,7 @@ function StreamVideo_Render($matches){
 		}
 	}
 	// Display an error on the post if the FLV parameter is missing
-	if (!array_key_exists('flv', $arguments)){
+	if (!array_key_exists('flv', $arguments) && !array_key_exists('playlistfile', $arguments) && !array_key_exists('config', $arguments)){
 		return '<div style="background-color:#ff9;padding:10px;"><p>Error: Required parameter "flv" is missing!</p></div>';
 		exit;
 	}
@@ -476,7 +486,7 @@ function StreamVideo_Render($matches){
 	// Check if there is a base url declared
 	if(!empty($arguments['base'])){
 		// arguments to add base url
-		$ar2up = explode(',','flv,img,mp4,hd,captions,gapro');
+		$ar2up = explode(',','flv,img,mp4,hd,captions,gapro,playlistfile,config');
 		
 		// base url
 		$baseurl = StreamVideo_trim($arguments['base']);
@@ -571,8 +581,10 @@ function StreamVideo_Render($matches){
 	// SWF Player
 	$player->swf = $site_url.'/wp-content/plugins/stream-video-player/player.swf?ver='.$StreamVideoVersion;
 	
-	// FLV Video to load
+	// Arguments to load
 	$player->flv = StreamVideo_trim($arguments['flv']);
+	$player->playlistfile = StreamVideo_trim($arguments['playlistfile']);
+	$player->config = StreamVideo_trim($arguments['config']);
 	
 	// iPhone MP4
 	if(!empty($arguments['mp4'])){
@@ -597,6 +609,20 @@ function StreamVideo_Render($matches){
 	/////
 	// FlashVars
 	/////
+	
+	// Set the playlist position
+	if(!empty($arguments['playlist'])){
+		$player->setFv('playlist', StreamVideo_trim($arguments['playlist']));
+	}
+	// Set the repeat option
+	if(!empty($arguments['repeat'])){
+		$player->setFv('repeat', StreamVideo_trim($arguments['repeat']));
+	}
+	// Set the playlist size
+	if(!empty($arguments['playlistsize'])){
+		$player->setFv('playlistsize', StreamVideo_trim($arguments['playlistsize']));
+	}
+
 
 	
 	// Set the HD
@@ -665,7 +691,7 @@ function StreamVideo_Render($matches){
 			}
 		}
 	}
-	
+   
 	
 
 	// Set the provider for JW Player >>
@@ -915,10 +941,11 @@ function StreamVideoLoadDefaults(){
 	
 	//Video Properties
 	
-	$f[0][0]['on'] = 'title';
+	// JW Player dissable this option
+	/*$f[0][0]['on'] = 'title';
 	$f[0][0]['dn'] = __('Title', 'stream-video-player');
 	$f[0][0]['t'] = 'tx';
-	$f[0][0]['v'] = '';
+	$f[0][0]['v'] = '';*/
 	
 	$f[0][1]['on'] = 'img';
 	$f[0][1]['dn'] = __('Preview Image', 'stream-video-player');
@@ -930,12 +957,12 @@ function StreamVideoLoadDefaults(){
 	$f[1][0]['on'] = 'width';
 	$f[1][0]['dn'] = __('Player Width', 'stream-video-player');
 	$f[1][0]['t'] = 'tx';
-	$f[1][0]['v'] = '450';
+	$f[1][0]['v'] = '640';
 
 	$f[1][1]['on'] = 'height';
 	$f[1][1]['dn'] = __('Player Height', 'stream-video-player');
 	$f[1][1]['t'] = 'tx';
-	$f[1][1]['v'] = '253';
+	$f[1][1]['v'] = '360';
 
 	$f[1][2]['on'] = 'skin';
 	$f[1][2]['dn'] = __('Skin', 'stream-video-player');
@@ -948,17 +975,17 @@ function StreamVideoLoadDefaults(){
 	$f[1][3]['t'] = 'tx';
 	$f[1][3]['v'] = '';
 	
-	$f[1][5]['on'] = 'dock';
-	$f[1][5]['dn'] = __('Dock', 'stream-video-player');
-	$f[1][5]['t'] = 'dd';
-	$f[1][5]['v'] = 'true';
-	$f[1][5]['op'] = array('true', 'false');
-	
 	$f[1][4]['on'] = 'controlbar';
 	$f[1][4]['dn'] = __('Control Bar', 'stream-video-player');
 	$f[1][4]['t'] = 'dd';
 	$f[1][4]['v'] = 'over';
 	$f[1][4]['op'] = array('bottom', 'over', 'none');
+	
+	$f[1][5]['on'] = 'dock';
+	$f[1][5]['dn'] = __('Dock', 'stream-video-player');
+	$f[1][5]['t'] = 'dd';
+	$f[1][5]['v'] = 'true';
+	$f[1][5]['op'] = array('true', 'false');
 
 	//Behavior
 
@@ -1123,7 +1150,7 @@ function set_admin_js_vars(){
 }
 
 // To handle version on JS files
-$StreamVideoVersion = '1.2.1';
+$StreamVideoVersion = '1.3.0';
 
 // To handle ids
 $videoid = 0;

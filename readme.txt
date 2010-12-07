@@ -1,16 +1,16 @@
-﻿=== Stream Video Player ===
+=== Stream Video Player ===
 Contributors: Rodrigo Polo
 Donate link: http://rodrigopolo.com/about/wp-stream-video/donate
 Tags: stream, video, flv, mp4, flash, swf, iphone, player, wordpress, plugin, media
 Requires at least: 2.8.0
-Tested up to: 3.0.1
-Stable tag: 1.2.1
+Tested up to: 3.0.2
+Stable tag: 1.3.0
 
 Stream Video Player for WordPress its one stop solution for high quality video publishing for web or iPhone.
 
 == Description ==
 
-Stream Video Player for WordPress is by far the best and most complete video-audio player plug-in for WordPress, Easy to use with a tag generator in the editor, support for viewing on the iPad, iPhone and iPod touch, support for YouTube and Pseudo-Streaming so you can randomly seek any place of your videos without having to load the entire video before.
+Stream Video Player for WordPress is by far the best and most complete video-audio player plug-in for WordPress with XML Playlist support and subtiles, Easy to use with a tag generator in the editor, support for viewing on the iPad, iPhone and iPod touch, support for YouTube and Pseudo-Streaming so you can randomly seek any place of your videos without having to load the entire video before.
 
 = Translators =
 * Afrikaans (af_AF) - [Schalk Burger](http://schalkburger.za.net)
@@ -25,12 +25,12 @@ Stream Video Player for WordPress is by far the best and most complete video-aud
 * Italian (it_IT) - [Bruno Salzano](http://brunosalzano.com)
 * Lithuanian (lt_LT) - [Ernestas Kardzys](http://ernestas.info)
 * Polish (pl_PL) - [Zbigniew Czernik](http://zibik.jogger.pl)
-* Portuguese (pt_PT) - [PedroDM](http://development.mowster.net)
 * Russian (ru_RU) - [Andrey K.](http://andrey.eto-ya.com), Roman Kireev
 * Spanish (es_ES) - [Jordi Sancho](http://qasolutions.net)
 * Spanish (es_MX) - [Rodrigo Polo](http://rodrigopolo.com)
 * Turkish (tr_TR) - [Emin Buğra SARAL](http://www.rahmetli.info)
 * Ukrainian (uk_UA) - [Andrey K.](http://andrey.eto-ya.com)
+* Portuguese (pt_PT) - [Pedro Daniel Martinho](http://mowster.net)
 
 
 Important Links:
@@ -45,13 +45,14 @@ Important Links:
 * iPad, iPhone, iPod Touch, WPTouch, MobilePress, YouTube and feeds compatible.
 * Embed code generator for any video.
 * Captions (subtitles) capable.
+* XML Playlist.
 * Social sharing and video URL sharing.
 * Random access to any position on the video thanks to the pseudo streaming technique
 * Skins capable thanks to JW Media Player it can load SWF and XML-PNG custom skins.
-* Based on a very fine tuned custom build of the JW Media Player Version 5 Build 764.
+* Based on a very fine tuned custom build (fork) of the JW Media Player Version 5.3.
 * Only open source software needed for video encoding.
-* JW Media Player plug-ins supported
-* 100% Standard code
+* JW Media Player plug-ins supported.
+* 100% Standard XHTML code.
 
 
 == Credits ==
@@ -75,23 +76,33 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 IMPORTANT: This plug-in use a fine tuned custom build of the JW Player
 The JW Player is free to use in non-commercial websites, for commercial 
 websites you need to buy a license, for more 
-information check https://www.longtailvideo.com/players/order/license/ 
+information check http://www.longtailvideo.com/order/license
 
 == Installation ==
-
 1. Download and unzip the current version of the Stream Video Player plugin.
 2. Transfer the entire 'stream-video-player' directory to your '/wp-content/plugins/' directory
 3. Activate the plugin through the 'Plugins' menu in WordPress
 4. That's it! You're done. You can now generate the "stream video tag" by using the quick tag generator from the post editor.
+5. RECOMMENDED, copy the included "crossdomain.xml" to yor site root (http://example.com/crossdomain.xml) in order to share video in other sites.
 
 == Frequently Asked Questions ==
 
 = What's new in the latest version? =
-* FIX! A WWW issue fixed Thanks to Stephen Marcus - marcus AT onearth DOT net
-* FIX! Duplicated text removed, thanks to Pedro Daniel Martinho
-* NEW! Portuguese (pt_PT) and Danish (da_DK) added
-* FIX! A "Security" fix thanks to [Julio from Boiteaweb.fr](http://www.boiteaweb.fr/)
-* TESTED and working on WordPress 3.0.1
+* NEW! Playlist support out of the box.
+* NEW! Possibility to use a custom config.xml with all JW Player options so you can have a shorter embed code.
+* UPDATE! JW Player (player.swf) updated to 5.3.1397 version, custom build.
+* Better look with custom design.
+* Display HH:MM:SS on time intead of MMM:SS
+* Load local plug-ins first, if not found then load the JW Player repository plug-ins.
+* Can load any JW Player Plug-in.
+* Fixed bug to handle well anamorphic video on streaming and on video mode.
+* Fixed bug to handle playlist thumbnails.
+* Fixed bug to handle playlist next item when using pseudo-streaming.
+* Can load custom logo (original JW Player version can't).
+* Custom Sharing Plug-in build to handle "self-share" always, modified design.
+* Custom HD Plug-in build to fit the players design.
+* Custom Captions Plug-in build to have the margin flashvar param.
+* FIX! Character encoding on media library.
 
 
 = Where I can get help and support? =
@@ -101,6 +112,25 @@ information check https://www.longtailvideo.com/players/order/license/
 
 
 == Changelog ==  
+
+= 1.3.0 =
+* NEW! Playlist support out of the box.
+* NEW! Possibility to use a custom config.xml with all JW Player options so you can have a shorter embed code.
+* NEW! Skins for the player.
+* UPDATE! JW Player (player.swf) updated to 5.3.1397 version, custom build.
+* Better look with custom design.
+* Display HH:MM:SS on time intead of MMM:SS
+* Load local plug-ins first, if not found then load the JW Player repository plug-ins.
+* Can load any JW Player Plug-in.
+* Fixed bug to handle well anamorphic video on streaming and on video mode.
+* Fixed bug to handle playlist thumbnails.
+* Fixed bug to handle playlist next item when using pseudo-streaming.
+* Can load custom logo (original JW Player version can't).
+* Custom Sharing Plug-in build to handle "self-share" always, modified design.
+* Custom HD Plug-in build to fit the players design.
+* Custom Captions Plug-in build to have the margin flashvar param.
+* FIX! Character encoding on media library.
+
 
 = 1.2.1 =
 * FIX! A WWW issue fixed Thanks to Stephen Marcus - marcus AT onearth DOT net
@@ -193,9 +223,12 @@ As a typical major release there is always a chance to mess up the code, and on 
 
 
 == Upgrade Notice ==
-Compatibility with WordPress MU, "ad code" is by default on the settings page, An issue with WWW and no WWW in URLs, Fix An issue with YouTube image previews, also it is TESTED and working on WordPress 3.0-RC1-15112.
 
-I'm making some tools to encode video and translate SRT subtitles to XML subtitles, stay tuned to http://tools.rodrigopolo.com/
+= 1.3.0 =
+New JW Player version fixing many bugs, XML Playlist support with options in the tag generator, custom config.xml file support, some bugs fixed.
+
+TESTED and working on WordPress 3.0.2!
+
 
 == Screenshots ==
 
@@ -203,8 +236,8 @@ I'm making some tools to encode video and translate SRT subtitles to XML subtitl
 2. Tag Generator Button on Editor.
 3. Tag Generator Panel showing a warning.
 4. Media Library File Selection.
-5. Stream Video Player Widget
+5. Stream Video Player Widget.
 6. Plug-in Settings.
-7. Stream Video Player Custom Skin.
-8. Player on iPhone using WPtouch 
-9. Player on iPhone using MobilePress with YouTube Video
+7. Stream Video Player Using Playlists.
+8. Player on iPhone using WPtouch.
+9. Player on iPhone using MobilePress with YouTube Video.

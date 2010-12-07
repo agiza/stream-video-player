@@ -121,11 +121,11 @@ msgstr "Dimensiones:"
 
 #: config.php:145
 msgid "Enable embed the player in other sites"
-msgstr "Activar la opción de insertar el reproductor  en otros sitios."
+msgstr "Activar la opción de Embed."
 
 #: config.php:145
 msgid "Enable Embed:"
-msgstr "Activar inserción:"
+msgstr "Activar Embed:"
 
 #: config.php:156
 msgid "Enable the sharing of the URL of the post where the video is inserted"
@@ -137,11 +137,11 @@ msgstr "Activar  \"Compartir URL\":"
 
 #: config.php:167
 msgid "Show the Dock for this player"
-msgstr "Mostrar el acoplador para este reproductor"
+msgstr "Mostrar el Dock para este reproductor"
 
 #: config.php:167
 msgid "Dock:"
-msgstr "Acoplar:"
+msgstr "Dock:"
 
 #: config.php:183
 msgid "Set the Control Bar position and visibility"
