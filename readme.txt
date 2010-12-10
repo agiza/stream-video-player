@@ -30,7 +30,7 @@ Stream Video Player for WordPress is by far the best and most complete video-aud
 * Spanish (es_MX) - [Rodrigo Polo](http://rodrigopolo.com)
 * Turkish (tr_TR) - [Emin Buğra SARAL](http://www.rahmetli.info)
 * Ukrainian (uk_UA) - [Andrey K.](http://andrey.eto-ya.com)
-* Portuguese (pt_PT) - [Pedro Daniel Martinho](http://mowster.net)
+* Portuguese (pt_PT) - [PedroDM](http://development.mowster.net)
 
 
 Important Links:
@@ -88,7 +88,7 @@ information check https://www.longtailvideo.com/players/order/license/
 
 = What's new in the latest version? =
 * FIX! A WWW issue fixed Thanks to Stephen Marcus - marcus AT onearth DOT net
-* FIX! Duplicated text removed, thanks to Pedro Daniel Martinho
+* FIX! Duplicated text removed, thanks to PedroDM
 * NEW! Portuguese (pt_PT) and Danish (da_DK) added
 * FIX! A "Security" fix thanks to [Julio from Boiteaweb.fr](http://www.boiteaweb.fr/)
 * TESTED and working on WordPress 3.0.1
@@ -104,7 +104,7 @@ information check https://www.longtailvideo.com/players/order/license/
 
 = 1.2.1 =
 * FIX! A WWW issue fixed Thanks to Stephen Marcus - marcus AT onearth DOT net
-* FIX! Duplicated text removed, thanks to Pedro Daniel Martinho
+* FIX! Duplicated text removed, thanks to PedroDM
 * NEW! Portuguese (pt_PT) and Danish (da_DK) added
 * FIX! A "Security" fix thanks to [Julio from Boiteaweb.fr](http://www.boiteaweb.fr/)
 
