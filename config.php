@@ -249,7 +249,7 @@ $tbsur = get_bloginfo('url');
     </div>
     
     <div class="col1">
-      <label class="info" title="<?php _e('Playlist Size (Height or height depending on the position)', 'stream-video-player'); ?>" for="playlistsize"><?php _e('Playlist Size:', 'stream-video-player'); ?></label>
+      <label class="info" title="<?php _e('Playlist Size (Width or Height depending on the position)', 'stream-video-player'); ?>" for="playlistsize"><?php _e('Playlist Size:', 'stream-video-player'); ?></label>
     </div>
     <div class="col2">
       <input type="text" size="18" name="playlistsize" id="playlistsize" />
