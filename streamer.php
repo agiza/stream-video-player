@@ -170,8 +170,15 @@ class flv_streamer{
 	
 	// To match a relative path
 	function getRelPa($scr,$fil){
-		$scr = str_replace("http://www.", "http://", $scr);
-		$fil = str_replace("http://www.", "http://", $fil);
+		/*
+		Fix for HTTPS thanks to Pascal Hofmann - mail_AT_pascalhofmann_DOT_de
+		*/
+		
+		if (($pos = strpos($scr, '://')) !== false){ $scr =substr($scr, $pos + 3);}
+		if (($pos = strpos($fil, '://')) !== false){ $fil =substr($fil, $pos + 3);}
+		if (strpos($scr, 'www.') === 0){ $scr = substr($scr, 4);}
+		if (strpos($fil, 'www.') === 0){ $fil = substr($scr, 4);}
+		
 		$scr_a = explode('/',$scr);
 		$fil_a = explode('/',$fil);
 		$scr_ab = $scr_a;
