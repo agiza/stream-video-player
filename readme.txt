@@ -4,13 +4,25 @@ Donate link: http://rodrigopolo.com/about/wp-stream-video/donate
 Tags: stream, video, flv, mp4, flash, swf, iphone, player, wordpress, plugin, media
 Requires at least: 2.8.0
 Tested up to: 3.0.2
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 
 Stream Video Player for WordPress its one stop solution for high quality video publishing for web or iPhone.
 
 == Description ==
 
-Stream Video Player for WordPress is by far the best and most complete video-audio player plug-in for WordPress with XML Playlist support and subtiles, Easy to use with a tag generator in the editor, support for viewing on the iPad, iPhone and iPod touch, support for YouTube and Pseudo-Streaming so you can randomly seek any place of your videos without having to load the entire video before.
+Stream Video Player for WordPress is by far the best and most complete video-audio player plug-in for WordPress with XML Playlist support and subtitles, Easy to use with a tag generator in the editor, support for viewing on the iPad, iPhone and iPod touch, support for YouTube and Pseudo-Streaming so you can randomly seek any place of your videos without having to load the entire video before.
+
+=Special note=
+
+Because many many users ask for more capabilities I decided to use (instead of the original swf video player I made) a custom build of the JW Player which uses license CC-NC-SA 3.0 which is a non-GPL compatible license and because that It can't be included on the WordPress directory.
+
+From version 1.3.1 the player.swf and all the swf files are being removed and loaded externally from other server to comply with the requirements WordPress directory asks.
+
+If you want to download a full version with all files included and without dependency on any other sites but yours the version 1.3.0 still available on my site:
+
+[http://rodrigopolo.com/about/wp-stream-video](http://rodrigopolo.com/about/wp-stream-video)
+
+I'll look forward on how to finally solve this crazy issue and have a better solution for everyone in the meantime, sorry for the inconvenience but you know closed minded GPL guys are.
 
 = Translators =
 * Afrikaans (af_AF) - [Schalk Burger](http://schalkburger.za.net)
@@ -73,17 +85,12 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-IMPORTANT: This plug-in use a fine tuned custom build of the JW Player
-The JW Player is free to use in non-commercial websites, for commercial 
-websites you need to buy a license, for more 
-information check http://www.longtailvideo.com/order/license
-
 == Installation ==
 1. Download and unzip the current version of the Stream Video Player plugin.
 2. Transfer the entire 'stream-video-player' directory to your '/wp-content/plugins/' directory
 3. Activate the plugin through the 'Plugins' menu in WordPress
 4. That's it! You're done. You can now generate the "stream video tag" by using the quick tag generator from the post editor.
-5. RECOMMENDED, copy the included "crossdomain.xml" to yor site root (http://example.com/crossdomain.xml) in order to share video in other sites.
+5. RECOMMENDED, copy the included "crossdomain.xml" to your site root (http://example.com/crossdomain.xml) in order to share video in other sites.
 
 == Frequently Asked Questions ==
 
@@ -92,7 +99,7 @@ information check http://www.longtailvideo.com/order/license
 * NEW! Possibility to use a custom config.xml with all JW Player options so you can have a shorter embed code.
 * UPDATE! JW Player (player.swf) updated to 5.3.1397 version, custom build.
 * Better look with custom design.
-* Display HH:MM:SS on time intead of MMM:SS
+* Display HH:MM:SS on time instead of MMM:SS
 * Load local plug-ins first, if not found then load the JW Player repository plug-ins.
 * Can load any JW Player Plug-in.
 * Fixed bug to handle well anamorphic video on streaming and on video mode.
@@ -113,13 +120,16 @@ information check http://www.longtailvideo.com/order/license
 
 == Changelog ==  
 
+= 1.3.1 =
+* BAD! Removed SWF included files to comply with the GLP rules of WordPress directory. [You can still use the full version 1.3.0 downloading it from my site](http://rodrigopolo.com/about/wp-stream-video)
+
 = 1.3.0 =
 * NEW! Playlist support out of the box.
 * NEW! Possibility to use a custom config.xml with all JW Player options so you can have a shorter embed code.
 * NEW! Skins for the player.
 * UPDATE! JW Player (player.swf) updated to 5.3.1397 version, custom build.
 * Better look with custom design.
-* Display HH:MM:SS on time intead of MMM:SS
+* Display HH:MM:SS on time instead of MMM:SS
 * Load local plug-ins first, if not found then load the JW Player repository plug-ins.
 * Can load any JW Player Plug-in.
 * Fixed bug to handle well anamorphic video on streaming and on video mode.
@@ -147,7 +157,6 @@ information check http://www.longtailvideo.com/order/license
 
 = 1.1.4 =
 * Fix! The Media Library button was not working in some installations because different versions of ThickBox
-* NEW! Google Analytics Pro added, Free for personal use, Need licence for commercial use.
 * TESTED and working on WordPress 3.0-RC1-15112
 
 = 1.1.3 =
@@ -167,7 +176,7 @@ As a typical major release there is always a chance to mess up the code, and on 
 = 1.1.0 =
 * NEW! Widget capable!
 * NEW! Media Library integration, browse for your file instead of copy-paste URLs.
-* NEW! YouTube videos get the image preview and provider automaticaly on the tag generator by just pasting the YouTube URL.
+* NEW! YouTube videos get the image preview and provider automatically on the tag generator by just pasting the YouTube URL.
 * Upgrade: Watching the video on any mobile device works better, showing the right video dimensions, better compatibility with WPTouch or MobilePress plug-ins.
 * NEW! Detection of the crossdomain.xml on the tag generator.
 * NEW! Automatic URL change to prevent issues using OR NOT using WWW in the URLs.
@@ -176,7 +185,7 @@ As a typical major release there is always a chance to mess up the code, and on 
 * Fix! FireFox dotted border around the video removed, [more about this issue.](http://code.google.com/p/swfobject/wiki/faq#15._Why_do_I_see_a_dotted_border_around_my_SWF_when_using_Firefo)
 * Upgrade! A complete overhaul to the way the Tag Generator and the Media Library load WordPress dependencies, so no more issues with other plug-ins.
 * Fix! Aspect Ratio work the way it is supposed to in the Player.swf for "video" or "stream" provider, another fix to the JW Player original code.
-* Small fix to the tag generator to give suppor to the "adscode" attribute.
+* Small fix to the tag generator to give support to the "adscode" attribute.
 
 = 1.0.6 =
 * Added support for iPad
@@ -186,7 +195,7 @@ As a typical major release there is always a chance to mess up the code, and on 
 * Added the LongTail Ads plug-in
 
 = 1.0.4 =
-* Update: JW Player now can load the logo image and follow the URL, BUT YOU HAVE TO BUY THE LICENSE for that.
+* Update: JW Player now can load the logo image and follow the URL.
 * Fix: A small fix to the tag edition to handle spaces and YouTube links.
 * Known issue: Video "Title" Currently not implemented by the JW Player: [Check the supported Flash Vars](http://developer.longtailvideo.com/trac/wiki/Player5FlashVars)
 
@@ -199,19 +208,19 @@ As a typical major release there is always a chance to mess up the code, and on 
 * FIXED! HD, Share and Captions Plug-Ins included.
 * Lulu.zip and Stormtrooper.zip skins uncluded.
 * Fix: YouTube Video working.
-* French and Spanish Translation updated, still wating for some one from Russia tu update the russian translation.
-* FIXED! wmode=opque ONLY applied if the video tag include the parameter "opfix=true".
+* French and Spanish Translation updated, still waiting for someone from Russia to update the Russian translation.
+* FIXED! wmode=opaque ONLY applied if the video tag include the parameter "opfix=true".
 * Dotted frame in FireFox because the "wmode=opaque" removed with CSS, check http://rod.gs/dT for more information.
-* Updated! The order of the field in the tag generater are more easy to use now.
+* Updated! The order of the field in the tag generator are more easy to use now.
 
 = 1.0.1 =
 * Minor problem with streamer.php fixed.
 
 = 1.0.0 = 
-* Now using a very custom and fine tuned build of the JW Player version 5 SVN 764, Legacy GNU Player in the next release, bugs and known issue on the JW Player can be checked here: http://developer.longtailvideo.com/trac/report/
+* Now using a very custom and fine-tuned build of the JW Player version 5 SVN 764, Legacy GNU Player in the next release, bugs and known issue on the JW Player can be checked here: http://developer.longtailvideo.com/trac/report/
 * New! Captions capable player, now you can add text captions to your videos, information on how to make your captions.xml available soon on the plug-in page.
 * New! URL Sharing option - Use "share=true" and the URL is Generated automatically.
-* New! Embed option - Use "embed=true" and the embed code is Generated automatically AND it is persistent in other sites that use you’re embed code, IMPORTANT In order to share your video player you need to place the included file crossdomain.xml in your domain root directory, more information at: http://kb2.adobe.com/cps/142/tn_14213.html
+* New! Embed option - Use "embed=true" and the embed code is Generated automatically AND it is persistent in other sites that use you're embed code, IMPORTANT In order to share your video player you need to place the included file crossdomain.xml in your domain root directory, more information at: http://kb2.adobe.com/cps/142/tn_14213.html
 * Added French translation by Stéphane Benoit, because this is a major release some parts can be not well translated but will be updated.
 * Pseudo-streaming now optional, you can choose you can choose whether or not to use the streaming by selecting other provider. 
 * Pseudo streaming script can be placed on other domains.
@@ -223,6 +232,9 @@ As a typical major release there is always a chance to mess up the code, and on 
 
 
 == Upgrade Notice ==
+
+= 1.3.1 =
+DO NOT UPGRADE until version 1.3.2 - Removed SWF included files to comply with the GLP rules of WordPress directory. You can still use the full version downloading it from my site: http://rodrigopolo.com/about/wp-stream-video
 
 = 1.3.0 =
 New JW Player version fixing many bugs, XML Playlist support with options in the tag generator, custom config.xml file support, some bugs fixed.
