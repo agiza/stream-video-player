@@ -3,8 +3,8 @@ Contributors: Rodrigo Polo
 Donate link: http://rodrigopolo.com/about/wp-stream-video/donate
 Tags: stream, video, flv, mp4, flash, swf, iphone, player, wordpress, plugin, media
 Requires at least: 2.8.0
-Tested up to: 3.0.2
-Stable tag: 1.3.1
+Tested up to: 3.2.1
+Stable tag: 1.3.2
 
 Stream Video Player for WordPress its one stop solution for high quality video publishing for web or iPhone.
 
@@ -18,7 +18,7 @@ Because many many users ask for more capabilities I decided to use (instead of t
 
 From version 1.3.1 the player.swf and all the swf files are being removed and loaded externally from other server to comply with the requirements WordPress directory asks.
 
-If you want to download a full version with all files included and without dependency on any other sites but yours the version 1.3.0 still available on my site:
+If you want to download a full version with all files included and without dependency on any other sites but yours the version 1.3.3 cand do this and is available on my site:
 
 [http://rodrigopolo.com/about/wp-stream-video](http://rodrigopolo.com/about/wp-stream-video)
 
@@ -119,6 +119,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 
 == Changelog ==  
+
+= 1.3.2 =
+* UPDATE! link to JW Player (player.swf) updated from 5.3.1397 version to 5.7.1896 custom build. but recomended to download the standalone version 1.3.3 from my site.
 
 = 1.3.1 =
 * BAD! Removed SWF included files to comply with the GLP rules of WordPress directory. [You can still use the full version 1.3.0 downloading it from my site](http://rodrigopolo.com/about/wp-stream-video)
@@ -233,13 +236,13 @@ As a typical major release there is always a chance to mess up the code, and on 
 
 == Upgrade Notice ==
 
-= 1.3.1 =
-DO NOT UPGRADE until version 1.3.2 - Removed SWF included files to comply with the GLP rules of WordPress directory. You can still use the full version downloading it from my site: http://rodrigopolo.com/about/wp-stream-video
+= 1.3.2 =
+* UPDATE! link to JW Player (player.swf) updated from 5.3.1397 version to 5.7.1896 custom build. but recomended to download the standalone version 1.3.3 from my site.
 
 = 1.3.0 =
 New JW Player version fixing many bugs, XML Playlist support with options in the tag generator, custom config.xml file support, some bugs fixed.
 
-TESTED and working on WordPress 3.0.2!
+TESTED and working on WordPress 3.2.1!
 
 
 == Screenshots ==
