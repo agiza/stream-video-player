@@ -170,17 +170,25 @@ class flv_streamer{
 	
 	// To match a relative path
 	function getRelPa($scr,$fil){
-		/*
-		Fix for HTTPS thanks to Pascal Hofmann - mail_AT_pascalhofmann_DOT_de
-		*/
 		
-		if (($pos = strpos($scr, '://')) !== false){ $scr =substr($scr, $pos + 3);}
+		
+		/*if (($pos = strpos($scr, '://')) !== false){ $scr =substr($scr, $pos + 3);}
 		if (($pos = strpos($fil, '://')) !== false){ $fil =substr($fil, $pos + 3);}
 		if (strpos($scr, 'www.') === 0){ $scr = substr($scr, 4);}
-		if (strpos($fil, 'www.') === 0){ $fil = substr($scr, 4);}
+		if (strpos($fil, 'www.') === 0){ $fil = substr($scr, 4);}*/
 		
-		$scr_a = explode('/',$scr);
-		$fil_a = explode('/',$fil);
+		
+		$uria = parse_url($scr);
+		$urib = parse_url($fil);
+		
+		if($uria['host']!=$urib['host']){
+			header('HTTP/1.0 404 Not Found'); 
+			die('<h1>404</h1>You are requesting a video that does not resides on this server, this streamer.php only works for videos hosted on the same server.');  
+			return false;
+		}
+		
+		$scr_a = explode('/',$uria['path']);
+		$fil_a = explode('/',$urib['path']);
 		$scr_ab = $scr_a;
 		foreach($fil_a as $k => $dir){
 			if($dir == $scr_a[$k]){
