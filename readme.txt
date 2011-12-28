@@ -4,7 +4,7 @@ Donate link: http://rodrigopolo.com/about/wp-stream-video/donate
 Tags: stream, video, flv, mp4, flash, swf, iphone, player, wordpress, plugin, media
 Requires at least: 2.8.0
 Tested up to: 3.2.1
-Stable tag: 1.3.2
+Stable tag: 1.3.4
 
 Stream Video Player for WordPress its one stop solution for high quality video publishing for web or iPhone.
 
@@ -119,6 +119,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 
 == Changelog ==  
+
+= 1.3.4 =
+* URL for the player.swf changet from rod.gs to rodrigopolo.com because [Google malware detection sucks](http://rodrigopolo.com/opinion/rod-gs-its-100-malware-free-but-google-didnt-care.html). but it is extremly recomended you use the stand alone version available on [http://rodrigopolo.com/about/wp-stream-video](http://rodrigopolo.com/about/wp-stream-video).
 
 = 1.3.2 =
 * UPDATE! link to JW Player (player.swf) updated from 5.3.1397 version to 5.7.1896 custom build. but recomended to download the standalone version 1.3.3 from my site.
@@ -235,6 +238,9 @@ As a typical major release there is always a chance to mess up the code, and on 
 
 
 == Upgrade Notice ==
+
+= 1.3.4 =
+* URL for the player.swf changet from rod.gs to rodrigopolo.com because [Google malware detection sucks](http://rodrigopolo.com/opinion/rod-gs-its-100-malware-free-but-google-didnt-care.html). but it is extremly recomended you use the stand alone version available on [http://rodrigopolo.com/about/wp-stream-video](http://rodrigopolo.com/about/wp-stream-video).
 
 = 1.3.2 =
 * UPDATE! link to JW Player (player.swf) updated from 5.3.1397 version to 5.7.1896 custom build. but recomended to download the standalone version 1.3.3 from my site.
