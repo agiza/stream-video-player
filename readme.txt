@@ -4,7 +4,7 @@ Donate link: http://rodrigopolo.com/about/wp-stream-video/donate
 Tags: stream, video, flv, mp4, flash, swf, iphone, ios, player, wordpress, plugin, media
 Requires at least: 2.8.0
 Tested up to: 3.5.1
-Stable tag: 1.3.6
+Stable tag: 1.3.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -118,7 +118,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 == Changelog ==  
 
-= 1.3.6 =
+= 1.3.7 =
 * Internet Explorer SWF Embed code fixed
 * SWF Auto Download to host
 * 100% tested and working on WordPress 3.5.1 using IE 7, 8, 9 and 10, Chrome, FireFox, Safari, on OS X and Windows
@@ -233,7 +233,7 @@ As a typical major release there is always a chance to mess up the code, and on 
 
 == Upgrade Notice ==
 
-= 1.3.6 =
+= 1.3.7 =
 * Internet Explorer SWF Embed code fixed
 * SWF Auto Download to host
 * 100% tested and working on WordPress 3.5.1 using IE 7, 8, 9 and 10, Chrome, FireFox, Safari, on OS X and Windows
