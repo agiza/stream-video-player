@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Stream Video Player
-Version: 1.3.4
+Version: 1.3.6
 Plugin URI: http://rodrigopolo.com/about/wp-stream-video
-Description: By far the best and most complete video-audio player plug-in for WordPress. iPhone, iPad and HD video compatible. For support <a href="http://rodrigopolo.com/about/wp-stream-video/faq" target="_blank">READ the FAQ</a> and then visit the <a href="http://rodrigopolo.com/support/forum/stream-video-player" target="_blank">Official Forum</a> | <strong><a href="http://rodrigopolo.com/about/wp-stream-video/gpl-compatible-license">SPECIAL NOTE ON VERSION 1.3.1 and 1.3.4</a></strong>.
+Description: By far the best and most complete video-audio player plug-in for WordPress. iPhone, iPad and HD video compatible. For support <a href="http://rodrigopolo.com/about/wp-stream-video/faq" target="_blank">READ the FAQ</a>.<strong></strong>
 Author: Rodrigo Polo
 Author URI: http://rodrigopolo.com
 
@@ -218,7 +218,7 @@ class rp_splayer {
 		}else{
 			$image_obj = (empty($this->image))?'':' data="'.$this->image.'"';
 			$image_param = (empty($this->image))?'':'<param name="src" value="'.$this->image.'"/>';
-			$last_object='<!--[if !IE]>--><object type="video/mp4"'.$image_obj.$width.$height.'>'."\n".
+			$last_object='<!--[if !IE]><!--><object type="video/mp4"'.$image_obj.$width.$height.'>'."\n".
 				'<param name="controller" value="false"/>'."\n".
 				'<param name="target" value="myself"/>'."\n".
 				'<param name="href" value="'.$this->mp4.'"/>'."\n".
@@ -229,7 +229,7 @@ class rp_splayer {
 				}else{
 					$last_object .= __('(video)', 'stream-video-player');
 				}
-				$last_object .= '<!--[if !IE]>-->'.
+				$last_object .= '<!--[if !IE]><!-->'.
 				'</object>'.
 				'<!--<![endif]-->'.
 				"\n";
@@ -276,15 +276,15 @@ class rp_splayer {
 		
 		// start generating all the HTML object
 		
-		$html=$wrp_a.'<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"'.$width.$height.$id.$name.'>'."\n".
+		$html=$wrp_a.'<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"'.$swf.$width.$height.$id.$name.'>'."\n".
 		$swf_param."\n".
 		$params."\n".
-		'<!--[if !IE]>-->'."\n".
+		'<!--[if !IE]><!-->'."\n".
 		'<object type="application/x-shockwave-flash"'.$swf.$width.$height.$name.'>'."\n".
 		$params."\n".
 		'<!--<![endif]-->'."\n".
 		$last_object."\n".
-		'<!--[if !IE]>-->'."\n".
+		'<!--[if !IE]><!-->'."\n".
 		'</object>'."\n".
 		'<!--<![endif]-->'."\n".
 		'</object>'."\n";
@@ -406,6 +406,10 @@ function svp_improved_trim_excerpt($text) {
 
 // Parse the content to replace the tags with the player
 function StreamVideo_Parse($content){
+	
+	// check if installed
+	StreamVideo_download_jwplayer();
+	
 	global $StreamVideoSingle;
 	// To show only on single pages
 	$options = get_option('StreamVideoSettings');
@@ -579,14 +583,7 @@ function StreamVideo_Render($matches){
 	$player->wrapper=$options[3][1]['v'];
 	
 	// SWF Player
-	// TEMPORARY FIX TO APPEAR ON THE WORDPRESS PLUG-IN DIRECTORY :::: BEGIN
-	
-	
-	// $player->swf = $site_url.'/wp-content/plugins/stream-video-player/player.swf?ver='.$StreamVideoVersion;
-	$player->swf = 'http://rodrigopolo.com/_SVP/5.7.1896/player.swf?ver='.$StreamVideoVersion;
-	
-	// TEMPORARY FIX TO APPEAR ON THE WORDPRESS PLUG-IN DIRECTORY :::: END
-
+	$player->swf = $site_url.'/wp-content/plugins/stream-video-player/player.swf?ver='.$StreamVideoVersion;
 	
 	// Arguments to load
 	$player->flv = StreamVideo_trim($arguments['flv']);
@@ -798,6 +795,10 @@ function StreamVideo_Render($matches){
 
 // Add page on settings for level 8 (admins)
 function StreamVideoAddPage(){
+	
+	// check if installed
+	StreamVideo_download_jwplayer();
+	
 	if(function_exists('add_object_page')){
 		add_object_page("Stream Video Player", "Stream Video", 8, __FILE__, "StreamVideoOptions", plugins_url('/stream-video-player/button/images/vdo.png'));
 	}else{
@@ -1068,6 +1069,9 @@ function StreamVideoLoadDefaults(){
 
 // Function for activation
 function StreamVideo_activate(){
+	// check if installed
+	StreamVideo_download_jwplayer();
+	
 	update_option('StreamVideoSettings', StreamVideoLoadDefaults());
 }
 
@@ -1156,8 +1160,74 @@ function set_admin_js_vars(){
 <?php
 }
 
+/*
+   ATTENTION:
+   WordPres plug-in directory decided NOT to host any file that isn’t GLP
+   for that reason no plug-in can have any file that is not 100% GPL software, 
+   Flash files (SWF) are on the list. The first workaround to this was to host 
+   the files in other site, but this leads to cross-domain issues and an 
+   excessive bandwidth use of my hosting account, for that reason I decided to 
+   make the plug-in download the required SWF files for you on the first run.
+*/
+
+// Download files
+function StreamVideo_downloadFile($url,$save_location){
+	set_time_limit(0);
+	
+	if($fp = @fopen($save_location, 'w+')){
+		
+	}else{
+		return;
+	}
+	
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_TIMEOUT, 50);
+	curl_setopt($ch, CURLOPT_FILE, $fp);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+	$data = curl_exec($ch);
+	curl_close($ch);
+	fwrite($fp, $data);
+	fclose($fp);
+}
+
+// Downloads the JW Player
+function StreamVideo_download_jwplayer(){
+	
+	$plug_in_path = dirname(__FILE__).'/';
+	$player_version_url = 'http://rodrigopolo.com/_SVP/5.7.1896/';
+	
+	// prevent redownloads
+	if(file_exists($plug_in_path.'player.swf')){
+		return;
+	}
+	
+	// download the player
+	StreamVideo_downloadFile($player_version_url.'player.swf',$plug_in_path.'player.swf');
+	
+	// download youtube wrapper
+	StreamVideo_downloadFile($player_version_url.'yt.swf',$plug_in_path.'yt.swf');
+	
+	// download plug-ins
+	$d = 'plugins/';
+	StreamVideo_downloadFile($player_version_url.$d.'captions.swf',$plug_in_path.$d.'captions.swf');
+	StreamVideo_downloadFile($player_version_url.$d.'gapro.swf',$plug_in_path.$d.'gapro.swf');
+	StreamVideo_downloadFile($player_version_url.$d.'hd.swf',$plug_in_path.$d.'hd.swf');
+	StreamVideo_downloadFile($player_version_url.$d.'ltas.swf',$plug_in_path.$d.'ltas.swf');
+	StreamVideo_downloadFile($player_version_url.$d.'qualitymonitor.swf',$plug_in_path.$d.'qualitymonitor.swf');
+	StreamVideo_downloadFile($player_version_url.$d.'sharing.swf',$plug_in_path.$d.'sharing.swf');
+	
+	// download skins
+	$d = 'skins/';
+	StreamVideo_downloadFile($player_version_url.$d.'beelden.zip',$plug_in_path.$d.'beelden.zip');
+	StreamVideo_downloadFile($player_version_url.$d.'dangdang.swf',$plug_in_path.$d.'dangdang.swf');
+	StreamVideo_downloadFile($player_version_url.$d.'imeo.swf',$plug_in_path.$d.'imeo.swf');
+	StreamVideo_downloadFile($player_version_url.$d.'lulu.zip',$plug_in_path.$d.'lulu.zip');
+	StreamVideo_downloadFile($player_version_url.$d.'modieus.zip',$plug_in_path.$d.'modieus.zip');
+	StreamVideo_downloadFile($player_version_url.$d.'stormtrooper.zip',$plug_in_path.$d.'stormtrooper.zip');
+}
+
 // To handle version on JS files
-$StreamVideoVersion = '1.3.4';
+$StreamVideoVersion = '1.3.6';
 
 // To handle ids
 $videoid = 0;

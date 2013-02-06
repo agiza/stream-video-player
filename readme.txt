@@ -1,28 +1,27 @@
 === Stream Video Player ===
 Contributors: Rodrigo Polo
 Donate link: http://rodrigopolo.com/about/wp-stream-video/donate
-Tags: stream, video, flv, mp4, flash, swf, iphone, player, wordpress, plugin, media
+Tags: stream, video, flv, mp4, flash, swf, iphone, ios, player, wordpress, plugin, media
 Requires at least: 2.8.0
-Tested up to: 3.2.1
-Stable tag: 1.3.4
+Tested up to: 3.5.1
+Stable tag: 1.3.6
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Stream Video Player for WordPress its one stop solution for high quality video publishing for web or iPhone.
+Stream Video Player for WordPress its one stop solution for high quality video publishing for web or iOS.
 
 == Description ==
 
 Stream Video Player for WordPress is by far the best and most complete video-audio player plug-in for WordPress with XML Playlist support and subtitles, Easy to use with a tag generator in the editor, support for viewing on the iPad, iPhone and iPod touch, support for YouTube and Pseudo-Streaming so you can randomly seek any place of your videos without having to load the entire video before.
 
-=Special note=
+= Special note =
 
-Because many many users ask for more capabilities I decided to use (instead of the original swf video player I made) a custom build of the JW Player which uses license CC-NC-SA 3.0 which is a non-GPL compatible license and because that It can't be included on the WordPress directory.
+Because many many users ask for more capabilities I decided to use (instead of the original swf video player I made) a custom build of the JW Player which uses license CC-NC-SA 3.0 which is a non-GPL compatible license and because that It can't be included on the WordPress directory. The first workaround to fix this was to host the SWF files in other site, but this leads to cross-domain issues and an excessive bandwidth use of my hosting account, so I decided to make the plug-in download the download the SWF files for you on the first run, if you run into troubles check your plug-in directory permissions.
 
-From version 1.3.1 the player.swf and all the swf files are being removed and loaded externally from other server to comply with the requirements WordPress directory asks.
+Also notice that the version of JW Player (5.7.1896) used in this plug-in is licensed as Creative Commons: Attribution-NonCommercial-ShareAlike 3.0 Unported (CC BY-NC-SA 3.0) http://creativecommons.org/licenses/by-nc-sa/3.0/ - You can use their player freely for personal or non-commercial use. Put it on your personal blog, non-profit, or government website and let the video role. But if you advertise on your site or it's owned by a business, then you have to purchase a commercial license.
 
-If you want to download a full version with all files included and without dependency on any other sites but yours the version 1.3.3 cand do this and is available on my site:
+Read more about JW Player License: http://www.longtailvideo.com/jw-player/license/
 
-[http://rodrigopolo.com/about/wp-stream-video](http://rodrigopolo.com/about/wp-stream-video)
-
-I'll look forward on how to finally solve this crazy issue and have a better solution for everyone in the meantime, sorry for the inconvenience but you know closed minded GPL guys are.
 
 = Translators =
 * Afrikaans (af_AF) - [Schalk Burger](http://schalkburger.za.net)
@@ -45,7 +44,7 @@ I'll look forward on how to finally solve this crazy issue and have a better sol
 * Portuguese (pt_PT) - [PedroDM](http://development.mowster.net)
 
 
-Important Links:
+= Important Links =
 
 * <a href="http://rodrigopolo.com/about/wp-stream-video" title="Demonstration and Info">Demonstration and info.</a>
 * <a href="http://rodrigopolo.com/about/wp-stream-video/faq" title="Stream Video Player FAQ">FAQ</a>
@@ -115,19 +114,14 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 = Where I can get help and support? =
 * [READ How to use the plug-in and encode video](http://rodrigopolo.com/about/wp-stream-video/how-to)
 * [CHECK the Frequently Asked Questions (F.A.Q.)](http://rodrigopolo.com/about/wp-stream-video/faq)
-* [ASK in the Official Forum](http://rodrigopolo.com/support/forum/stream-video-player)
 
 
 == Changelog ==  
 
-= 1.3.4 =
-* URL for the player.swf changet from rod.gs to rodrigopolo.com because [Google malware detection sucks](http://rodrigopolo.com/opinion/rod-gs-its-100-malware-free-but-google-didnt-care.html). but it is extremly recomended you use the stand alone version available on [http://rodrigopolo.com/about/wp-stream-video](http://rodrigopolo.com/about/wp-stream-video).
-
-= 1.3.2 =
-* UPDATE! link to JW Player (player.swf) updated from 5.3.1397 version to 5.7.1896 custom build. but recomended to download the standalone version 1.3.3 from my site.
-
-= 1.3.1 =
-* BAD! Removed SWF included files to comply with the GLP rules of WordPress directory. [You can still use the full version 1.3.0 downloading it from my site](http://rodrigopolo.com/about/wp-stream-video)
+= 1.3.6 =
+* Internet Explorer SWF Embed code fixed
+* SWF Auto Download to host
+* 100% tested and working on WordPress 3.5.1 using IE 7, 8, 9 and 10, Chrome, FireFox, Safari, on OS X and Windows
 
 = 1.3.0 =
 * NEW! Playlist support out of the box.
@@ -239,11 +233,10 @@ As a typical major release there is always a chance to mess up the code, and on 
 
 == Upgrade Notice ==
 
-= 1.3.4 =
-* URL for the player.swf changet from rod.gs to rodrigopolo.com because [Google malware detection sucks](http://rodrigopolo.com/opinion/rod-gs-its-100-malware-free-but-google-didnt-care.html). but it is extremly recomended you use the stand alone version available on [http://rodrigopolo.com/about/wp-stream-video](http://rodrigopolo.com/about/wp-stream-video).
-
-= 1.3.2 =
-* UPDATE! link to JW Player (player.swf) updated from 5.3.1397 version to 5.7.1896 custom build. but recomended to download the standalone version 1.3.3 from my site.
+= 1.3.6 =
+* Internet Explorer SWF Embed code fixed
+* SWF Auto Download to host
+* 100% tested and working on WordPress 3.5.1 using IE 7, 8, 9 and 10, Chrome, FireFox, Safari, on OS X and Windows
 
 = 1.3.0 =
 New JW Player version fixing many bugs, XML Playlist support with options in the tag generator, custom config.xml file support, some bugs fixed.
