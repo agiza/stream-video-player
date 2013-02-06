@@ -1194,7 +1194,7 @@ function StreamVideo_downloadFile($url,$save_location){
 function StreamVideo_download_jwplayer(){
 	
 	$plug_in_path = dirname(__FILE__).'/';
-	$player_version_url = 'http://rodrigopolo.com/_SVP/5.7.1896/';
+	$player_version_url = 'http://rodrigopolo.com/_SVP/5.7/';
 	
 	// prevent redownloads
 	if(file_exists($plug_in_path.'player.swf')){
