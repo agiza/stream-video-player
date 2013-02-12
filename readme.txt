@@ -14,7 +14,28 @@ Stream Video Player for WordPress its one stop solution for high quality video p
 
 Stream Video Player for WordPress is by far the best and most complete video-audio player plug-in for WordPress with XML Playlist support and subtitles, Easy to use with a tag generator in the editor, support for viewing on the iPad, iPhone and iPod touch, support for YouTube and Pseudo-Streaming so you can randomly seek any place of your videos without having to load the entire video before.
 
-[Video Tutorial - Setup and Configuration](http://youtu.be/NShb8pR_dIc)
+= Features =
+* iPad, iPhone, iPod Touch, WPTouch, MobilePress, YouTube and feeds compatible.
+* Embed code generator for any video.
+* Captions (subtitles) capable.
+* XML Playlist.
+* Social sharing and video URL sharing.
+* Random access to any position on the video thanks to the pseudo streaming technique
+* Skins capable thanks to JW Media Player it can load SWF and XML-PNG custom skins.
+* Based on a very fine tuned custom build (fork) of the JW Media Player Version 5.3.
+* Only open source software needed for video encoding.
+* JW Media Player plug-ins supported.
+* 100% Standard XHTML code.
+
+= Important Links =
+
+* <a href="http://youtu.be/NShb8pR_dIc" title="Demonstration and Info">Video Tutorial - Setup and Configuration</a>
+* <a href="http://rodrigopolo.com/about/wp-stream-video" title="Demonstration and Info">Demonstration and info</a>
+* <a href="http://rodrigopolo.com/about/wp-stream-video/faq" title="Stream Video Player FAQ">FAQ</a>
+* <a href="http://rodrigopolo.com/about/wp-stream-video/how-to" title="Full guide on how to use the plug-in and encode video">How to use the plug-in and encode video</a>
+* <a href="http://rodrigopolo.com/about/wp-stream-video/ffmpeg-binary-installers-for-win-mac-and-linux" title="Video Encoder Installer">Video Encoder for Mac, Win, Linux</a>
+* <a href="http://rodrigopolo.com/about/wp-stream-video/known-issues-and-to-do-list" title="Known issues and To-do list">Known issues and To-do list</a>
+
 
 = Translators =
 * Afrikaans (af_AF) - [Schalk Burger](http://schalkburger.za.net)
@@ -64,31 +85,6 @@ Also notice that the version of JW Player (5.7.1896) used in this plug-in is lic
 Read more about JW Player License: http://www.longtailvideo.com/jw-player/license/
 
 
-
-
-
-= Important Links =
-
-* <a href="http://rodrigopolo.com/about/wp-stream-video" title="Demonstration and Info">Demonstration and info.</a>
-* <a href="http://rodrigopolo.com/about/wp-stream-video/faq" title="Stream Video Player FAQ">FAQ</a>
-* <a href="http://rodrigopolo.com/about/wp-stream-video/how-to" title="Full guide on how to use the plug-in and encode video">How to use the plug-in and encode video</a>
-* <a href="http://rodrigopolo.com/about/wp-stream-video/ffmpeg-binary-installers-for-win-mac-and-linux" title="Video Encoder Installer">Video Encoder for Mac, Win, Linux</a>
-* <a href="http://rodrigopolo.com/about/wp-stream-video/known-issues-and-to-do-list" title="Known issues and To-do list">Known issues and To-do list</a>
-
-= Features =
-* iPad, iPhone, iPod Touch, WPTouch, MobilePress, YouTube and feeds compatible.
-* Embed code generator for any video.
-* Captions (subtitles) capable.
-* XML Playlist.
-* Social sharing and video URL sharing.
-* Random access to any position on the video thanks to the pseudo streaming technique
-* Skins capable thanks to JW Media Player it can load SWF and XML-PNG custom skins.
-* Based on a very fine tuned custom build (fork) of the JW Media Player Version 5.3.
-* Only open source software needed for video encoding.
-* JW Media Player plug-ins supported.
-* 100% Standard XHTML code.
-
-
 == Credits ==
 
 Copyright 2009 by RodrigoPolo.com
@@ -114,6 +110,25 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 4. That's it! You're done. You can now generate the "stream video tag" by using the quick tag generator from the post editor.
 5. RECOMMENDED, copy the included "crossdomain.xml" to your site root (http://example.com/crossdomain.xml) in order to share video in other sites.
 
+If the player doesn't show [download the SWF files](http://www.sendspace.com/file/qzwn8m) and put them on the plugin directory.
+`http://example.com/wp-content/plugins/stream-video-player/
+      |-- player.swf
+      |-- yt.swf
+      +-- plugins
+      |   |-- captions.swf
+      |   |-- gapro.swf
+      |   |-- hd.swf
+      |   |-- ltas.swf
+      |   |-- qualitymonitor.swf
+      |   +-- sharing.swf
+      +-- skins
+	  |-- beelden.zip
+	  |-- dangdang.swf
+	  |-- imeo.swf
+	  |-- lulu.zip
+	  |-- modieus.zip
+	  +-- stormtrooper.zip`
+
 == Frequently Asked Questions ==
 
 = What's new in the latest version? =
@@ -135,9 +150,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 
 = Where I can get help and support? =
+* [On WordPress PLug-in Directory](http://wordpress.org/support/plugin/stream-video-player)
 * [READ How to use the plug-in and encode video](http://rodrigopolo.com/about/wp-stream-video/how-to)
 * [CHECK the Frequently Asked Questions (F.A.Q.)](http://rodrigopolo.com/about/wp-stream-video/faq)
-
+* [Watch how to use it](http://youtu.be/NShb8pR_dIc)
 
 == Changelog ==  
 
