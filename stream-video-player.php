@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Stream Video Player
-Version: 1.3.7
+Version: 1.3.8
 Plugin URI: http://rodrigopolo.com/about/wp-stream-video
 Description: By far the best and most complete video-audio player plug-in for WordPress. iPhone, iPad and HD video compatible. For support <a href="http://rodrigopolo.com/about/wp-stream-video/faq" target="_blank">READ the FAQ</a>.<strong></strong>
 Author: Rodrigo Polo
@@ -157,7 +157,7 @@ class rp_splayer {
 	
 	// generate a YouTube Embed Code
 	function genYouTubeEmbed($ytid){
-		return '<object width="560" height="340"><param name="movie" value="http://www.youtube.com/v/'.$ytid.'&hl=en_US&fs=1&"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/'.$ytid.'&hl=en_US&fs=1&" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="560" height="340"></embed></object>';
+		return '<div id="containingBlock"><div class="videoWrapper wideScreen"><iframe width="100%" height="100%" src="http://www.youtube.com/embed/'.$ytid.'" frameborder="0" allowfullscreen></iframe></div></div>';
 	}
 
 	
@@ -176,6 +176,8 @@ class rp_splayer {
 
 	// Return a string with all the text of the code
 	function getHTML($inc_js=true){
+		
+		
 		
 		// Mobile detector
 		if($this->fixmobilestyle){
@@ -209,7 +211,7 @@ class rp_splayer {
 				if(!empty($this->flv) && $this->isYouTubeURL(urldecode($this->flv))){
 					$ytid = $this->getYouTubeID(urldecode($this->flv));
 					$this->fixmobilestyle = false;
-					echo "\n<style type=\"text/css\">\n.post object,.post embed{width:100% !important;height:auto;position:relative;z-index:0;}\n</style>\n";
+					//echo "\n<style type=\"text/css\">\n.post object,.post embed{width:100% !important;height:auto;position:relative;z-index:0;}\n</style>\n";
 					return $this->genYouTubeEmbed($ytid);
 				}else{
 					$last_object = __('(Video: Available only on a desktop browser)', 'stream-video-player');
@@ -305,8 +307,22 @@ class rp_splayer {
 			$html .= "\n".'<script type="text/javascript">'."\n// <!--\n".'swfobject.registerObject("'.$this->id.'", "9.0.115");'."\n// -->\n</script>\n";
 		}
 		
+		
+		// responsive
+		$resp_a = '';
+		$resp_b = '';
+		
+		if($this->responsive!='fixed'){
+			if($this->responsive=='4:3'){
+				$resp_a = '<div id="containingBlock"><div class="videoWrapper fourBYthree">';
+			}else{
+				$resp_a = '<div id="containingBlock"><div class="videoWrapper wideScreen">';
+			}
+			$resp_b = '</div></div>';
+		}
+		
 		// make the final code
-		$embedcode = $html.$wrp_b;
+		$embedcode = $resp_a.$html.$wrp_b.$resp_b;
 		
 		// return the code
 		return $embedcode;
@@ -441,7 +457,7 @@ function StreamVideo_Render($matches){
 	}
 	
 	// Not necesary flashvars >>
-	$noflashvar = explode(',','share,embed,logo,onlyonsingle,img,width,height,useobjswf,wrapper,bandwidth,gapro,adscode');
+	$noflashvar = explode(',','share,embed,logo,onlyonsingle,img,width,height,useobjswf,wrapper,bandwidth,gapro,adscode,responsive');
 	
 	$cmd = $matches[1];
 	
@@ -482,6 +498,8 @@ function StreamVideo_Render($matches){
 	
 	// Read the default options
 	$options = get_option('StreamVideoSettings');
+	
+	
 
 	/**
 	 * Override default parameters 
@@ -517,6 +535,9 @@ function StreamVideo_Render($matches){
 				$arguments[$sar2up] = $baseurl.$carg;
 			}
 		}
+		
+
+		
 	}
 	
 	// Width
@@ -535,6 +556,11 @@ function StreamVideo_Render($matches){
 	// Google Analytics
 	if (array_key_exists('adscode', $arguments)){
 		$options[3][7]['v'] = $arguments['adscode'];
+	}
+	
+	// Responsive Ratio
+	if (array_key_exists('responsive', $arguments)){
+		$options[3][8]['v'] = $arguments['responsive'];
 	}
 	
 	
@@ -581,6 +607,8 @@ function StreamVideo_Render($matches){
 	
 	// HTML Wraper
 	$player->wrapper=$options[3][1]['v'];
+	$player->responsive = $options[3][8]['v'];
+	
 	
 	// SWF Player
 	$player->swf = $site_url.'/wp-content/plugins/stream-video-player/player.swf?ver='.$StreamVideoVersion;
@@ -609,6 +637,7 @@ function StreamVideo_Render($matches){
 	
 	// Image preview
 	$player->image = StreamVideo_trim($img_fqt);
+	
 	
 	/////
 	// FlashVars
@@ -759,8 +788,10 @@ function StreamVideo_Render($matches){
 				unset($player->flashvars[$rfv]);
 			}
 			
+			
 			// Get HTML
 			$embedhtml = $player->getHTML(false);
+			
 			
 			// Set the embed code
 			$player->setFv('sharing.code',urlencode($embedhtml));
@@ -920,7 +951,13 @@ function StreamVideoOptions(){
 }
 
 function StreamVideoFixStyle(){
-	echo "\n<style type=\"text/css\">\nobject {outline:none;}\n</style>\n";
+	
+	$options = get_option('StreamVideoSettings');
+	if($options[3][8]['v']!='fixed'){
+		echo '<link rel="stylesheet" href="'.get_option('siteurl').'/wp-content/plugins/stream-video-player/responsive.css?ver='.$StreamVideoVersion.'" type="text/css" media="all" />';
+	}else{
+		echo "\n<style type=\"text/css\">\nobject {outline:none;}\n</style>\n";
+	}
 }
 
 // Function to include the SWF Object
@@ -1062,6 +1099,12 @@ function StreamVideoLoadDefaults(){
 	$f[3][7]['dn'] = __('LongTail Ads Code', 'stream-video-player');
 	$f[3][7]['t'] = 'tx';
 	$f[3][7]['v'] = '';
+	
+	$f[3][8]['on'] = 'responsive';
+	$f[3][8]['dn'] = __('Default Responsive Aspect Ratio', 'stream-video-player');
+	$f[3][8]['t'] = 'dd';
+	$f[3][8]['v'] = 'no';
+	$f[3][8]['op'] = array('16:9', '4:3', 'fixed');
 	
 
 	return $f;
@@ -1227,7 +1270,7 @@ function StreamVideo_download_jwplayer(){
 }
 
 // To handle version on JS files
-$StreamVideoVersion = '1.3.7';
+$StreamVideoVersion = '1.3.8';
 
 // To handle ids
 $videoid = 0;
@@ -1270,6 +1313,7 @@ add_action('init', 'StreamVideo_addbuttons');
 // Include the SWFObject
 add_action((preg_match("/(\/\?feed=|\/feed)/i",$_SERVER['REQUEST_URI'])) ? 'template_redirect' : 'plugins_loaded', 'StreamVideoSWFObj');
 add_action('wp_head', 'StreamVideoFixStyle');
+
 
 /***********************
  * Widget Code  >>>
