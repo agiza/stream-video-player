@@ -130,13 +130,22 @@ $tbsur = get_bloginfo('url');
       <input type="text" size="18" name="hd" id="hd"/>
     </div>
     
-    <div class="col1"><label class="info" title="<?php _e('The absolute path to your MP4 video for iPad, iPhone or iPod Touch', 'stream-video-player'); ?>" for="mp4"><?php _e('iPhone-iPad Video (.mp4):', 'stream-video-player'); ?></label>
+    <div class="col1"><label class="info" title="<?php _e('The absolute path to your MP4 video for iOS and Android', 'stream-video-player'); ?>" for="mp4"><?php _e('iPhone-iPad Video (.mp4):', 'stream-video-player'); ?></label>
     </div>
     <div class="col3">
       <input type="button" class="button wb" name="bmp4" id="bmp4" value="Media Library"/>
     </div>
     <div class="col6">
       <input type="text" size="18" name="mp4" id="mp4"/>
+    </div>
+    
+    <div class="col1"><label class="info" title="<?php _e('The absolute path to your OGV video for FireFox', 'stream-video-player'); ?>" for="ogv"><?php _e('OGV Video (.ogv):', 'stream-video-player'); ?></label>
+    </div>
+    <div class="col3">
+      <input type="button" class="button wb" name="bogv" id="bogv" value="Media Library"/>
+    </div>
+    <div class="col6">
+      <input type="text" size="18" name="ogv" id="ogv"/>
     </div>
     
     <div class="col1">
@@ -148,6 +157,23 @@ $tbsur = get_bloginfo('url');
     <div class="col6">
       <input type="text" size="18" name="captions" id="captions"/>
     </div>
+    
+    <div class="col1">
+      <label title="<?php _e('Responsive video aspect ratio', 'stream-video-player'); ?>" class="info" for="bresponsive"><?php _e('Responsive:', 'stream-video-player'); ?></label>
+      
+	</div>
+    <div class="col4">
+      <select name="responsive" id="responsive">
+        <?php
+			// to load defaults
+			foreach ($def_options[3][8]['op'] as $value) {
+				$sel = ($def_options[3][8]['v']==$value)?' selected="selected"':'';
+				echo '<option value="'.$value.'"'.$sel.'>'.ucfirst($value).'</option>';
+			}
+		?>
+      </select>
+    </div>
+    <div class="clear">&nbsp;</div>
     
     <div class="col1">
       <label class="info" title="<?php _e('Width &times; height in pixels', 'stream-video-player'); ?>"><?php _e('Dimensions:', 'stream-video-player'); ?></label>

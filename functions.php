@@ -49,7 +49,7 @@ function getExt($file){
 
 // Check if it is a valid file for Flash Player (func)
 function isValidFile($file){
-	$extensions = explode(',','flv,f4v,f4p,f4a,f4b,xml,jpg,jpeg,mp4,m4a,m4v,png,mp3');
+	$extensions = explode(',','flv,f4v,f4p,f4a,f4b,xml,jpg,jpeg,mp4,m4a,m4v,png,mp3,ogv');
 	$ext = getExt($file);
 	if (in_array($ext, $extensions)){
 		return true;

@@ -130,6 +130,9 @@
 .filetree span.mp4 {
 	background: url(images/mp4.png) 0 0 no-repeat;
 }
+.filetree span.ogv {
+	background: url(images/ogv.png) 0 0 no-repeat;
+}
 
 
 *{

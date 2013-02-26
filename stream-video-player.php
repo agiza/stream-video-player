@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Stream Video Player
-Version: 1.3.8
+Version: 1.4.0
 Plugin URI: http://rodrigopolo.com/about/wp-stream-video
 Description: By far the best and most complete video-audio player plug-in for WordPress. iPhone, iPad and HD video compatible. For support <a href="http://rodrigopolo.com/about/wp-stream-video/faq" target="_blank">READ the FAQ</a>.<strong></strong>
 Author: Rodrigo Polo
@@ -73,7 +73,7 @@ class StreamVideo_nURI {
 class rp_splayer {
 	
 	// Public vars
-	var $swf, $flv, $mp4, $id, $name, $width, $height, $image, $opfix, $wrapper, $message, $playlistfile, $config;
+	var $swf, $flv, $mp4, $ogv, $id, $name, $width, $height, $image, $opfix, $wrapper, $message, $playlistfile, $config;
 	
 
 	
@@ -164,7 +164,7 @@ class rp_splayer {
 	// Check if it is a mobile device.
 	function is_mobile(){
 		$container = $_SERVER['HTTP_USER_AGENT'];
-		$useragents = array("iphone", "ipod", "aspen", "dream", "incognito", "webmate");
+		$useragents = array("iphone", "ipod", "aspen", "dream", "incognito", "webmate", "android");
 		foreach ($useragents as $useragent) {
 			if (eregi($useragent, $container)) {
 				return true;
@@ -218,23 +218,27 @@ class rp_splayer {
 				}
 			}
 		}else{
-			$image_obj = (empty($this->image))?'':' data="'.$this->image.'"';
-			$image_param = (empty($this->image))?'':'<param name="src" value="'.$this->image.'"/>';
-			$last_object='<!--[if !IE]><!--><object type="video/mp4"'.$image_obj.$width.$height.'>'."\n".
-				'<param name="controller" value="false"/>'."\n".
-				'<param name="target" value="myself"/>'."\n".
-				'<param name="href" value="'.$this->mp4.'"/>'."\n".
-				$image_param."\n".
-				'<!--<![endif]-->';
-				if(!$this->mobile){
-					$last_object .= $this->message;
-				}else{
-					$last_object .= __('(video)', 'stream-video-player');
-				}
-				$last_object .= '<!--[if !IE]><!-->'.
-				'</object>'.
-				'<!--<![endif]-->'.
-				"\n";
+			$image_obj = (empty($this->image))?'':' poster="'.$this->image.'"';
+			//$image_param = (empty($this->image))?'':'<param name="src" value="'.$this->image.'"/>';
+			$last_object='<div id="containingBlock"><!--[if !IE]><!-->
+			
+			<video'.$image_obj.' class="videoWrapper wideScreen" controls autobuffer>
+			<source src="'.$this->mp4.'" type="video/mp4">';
+			
+			if(!empty($this->ogv)){
+				$last_object .='<source src="'.$this->ogv.'" type="video/ogg">';
+			}
+			
+			$last_object .='<!--<![endif]-->';
+			if(!$this->mobile){
+				$last_object .= $this->message;
+			}else{
+				$last_object .= __('(video)', 'stream-video-player');
+			}
+			$last_object .='<!--[if !IE]><!-->
+			</video>
+			<!--<![endif]--></div>';			
+
 		}
 		
 		// Set the default params
@@ -332,7 +336,7 @@ class rp_splayer {
 	
 	// Restart the class
 	function restart(){
-		$this->swf=$this->flv=$this->mp4=$this->id=$this->name=$this->width=$this->height=$this->image=$this->opfix=$this->wrapper='';
+		$this->swf=$this->flv=$this->mp4=$this->ogv=$this->id=$this->name=$this->width=$this->height=$this->image=$this->opfix=$this->wrapper='';
 		$this->flashvars=$this->params = array();
 	}
 	
@@ -508,7 +512,7 @@ function StreamVideo_Render($matches){
 	// Check if there is a base url declared
 	if(!empty($arguments['base'])){
 		// arguments to add base url
-		$ar2up = explode(',','flv,img,mp4,hd,captions,gapro,playlistfile,config');
+		$ar2up = explode(',','flv,img,mp4,ogv,hd,captions,gapro,playlistfile,config');
 		
 		// base url
 		$baseurl = StreamVideo_trim($arguments['base']);
@@ -535,8 +539,6 @@ function StreamVideo_Render($matches){
 				$arguments[$sar2up] = $baseurl.$carg;
 			}
 		}
-		
-
 		
 	}
 	
@@ -621,6 +623,10 @@ function StreamVideo_Render($matches){
 	// iPhone MP4
 	if(!empty($arguments['mp4'])){
 		$player->mp4 = StreamVideo_trim($arguments['mp4']);
+	}
+	
+	if(!empty($arguments['ogv'])){
+		$player->ogv = StreamVideo_trim($arguments['ogv']);
 	}
 	
 	// HTML id of the player
@@ -1270,7 +1276,7 @@ function StreamVideo_download_jwplayer(){
 }
 
 // To handle version on JS files
-$StreamVideoVersion = '1.3.8';
+$StreamVideoVersion = '1.4.0';
 
 // To handle ids
 $videoid = 0;

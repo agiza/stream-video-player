@@ -4,7 +4,7 @@ Donate link: http://rodrigopolo.com/about/wp-stream-video/donate
 Tags: stream, video, flv, mp4, flash, swf, iphone, ios, player, wordpress, plugin, media
 Requires at least: 2.8.0
 Tested up to: 3.5.1
-Stable tag: 1.3.8
+Stable tag: 1.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,10 +12,11 @@ Stream Video Player for WordPress its one stop solution for high quality video p
 
 == Description ==
 
-Stream Video Player for WordPress is by far the best and most complete video-audio player plug-in for WordPress with XML Playlist support and subtitles, Easy to use with a tag generator in the editor, support for viewing on the iPad, iPhone and iPod touch, support for YouTube and Pseudo-Streaming so you can randomly seek any place of your videos without having to load the entire video before.
+Stream Video Player for WordPress is by far the best and most complete video-audio player plug-in for WordPress with XML Playlist support and subtitles, Easy to use with a tag generator in the editor, support for viewing on iOS and Android, support for YouTube and Pseudo-Streaming so you can randomly seek any place of your videos without having to load the entire video before.
 
 = Features =
-* iPad, iPhone, iPod Touch, WPTouch, MobilePress, YouTube and feeds compatible.
+* iOS, Android, WPTouch, MobilePress, YouTube and feeds compatible.
+* HTML5 video tag for mobile devices
 * 100% Responsive and Retina Ready!
 * Embed code generator for any video.
 * Captions (subtitles) capable.
@@ -31,8 +32,8 @@ Stream Video Player for WordPress is by far the best and most complete video-aud
 
 = Important Links =
 
+* <a href="http://rodrigopolo.com/about/wp-stream-video" title="Demonstration and Info">Live Demo</a>
 * <a href="http://youtu.be/NShb8pR_dIc" title="Demonstration and Info">Video Tutorial - Setup and Configuration</a>
-* <a href="http://rodrigopolo.com/about/wp-stream-video" title="Demonstration and Info">Demonstration and info</a>
 * <a href="http://rodrigopolo.com/about/wp-stream-video/faq" title="Stream Video Player FAQ">FAQ</a>
 * <a href="http://rodrigopolo.com/about/wp-stream-video/how-to" title="Full guide on how to use the plug-in and encode video">How to use the plug-in and encode video</a>
 * <a href="http://rodrigopolo.com/about/wp-stream-video/ffmpeg-binary-installers-for-win-mac-and-linux" title="Video Encoder Installer">Video Encoder for Mac, Win, Linux</a>
@@ -150,6 +151,12 @@ If the player doesn't show, [download the SWF files](http://www.sendspace.com/fi
 * [Watch how to use it](http://youtu.be/NShb8pR_dIc)
 
 == Changelog ==  
+
+= 1.4.0 =
+* Android mobile devices supported with MP4
+* HTML5 video tag implemented only for mobile devices
+* OGV option added for some mobile devices that doesn't support MP4
+* Added the responsive option on the tag generator
 
 = 1.3.8 =
 * 100% Responsive and Retina Ready!
@@ -270,6 +277,12 @@ As a typical major release there is always a chance to mess up the code, and on 
 
 == Upgrade Notice ==
 
+= 1.4.0 =
+* Android mobile devices supported with MP4
+* HTML5 video tag implemented only for mobile devices
+* OGV option added for some mobile devices that doesn't support MP4
+* Added the responsive option on the tag generator
+
 = 1.3.8 =
 * 100% Responsive and Retina Ready!
 * Youtube embed code for mobile devices updated to iframe tag.
@@ -295,4 +308,4 @@ TESTED and working on WordPress 3.2.1!
 6. Plug-in Settings.
 7. Stream Video Player Using Playlists.
 8. Player on iPhone 3 using WPtouch.
-9. Player on iPhone 5 Retina using a Responsive Website.
+9. Player on iPhone 5 Retina and Android using a Responsive Website.

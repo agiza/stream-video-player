@@ -26,7 +26,7 @@ var RodrigoPolo = window.RodrigoPolo || {};
 */
 (RodrigoPolo.Tag.Generator = function(){
 	// tags to find
-	var tags = 'provider,base,flv,img,hd,mp4,captions,embed,share,width,height,dock,controlbar,skin,adscode,logo,bandwidth,title,volume,autostart,streamer,opfix,gapro,playlistfile,config,playlist,repeat,playlistsize'.split(',');				  
+	var tags = 'provider,base,flv,img,hd,mp4,ogv,captions,embed,share,width,height,dock,controlbar,skin,adscode,logo,bandwidth,title,volume,autostart,streamer,opfix,gapro,playlistfile,config,playlist,repeat,playlistsize,responsive'.split(',');				  
 	// to validate and generate the tag
 	var vt = function(id){
 		var form =  jQuery.trim(jQuery('#'+id).val());
